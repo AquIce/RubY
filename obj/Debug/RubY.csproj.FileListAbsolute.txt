@@ -1,0 +1,13 @@
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\bin\Debug\RubY.exe.config
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\bin\Debug\RubY.exe
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\bin\Debug\RubY.pdb
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\bin\Debug\LibGrilleDeJeu.dll
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.AssemblyReference.cache
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.SuggestedBindingRedirects.cache
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.Form1.resources
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.Properties.Resources.resources
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.GenerateResource.cache
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.CoreCompileInputs.cache
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.CopyComplete
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.exe
+\\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.pdb
