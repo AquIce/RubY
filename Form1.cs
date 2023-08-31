@@ -21,7 +21,7 @@ namespace RubY
         private void button1_Click(object sender, EventArgs e)
         {
             Cube r = new Cube();
-            r.Rotate("U");
+            r.Rotate("D");
             tbxW.Lines = r.Face('U');
             tbxY.Lines = r.Face('D');
             tbxG.Lines = r.Face('F');

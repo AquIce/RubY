@@ -168,30 +168,98 @@ namespace GAN
             },
         };
 
-        private void U() {
-            MiniCube[][] layer = this.cube[0].Clone() as MiniCube[][];
-            for(int i = 0; i < layer.Length; i++)
+        private void TopClockwise(int layer)
+        {
+            this.cube[layer] = new MiniCube[][]
             {
-                for(int j = 0; j < layer[i].Length; j++)
+                new MiniCube[]
                 {
-                    this.cube[0][j][2 - i] = layer[i][j];
-                }
-            }
-            for(int i = 0; i < cube[0].Length; i++)
+                    this.cube[layer][2][0].Clone() as MiniCube,
+                    this.cube[layer][1][0].Clone() as MiniCube,
+                    this.cube[layer][0][0].Clone() as MiniCube,
+                },
+                new MiniCube[]
+                {
+                    this.cube[layer][2][1].Clone() as MiniCube,
+                    this.cube[layer][1][1].Clone() as MiniCube,
+                    this.cube[layer][0][1].Clone() as MiniCube,
+                },
+                new MiniCube[]
+                {
+                    this.cube[layer][2][2].Clone() as MiniCube,
+                    this.cube[layer][1][2].Clone() as MiniCube,
+                    this.cube[layer][0][2].Clone() as MiniCube,
+                },
+            };
+            for (int i = 0; i < this.cube[0].Length; i++)
             {
-                for(int j = 0; j <= cube[0][i].Length;j++)
+                for (int j = 0; j < this.cube[0][i].Length; j++)
                 {
-                    this.cube[0][i][j] = 
+                    this.cube[layer][i][j].Turn("U");
                 }
             }
         }
-        private void Uprime() { }
-        private void U2() { }
-        private void u() { }
-        private void D() { }
-        private void Dprime() { }
-        private void D2() { }
-        private void d() { }
+
+        private void TopCounterClockwise(int layer)
+        {
+            this.cube[layer] = new MiniCube[][]
+            {
+                new MiniCube[]
+                {
+                    this.cube[layer][0][2].Clone() as MiniCube,
+                    this.cube[layer][1][2].Clone() as MiniCube,
+                    this.cube[layer][2][2].Clone() as MiniCube,
+                },
+                new MiniCube[]
+                {
+                    this.cube[layer][0][1].Clone() as MiniCube,
+                    this.cube[layer][1][1].Clone() as MiniCube,
+                    this.cube[layer][2][1].Clone() as MiniCube,
+                },
+                new MiniCube[]
+                {
+                    this.cube[layer][0][0].Clone() as MiniCube,
+                    this.cube[layer][1][0].Clone() as MiniCube,
+                    this.cube[layer][2][0].Clone() as MiniCube,
+                },
+            };
+            for (int i = 0; i < this.cube[0].Length; i++)
+            {
+                for (int j = 0; j < this.cube[0][i].Length; j++)
+                {
+                    this.cube[layer][i][j].Turn("U'");
+                }
+            }
+        }
+
+        private void U() {
+            TopClockwise(0);
+        }
+        private void Uprime() {
+            TopCounterClockwise(0);
+        }
+        private void U2() {
+            this.U();
+            this.U();
+        }
+        private void u() {
+            this.U();
+            this.Eprime();
+        }
+        private void D() {
+            TopCounterClockwise(2);
+        }
+        private void Dprime() {
+            TopClockwise(2);
+        }
+        private void D2() {
+            this.D();
+            this.D();
+        }
+        private void d() {
+            this.D();
+            this.E();
+        }
         private void F() { }
         private void Fprime() { }
         private void F2() { }
@@ -209,8 +277,11 @@ namespace GAN
         private void L2() { }
         private void l() { }
         private void x() { }
+        private void xprime() { }
         private void y() { }
+        private void yprime() { }
         private void z() { }
+        private void zprime() { }
         private void M() { }
         private void Mprime() { }
         private void M2() { }
@@ -229,74 +300,118 @@ namespace GAN
                     U();
                     break;
                 case "U'":
+                    Uprime();
                     break;
                 case "U2":
+                    U2();
                     break;
                 case "u":
+                    u();
                     break;
                 case "D":
+                    D();
                     break;
                 case "D'":
+                    Dprime();
                     break;
                 case "D2":
+                    D2();
                     break;
                 case "d":
+                    d();
                     break;
                 case "F":
+                    F();
                     break;
                 case "F'":
+                    Fprime();
                     break;
                 case "F2":
+                    F2();
                     break;
                 case "f":
+                    f();
                     break;
                 case "B":
+                    B();
                     break;
                 case "B'":
+                    Bprime();
                     break;
                 case "B2":
+                    B2();
                     break;
                 case "b":
+                    b();
                     break;
                 case "R":
+                    R();
                     break;
                 case "R'":
+                    Rprime();
                     break;
                 case "R2":
+                    R2();
                     break;
                 case "r":
+                    r();
                     break;
                 case "L":
+                    L();
                     break;
                 case "L'":
+                    Lprime();
                     break;
                 case "L2":
+                    L2();
                     break;
                 case "l":
+                    l();
                     break;
                 case "x":
+                    x();
                     break;
                 case "y":
+                    y();
                     break;
                 case "z":
+                    z();
+                    break;
+                case "x'":
+                    xprime();
+                    break;
+                case "y'":
+                    yprime();
+                    break;
+                case "z'":
+                    zprime();
                     break;
                 case "M":
+                    M();
                     break;
                 case "M'":
+                    Mprime();
                     break;
                 case "M2":
+                    M2();
                     break;
                 case "E":
+                    E();
                     break;
                 case "E'":
+                    Eprime();
                     break;
                 case "E2":
+                    E2();
                     break;
                 case "S":
+                    S();
                     break;
                 case "S'":
+                    Sprime();
                     break;
                 case "S2":
+                    S2();
                     break;
             }
         }

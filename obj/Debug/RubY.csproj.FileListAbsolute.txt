@@ -11,3 +11,14 @@
 \\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.CopyComplete
 \\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.exe
 \\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.pdb
+C:\Users\Icy\Desktop\Desk\Code\ruby\obj\Debug\RubY.csproj.AssemblyReference.cache
+C:\Users\Icy\Desktop\Desk\Code\ruby\obj\Debug\RubY.Form1.resources
+C:\Users\Icy\Desktop\Desk\Code\ruby\obj\Debug\RubY.Properties.Resources.resources
+C:\Users\Icy\Desktop\Desk\Code\ruby\obj\Debug\RubY.csproj.GenerateResource.cache
+C:\Users\Icy\Desktop\Desk\Code\ruby\obj\Debug\RubY.csproj.CoreCompileInputs.cache
+C:\Users\Icy\Desktop\Desk\Code\ruby\obj\Debug\RubY.exe
+C:\Users\Icy\Desktop\Desk\Code\ruby\obj\Debug\RubY.pdb
+C:\Users\Icy\Desktop\Desk\Code\ruby\bin\Debug\RubY.exe.config
+C:\Users\Icy\Desktop\Desk\Code\ruby\bin\Debug\RubY.exe
+C:\Users\Icy\Desktop\Desk\Code\ruby\bin\Debug\RubY.pdb
+C:\Users\Icy\Desktop\Desk\Code\ruby\obj\Debug\RubY.csproj.CopyComplete
