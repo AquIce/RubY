@@ -395,40 +395,40 @@ namespace GAN
             this.cube = new MiniCube[][][] {
                 new MiniCube[][]
                 {
-                    this.cube[0][0],
-                    this.cube[0][1],
                     new MiniCube[]{
                         this.cube[2][0][0],
                         this.cube[1][0][0],
                         this.cube[0][0][0],
                     },
+                    this.cube[0][1],
+                    this.cube[0][2],
                 },
                 new MiniCube[][]
                 {
-                    this.cube[1][0],
-                    this.cube[1][1],
                     new MiniCube[]{
                         this.cube[2][0][1],
                         this.cube[1][0][1],
                         this.cube[0][0][1],
                     },
+                    this.cube[1][1],
+                    this.cube[1][2],
                 },
                 new MiniCube[][]
                 {
-                    this.cube[2][0],
-                    this.cube[2][1],
                     new MiniCube[]{
                         this.cube[2][0][2],
                         this.cube[1][0][2],
                         this.cube[0][0][2],
                     },
+                    this.cube[2][1],
+                    this.cube[2][2],
                 },
             };
             for (int i = 0; i < this.cube.Length; i++)
             {
                 for (int j = 0; j < this.cube[i][0].Length; j++)
                 {
-                    this.cube[i][0][j].Turn("B'");
+                    this.cube[i][0][j].Turn("F");
                 }
             }
         }

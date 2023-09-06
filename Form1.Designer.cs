@@ -698,7 +698,7 @@
             this.btnScramble.TabIndex = 57;
             this.btnScramble.Text = "Scramble";
             this.btnScramble.UseVisualStyleBackColor = true;
-            this.btnScramble.Click += new System.EventHandler(this.btnRotate_Click);
+            this.btnScramble.Click += new System.EventHandler(this.btnScramble_Click);
             // 
             // btnReset
             // 
@@ -708,7 +708,7 @@
             this.btnReset.TabIndex = 58;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnRotate_Click);
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // Form1
             // 

@@ -19,6 +19,12 @@ namespace RubY
 
         private Grille grid;
 
+        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        private int timerCounter = 0;
+        private bool timerExitFlag = false;
+        private int last_s = -1;
+        private int move_s = -1;
+
         private Dictionary<string, List<int>> plane = new Dictionary<string, List<int>> {
             {
                 "UP",
@@ -164,9 +170,58 @@ namespace RubY
             Apply();
         }
 
-        private void btnScramble_Click(object sender, EventArgs e)
+        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
+            timer.Stop();
 
+            string[][] moves = new string[][] {
+                new string[] {"R", "R'", "R2"},
+                new string[] {"L", "L'", "L2"},
+                new string[] {"U", "U'", "U2"},
+                new string[] {"D", "D'", "D2"},
+                new string[] {"F", "F'", "F2"},
+                new string[] {"B", "B'", "B2"},
+            };
+
+            while (move_s == last_s)
+            {
+                Random rnd = new Random();
+                move_s = rnd.Next(6);
+            }
+            last_s = move_s;
+            Random rnd_ = new Random();
+            this.cube.Rotate(moves[move_s][rnd_.Next(3)]);
+
+            // Displays a message box asking whether to continue running the timer.
+            if (MessageBox.Show("Continue running?", "Count is: " + timerCounter,
+               MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // Restarts the timer and increments the counter.
+                timerCounter += 1;
+                myTimer.Enabled = true;
+            }
+            else
+            {
+                // Stops the timer.
+                exitFlag = true;
+            }
+        }
+
+        private void btnScramble_Click(object sender, EventArgs e)
+        {            
+            for (int i = 0; i < 20; i++)
+            {
+                while (move == last)
+                {
+                    Random rnd = new Random();
+                    move = rnd.Next(6);
+                }
+                last = move;
+                Random rnd_ = new Random();
+                cube.Rotate(moves[move][rnd_.Next(3)]);
+                System.Threading.Thread.Sleep(500);
+            }
+            Apply();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
