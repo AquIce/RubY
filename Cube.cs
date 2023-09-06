@@ -233,10 +233,10 @@ namespace GAN
         }
 
         private void U() {
-            TopClockwise(0);
+            this.TopClockwise(0);
         }
         private void Uprime() {
-            TopCounterClockwise(0);
+            this.TopCounterClockwise(0);
         }
         private void U2() {
             this.U();
@@ -247,10 +247,10 @@ namespace GAN
             this.Eprime();
         }
         private void D() {
-            TopCounterClockwise(2);
+            this.TopCounterClockwise(2);
         }
         private void Dprime() {
-            TopClockwise(2);
+            this.TopClockwise(2);
         }
         private void D2() {
             this.D();
@@ -260,37 +260,716 @@ namespace GAN
             this.D();
             this.E();
         }
-        private void F() { }
-        private void Fprime() { }
-        private void F2() { }
-        private void f() { }
-        private void B() { }
-        private void Bprime() { }
-        private void B2() { }
-        private void b() { }
-        private void R() { }
-        private void Rprime() { }
-        private void R2() { }
-        private void r() { }
-        private void L() { }
-        private void Lprime() { }
-        private void L2() { }
-        private void l() { }
-        private void x() { }
-        private void xprime() { }
-        private void y() { }
-        private void yprime() { }
-        private void z() { }
-        private void zprime() { }
-        private void M() { }
-        private void Mprime() { }
-        private void M2() { }
-        private void E() { }
-        private void Eprime() { }
-        private void E2() { }
-        private void S() { }
-        private void Sprime() { }
-        private void S2() { }
+        private void F() {
+            this.cube = new MiniCube[][][] {
+                new MiniCube[][]
+                {
+                    this.cube[0][0],
+                    this.cube[0][1],
+                    new MiniCube[]{
+                        this.cube[2][2][0],
+                        this.cube[1][2][0],
+                        this.cube[0][2][0],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    this.cube[1][0],
+                    this.cube[1][1],
+                    new MiniCube[]{
+                        this.cube[2][2][1],
+                        this.cube[1][2][1],
+                        this.cube[0][2][1],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    this.cube[2][0],
+                    this.cube[2][1],
+                    new MiniCube[]{
+                        this.cube[2][2][2],
+                        this.cube[1][2][2],
+                        this.cube[0][2][2],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i][2].Length; j++)
+                {
+                    this.cube[i][2][j].Turn("F");
+                }
+            }
+        }
+        private void Fprime() {
+            this.cube = new MiniCube[][][] {
+                new MiniCube[][]
+                {
+                    this.cube[0][0],
+                    this.cube[0][1],
+                    new MiniCube[]{
+                        this.cube[0][2][2],
+                        this.cube[1][2][2],
+                        this.cube[2][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    this.cube[1][0],
+                    this.cube[1][1],
+                    new MiniCube[]{
+                        this.cube[0][2][1],
+                        this.cube[1][2][1],
+                        this.cube[2][2][1],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    this.cube[2][0],
+                    this.cube[2][1],
+                    new MiniCube[]{
+                        this.cube[0][2][0],
+                        this.cube[1][2][0],
+                        this.cube[2][2][0],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i][2].Length; j++)
+                {
+                    this.cube[i][2][j].Turn("F'");
+                }
+            }
+        }
+        private void F2() {
+            this.F();
+            this.F();
+        }
+        private void f() {
+            this.F();
+            this.S();
+        }
+        private void B() {
+            this.cube = new MiniCube[][][] {
+                new MiniCube[][]
+                {
+                    new MiniCube[]{
+                        this.cube[0][0][2],
+                        this.cube[1][0][2],
+                        this.cube[2][0][2],
+                    },
+                    this.cube[0][1],
+                    this.cube[0][2],
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[]{
+                        this.cube[0][0][1],
+                        this.cube[1][0][1],
+                        this.cube[2][0][1],
+                    },
+                    this.cube[1][1],
+                    this.cube[1][2],
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[]{
+                        this.cube[0][0][0],
+                        this.cube[1][0][0],
+                        this.cube[2][0][0],
+                    },
+                    this.cube[2][1],
+                    this.cube[2][2],
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i][0].Length; j++)
+                {
+                    this.cube[i][0][j].Turn("B");
+                }
+            }
+        }
+        private void Bprime() {
+            this.cube = new MiniCube[][][] {
+                new MiniCube[][]
+                {
+                    this.cube[0][0],
+                    this.cube[0][1],
+                    new MiniCube[]{
+                        this.cube[2][0][0],
+                        this.cube[1][0][0],
+                        this.cube[0][0][0],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    this.cube[1][0],
+                    this.cube[1][1],
+                    new MiniCube[]{
+                        this.cube[2][0][1],
+                        this.cube[1][0][1],
+                        this.cube[0][0][1],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    this.cube[2][0],
+                    this.cube[2][1],
+                    new MiniCube[]{
+                        this.cube[2][0][2],
+                        this.cube[1][0][2],
+                        this.cube[0][0][2],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i][0].Length; j++)
+                {
+                    this.cube[i][0][j].Turn("B'");
+                }
+            }
+        }
+        private void B2() {
+            this.B();
+            this.B();
+        }
+        private void b() {
+            this.B();
+            this.Sprime();
+        }
+        private void R() {
+            this.cube = new MiniCube[][][]
+            {
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[0][0][0],
+                        this.cube[0][0][1],
+                        this.cube[0][2][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][1][0],
+                        this.cube[0][1][1],
+                        this.cube[1][2][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][2][0],
+                        this.cube[0][2][1],
+                        this.cube[2][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[1][0][0],
+                        this.cube[1][0][1],
+                        this.cube[0][1][2],
+                    },
+                    this.cube[1][1],
+                    new MiniCube[] {
+                        this.cube[1][2][0],
+                        this.cube[1][2][1],
+                        this.cube[2][1][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[2][0][0],
+                        this.cube[2][0][1],
+                        this.cube[0][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][1][0],
+                        this.cube[2][1][1],
+                        this.cube[1][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][2][0],
+                        this.cube[2][2][1],
+                        this.cube[2][0][2],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i].Length; j++)
+                {
+                    this.cube[i][j][2].Turn("R");
+                }
+            }
+        }
+        private void Rprime() {
+            this.cube = new MiniCube[][][]
+            {
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[0][0][0],
+                        this.cube[0][0][1],
+                        this.cube[2][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][1][0],
+                        this.cube[0][1][1],
+                        this.cube[1][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][2][0],
+                        this.cube[0][2][1],
+                        this.cube[0][0][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[1][0][0],
+                        this.cube[1][0][1],
+                        this.cube[2][1][2],
+                    },
+                    this.cube[1][1],
+                    new MiniCube[] {
+                        this.cube[1][2][0],
+                        this.cube[1][2][1],
+                        this.cube[0][1][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[2][0][0],
+                        this.cube[2][0][1],
+                        this.cube[2][2][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][1][0],
+                        this.cube[2][1][1],
+                        this.cube[1][2][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][2][0],
+                        this.cube[2][2][1],
+                        this.cube[0][2][2],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i].Length; j++)
+                {
+                    this.cube[i][j][2].Turn("R'");
+                }
+            }
+        }
+        private void R2() {
+            this.R();
+            this.R();
+        }
+        private void r() {
+            this.R();
+            this.Mprime();
+        }
+        private void L() {
+            this.cube = new MiniCube[][][]
+            {
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[2][0][0],
+                        this.cube[0][0][1],
+                        this.cube[0][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[1][0][0],
+                        this.cube[0][1][1],
+                        this.cube[0][1][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][0][0],
+                        this.cube[0][2][1],
+                        this.cube[0][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[2][1][0],
+                        this.cube[1][0][1],
+                        this.cube[1][0][2],
+                    },
+                    this.cube[1][1],
+                    new MiniCube[] {
+                        this.cube[0][1][0],
+                        this.cube[1][2][1],
+                        this.cube[1][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[2][2][0],
+                        this.cube[2][0][1],
+                        this.cube[2][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[1][2][0],
+                        this.cube[2][1][1],
+                        this.cube[2][1][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][2][0],
+                        this.cube[2][2][1],
+                        this.cube[2][2][2],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i].Length; j++)
+                {
+                    this.cube[i][j][0].Turn("L");
+                }
+            }
+        }
+        private void Lprime() {
+            this.cube = new MiniCube[][][]
+            {
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[0][2][0],
+                        this.cube[0][0][1],
+                        this.cube[0][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[1][2][0],
+                        this.cube[0][1][1],
+                        this.cube[0][1][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][2][0],
+                        this.cube[0][2][1],
+                        this.cube[0][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[0][1][0],
+                        this.cube[1][0][1],
+                        this.cube[1][0][2],
+                    },
+                    this.cube[1][1],
+                    new MiniCube[] {
+                        this.cube[2][1][0],
+                        this.cube[1][2][1],
+                        this.cube[1][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[0][0][0],
+                        this.cube[2][0][1],
+                        this.cube[2][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[1][0][0],
+                        this.cube[2][1][1],
+                        this.cube[2][1][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][0][0],
+                        this.cube[2][2][1],
+                        this.cube[2][2][2],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i].Length; j++)
+                {
+                    this.cube[i][j][0].Turn("L'");
+                }
+            }
+        }
+        private void L2() {
+            this.L();
+            this.L();
+        }
+        private void l() {
+            this.L();
+            this.M();
+        }
+        private void x() {
+            this.R();
+            this.Mprime();
+            this.Lprime();
+        }
+        private void xprime() {
+            this.Rprime();
+            this.M();
+            this.L();
+        }
+        private void x2() {
+            this.x();
+            this.x();
+        }
+        private void y() {
+            this.U();
+            this.Eprime();
+            this.Dprime();
+        }
+        private void yprime() {
+            this.Uprime();
+            this.E();
+            this.D();
+        }
+        private void y2() {
+            this.y();
+            this.y();
+        }
+        private void z() {
+            this.F();
+            this.S();
+            this.Bprime();
+        }
+        private void zprime() {
+            this.Fprime();
+            this.Sprime();
+            this.B();
+        }
+        private void z2() {
+            this.z();
+            this.z();
+        }
+        private void M() {
+            this.cube = new MiniCube[][][]
+            {
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[0][0][0],
+                        this.cube[2][0][1],
+                        this.cube[0][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][1][0],
+                        this.cube[1][0][1],
+                        this.cube[0][1][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][2][0],
+                        this.cube[0][0][1],
+                        this.cube[0][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[1][0][0],
+                        this.cube[2][1][1],
+                        this.cube[1][0][2],
+                    },
+                    this.cube[1][1],
+                    new MiniCube[] {
+                        this.cube[1][2][0],
+                        this.cube[0][1][1],
+                        this.cube[1][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[2][0][0],
+                        this.cube[2][2][1],
+                        this.cube[2][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][1][0],
+                        this.cube[1][2][1],
+                        this.cube[2][1][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][2][0],
+                        this.cube[0][2][1],
+                        this.cube[2][2][2],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i].Length; j++)
+                {
+                    this.cube[i][j][1].Turn("L");
+                }
+            }
+        }
+        private void Mprime() {
+            this.cube = new MiniCube[][][]
+            {
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[0][0][0],
+                        this.cube[0][2][1],
+                        this.cube[0][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][1][0],
+                        this.cube[1][2][1],
+                        this.cube[0][1][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[0][2][0],
+                        this.cube[2][2][1],
+                        this.cube[0][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[1][0][0],
+                        this.cube[0][1][1],
+                        this.cube[1][0][2],
+                    },
+                    this.cube[1][1],
+                    new MiniCube[] {
+                        this.cube[1][2][0],
+                        this.cube[2][1][1],
+                        this.cube[1][2][2],
+                    },
+                },
+                new MiniCube[][]
+                {
+                    new MiniCube[] {
+                        this.cube[2][0][0],
+                        this.cube[0][0][1],
+                        this.cube[2][0][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][1][0],
+                        this.cube[1][0][1],
+                        this.cube[2][1][2],
+                    },
+                    new MiniCube[] {
+                        this.cube[2][2][0],
+                        this.cube[2][0][1],
+                        this.cube[2][2][2],
+                    },
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i].Length; j++)
+                {
+                    this.cube[i][j][1].Turn("L'");
+                }
+            }
+        }
+        private void M2() {
+            this.M();
+            this.M();
+        }
+        private void E() {
+            TopCounterClockwise(1);
+        }
+        private void Eprime() {
+            TopClockwise(1);
+        }
+        private void E2() {
+            this.E();
+            this.E();
+        }
+        private void S() {
+            this.cube = new MiniCube[][][] {
+                new MiniCube[][]
+                {
+                    this.cube[0][0],
+                    new MiniCube[]{
+                        this.cube[2][1][0],
+                        this.cube[1][1][0],
+                        this.cube[0][1][0],
+                    },
+                    this.cube[0][2],
+                },
+                new MiniCube[][]
+                {
+                    this.cube[1][0],
+                    new MiniCube[]{
+                        this.cube[2][1][1],
+                        this.cube[1][1][1],
+                        this.cube[0][1][1],
+                    },
+                    this.cube[1][2],
+                },
+                new MiniCube[][]
+                {
+                    this.cube[2][0],
+                    new MiniCube[]{
+                        this.cube[2][1][2],
+                        this.cube[1][1][2],
+                        this.cube[0][1][2],
+                    },
+                    this.cube[2][2],
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i][2].Length; j++)
+                {
+                    this.cube[i][1][j].Turn("F");
+                }
+            }
+        }
+        private void Sprime() {
+            this.cube = new MiniCube[][][] {
+                new MiniCube[][]
+                {
+                    this.cube[0][0],
+                    new MiniCube[]{
+                        this.cube[0][1][2],
+                        this.cube[1][1][2],
+                        this.cube[2][1][2],
+                    },
+                    this.cube[0][2],
+                },
+                new MiniCube[][]
+                {
+                    this.cube[1][0],
+                    new MiniCube[]{
+                        this.cube[0][1][1],
+                        this.cube[1][1][1],
+                        this.cube[2][1][1],
+                    },
+                    this.cube[1][2],
+                },
+                new MiniCube[][]
+                {
+                    this.cube[2][0],
+                    new MiniCube[]{
+                        this.cube[0][1][0],
+                        this.cube[1][1][0],
+                        this.cube[2][1][0],
+                    },
+                    this.cube[2][2],
+                },
+            };
+            for (int i = 0; i < this.cube.Length; i++)
+            {
+                for (int j = 0; j < this.cube[i][1].Length; j++)
+                {
+                    this.cube[i][1][j].Turn("F'");
+                }
+            }
+        }
+        private void S2() {
+            this.S();
+            this.S();
+        }
 
         public void Rotate(string way)
         {
@@ -386,6 +1065,15 @@ namespace GAN
                 case "z'":
                     zprime();
                     break;
+                case "x2":
+                    x2();
+                    break;
+                case "y2":
+                    y2();
+                    break;
+                case "z2":
+                    z2();
+                    break;
                 case "M":
                     M();
                     break;
@@ -416,30 +1104,35 @@ namespace GAN
             }
         }
 
-        public string[] Face(char face)
+        public int[][] Face(char face)
         {
-            string[] str = new string[3];
+            int[][] f = new int[3][] {
+                new int[3] {0, 0, 0},
+                new int[3] {0, 0, 0},
+                new int[3] {0, 0, 0},
+            };
+
             MiniCube[][] mc;
             switch (face)
             {
                 case 'U':
                     for(int i = 0; i < this.cube[0].Length; i++)
                     {
-                        foreach(var mcube in this.cube[0][i])
+                        for (int j = 0; j < this.cube[0][i].Length; j++)
                         {
-                            str[i] += Color.Str(mcube.U);
+                            f[i][j] = this.cube[0][i][j].U;
                         }
                     }
-                    return str;
+                    return f;
                 case 'D':
                     for (int i = 0; i < this.cube[2].Length; i++)
                     {
-                        foreach (var mcube in this.cube[2][i])
+                        for (int j = 0; j < this.cube[2][i].Length; j++)
                         {
-                            str[i] += Color.Str(mcube.D);
+                            f[i][j] = this.cube[2][i][j].D;
                         }
                     }
-                    return str;
+                    return f;
                 case 'F':
                     mc = new MiniCube[][] {
                         this.cube[0][2],
@@ -448,12 +1141,12 @@ namespace GAN
                     };
                     for (int i = 0; i < mc.Length; i++)
                     {
-                        foreach (var mcube in mc[i])
+                        for(int j = 0; j < mc[i].Length; j++)
                         {
-                            str[i] += Color.Str(mcube.F);
+                            f[i][j] = mc[i][j].F;
                         }
                     }
-                    return str;
+                    return f;
                 case 'B':
                     mc = new MiniCube[][] {
                         this.cube[0][0],
@@ -462,12 +1155,12 @@ namespace GAN
                     };
                     for (int i = 0; i < mc.Length; i++)
                     {
-                        foreach (var mcube in mc[i])
+                        for (int j = 0; j < mc[i].Length; j++)
                         {
-                            str[i] += Color.Str(mcube.B);
+                            f[i][j] = mc[i][j].B;
                         }
                     }
-                    return str;
+                    return f;
                 case 'L':
                     mc = new MiniCube[][] {
                         new MiniCube[] {
@@ -488,12 +1181,12 @@ namespace GAN
                     };
                     for (int i = 0; i < mc.Length; i++)
                     {
-                        foreach (var mcube in mc[i])
+                        for (int j = 0; j < mc[i].Length; j++)
                         {
-                            str[i] += Color.Str(mcube.L);
+                            f[i][j] = mc[i][j].L;
                         }
                     }
-                    return str;
+                    return f;
                 case 'R':
                     mc = new MiniCube[][] {
                         new MiniCube[] {
@@ -514,14 +1207,14 @@ namespace GAN
                     };
                     for (int i = 0; i < mc.Length; i++)
                     {
-                        foreach (var mcube in mc[i])
+                        for (int j = 0; j < mc[i].Length; j++)
                         {
-                            str[i] += Color.Str(mcube.R);
+                            f[i][j] = mc[i][j].R;
                         }
                     }
-                    return str;
+                    return f;
                 default:
-                    return str;
+                    return f;
             }
         }
     }
