@@ -19,12 +19,6 @@ namespace RubY
 
         private Grille grid;
 
-        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        private int timerCounter = 0;
-        private bool timerExitFlag = false;
-        private int last_s = -1;
-        private int move_s = -1;
-
         private Dictionary<string, List<int>> plane = new Dictionary<string, List<int>> {
             {
                 "UP",
@@ -100,14 +94,95 @@ namespace RubY
             grid.getCase(plane[face][1] + x, plane[face][0] + y).BackColor = new_val;
         }
 
+        private int[][] Rotate90(int[][] arr)
+        {
+            int[][] rt = new int[][] {
+                new int[] { 0, 0, 0 },
+                new int[] { 0, 0, 0 },
+                new int[] { 0, 0, 0 },
+            };
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    rt[j][2 - i] = arr[i][j];
+                }
+            }
+            return rt;
+        }
+
+        private int[][] Rotate270(int[][] arr)
+        {
+            return Rotate90(Rotate90(Rotate90(arr)));
+        }
+
+        private int[][] VMirror(int[][] arr)
+        {
+            int[][] rt = new int[][] {
+                new int[] { 0, 0, 0 },
+                new int[] { 0, 0, 0 },
+                new int[] { 0, 0, 0 },
+            };
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    rt[2 - i][j] = arr[i][j];
+                }
+            }
+            return rt;
+        }
+
+        private int[][] HMirror(int[][] arr)
+        {
+            int[][] rt = new int[][] {
+                new int[] { 0, 0, 0 },
+                new int[] { 0, 0, 0 },
+                new int[] { 0, 0, 0 },
+            };
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    rt[i][2 - j] = arr[i][j];
+                }
+            }
+            return rt;
+        }
+
+        private int[][] UTransform(int[][] arr)
+        {
+            return HMirror(Rotate90(arr));
+        }
+        private int[][] FTransform(int[][] arr)
+        {
+            return HMirror(Rotate90(arr));
+        }
+        private int[][] LTransform(int[][] arr)
+        {
+            return VMirror(Rotate270(arr));
+        }
+        private int[][] BTransform(int[][] arr)
+        {
+            return Rotate270(arr);
+        }
+        private int[][] RTransform(int[][] arr)
+        {
+            return Rotate270(arr);
+        }
+        private int[][] DTransform(int[][] arr)
+        {
+            return Rotate90(arr);
+        }
+
         private void Apply()
         {
-            int[][] up = cube.Face('U');
-            int[][] front = cube.Face('F');
-            int[][] left = cube.Face('L');
-            int[][] back = cube.Face('B');
-            int[][] right = cube.Face('R');
-            int[][] down = cube.Face('D');
+            int[][] up = UTransform(cube.Face('U'));
+            int[][] front = FTransform(cube.Face('F'));
+            int[][] left = LTransform(cube.Face('L'));
+            int[][] back = BTransform(cube.Face('B'));
+            int[][] right = RTransform(cube.Face('R'));
+            int[][] down = DTransform(cube.Face('D'));
 
             for (int i = 0; i < 3; i++)
             {
@@ -170,9 +245,9 @@ namespace RubY
             Apply();
         }
 
-        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
+        private void btnScramble_Click(object sender, EventArgs e)
         {
-            timer.Stop();
+            Fill();
 
             string[][] moves = new string[][] {
                 new string[] {"R", "R'", "R2"},
@@ -183,32 +258,9 @@ namespace RubY
                 new string[] {"B", "B'", "B2"},
             };
 
-            while (move_s == last_s)
-            {
-                Random rnd = new Random();
-                move_s = rnd.Next(6);
-            }
-            last_s = move_s;
-            Random rnd_ = new Random();
-            this.cube.Rotate(moves[move_s][rnd_.Next(3)]);
+            int last = -1;
+            int move = -1;
 
-            // Displays a message box asking whether to continue running the timer.
-            if (MessageBox.Show("Continue running?", "Count is: " + timerCounter,
-               MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                // Restarts the timer and increments the counter.
-                timerCounter += 1;
-                myTimer.Enabled = true;
-            }
-            else
-            {
-                // Stops the timer.
-                exitFlag = true;
-            }
-        }
-
-        private void btnScramble_Click(object sender, EventArgs e)
-        {            
             for (int i = 0; i < 20; i++)
             {
                 while (move == last)
@@ -219,7 +271,6 @@ namespace RubY
                 last = move;
                 Random rnd_ = new Random();
                 cube.Rotate(moves[move][rnd_.Next(3)]);
-                System.Threading.Thread.Sleep(500);
             }
             Apply();
         }

@@ -47,3 +47,16 @@ M:\CIFOM-ET\Informatique\Pratique\C#\Cubing\obj\Debug\RubY.pdb
 \\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\tmp\obj\Debug\RubY.csproj.CopyComplete
 \\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\tmp\obj\Debug\RubY.exe
 \\s2.rpn.ch\Home\CPNE\Eleves-TI\PerrinjaquetT1\CPNE\3INF-3TPKa\PRA-C#\tmp\obj\Debug\RubY.pdb
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.AssemblyReference.cache
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.SuggestedBindingRedirects.cache
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.Form1.resources
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.Properties.Resources.resources
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.GenerateResource.cache
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.CoreCompileInputs.cache
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.exe
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.pdb
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\bin\Debug\RubY.exe.config
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\bin\Debug\RubY.exe
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\bin\Debug\RubY.pdb
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\bin\Debug\LibGrilleDeJeu.dll
+M:\CPNE\3INF-3TPKa\PRA-C#\RubY\obj\Debug\RubY.csproj.CopyComplete
