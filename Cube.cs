@@ -575,15 +575,7 @@ namespace GAN
                 (this.cube[2][1][2].D == cross_color) && (this.cube[2][1][2].R == this.cube[1][1][2].R);
         }
 
-        private int[] SideColors()
-        {
-            int[] sideColors = new int[4] { 0, 0, 0, 0 };
-            int tmp = 0;
-            for(int i = 0; i < 6; i++) {
-                if(i != cross_color && i != 5 - cross_color) sideColors[tmp++] = i;
-            }
-            return sideColors;
-        }
+        private int[] SideColors() => new int[4] { this.cube[1][0][1].B, this.cube[1][2][1].F, this.cube[1][1][0].L, this.cube[1][1][2].R };
 
         int[] findCenter(int color)
         {
@@ -676,7 +668,7 @@ namespace GAN
             foreach(int color in SideColors())
             {
                 int[] edge_pos = findEdge(cross_color, color);
-                if(IsCrossEdgeRightOriented(edge_pos)) { MessageBox.Show("Oriented"); continue; }
+                if(IsCrossEdgeRightOriented(edge_pos)) continue; 
                 while (edge_pos[1] != 2)
                 {
                     Rotate("y");
@@ -685,24 +677,44 @@ namespace GAN
                 if (IsCrossEdgeRightPlaced(edge_pos))
                 {
                     FlipCrossEdge();
-                    MessageBox.Show($"Placed {edge_pos[0]}, {edge_pos[1]}, {edge_pos[2]}");
                     continue;
                 }
                 while (edge_pos[0] != 0)
                 {
-                    if (edge_pos[1] == 0)
+                    if (edge_pos[2] == 0)
                     {
                         Rotate("F");
                         Rotate("U");
                         Rotate("F'");
-                    } else if (edge_pos[1] == 2)
+                    }
+                    else if (edge_pos[2] == 2)
                     {
                         Rotate("F'");
                         Rotate("U'");
                         Rotate("F");
                     }
+                    else
+                    {
+                        Rotate("F2");
+                    }
+                    edge_pos = findEdge(cross_color, color);
                 }
-                MessageBox.Show($"{edge_pos[0]}, {edge_pos[1]}, {edge_pos[2]}");
+                int edge_color = this.cube[edge_pos[0]][edge_pos[1]][edge_pos[2]].Colors().Sum() - cross_color;
+                while(!IsAdjacent(edge_pos, findCenter(edge_color)))
+                {
+                    Rotate("U");
+                    edge_pos = findEdge(cross_color, color);
+                }
+                while(findCenter(edge_color)[1] != 2)
+                {
+                    Rotate("y");
+                }
+                Rotate("F2");
+                edge_pos = findEdge(cross_color, color);
+                if (!IsCrossEdgeRightOriented(edge_pos))
+                {
+                    FlipCrossEdge();
+                }
             }
         }
 
