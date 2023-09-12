@@ -88,6 +88,9 @@
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.btnScramble = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.lblScramble = new System.Windows.Forms.Label();
+            this.btnSolve = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -474,7 +477,7 @@
             // btnMprime
             // 
             this.btnMprime.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMprime.Location = new System.Drawing.Point(533, 333);
+            this.btnMprime.Location = new System.Drawing.Point(533, 331);
             this.btnMprime.Name = "btnMprime";
             this.btnMprime.Size = new System.Drawing.Size(60, 29);
             this.btnMprime.TabIndex = 25;
@@ -485,7 +488,7 @@
             // btnM
             // 
             this.btnM.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnM.Location = new System.Drawing.Point(533, 301);
+            this.btnM.Location = new System.Drawing.Point(533, 299);
             this.btnM.Name = "btnM";
             this.btnM.Size = new System.Drawing.Size(60, 29);
             this.btnM.TabIndex = 24;
@@ -496,7 +499,7 @@
             // btnM2
             // 
             this.btnM2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnM2.Location = new System.Drawing.Point(534, 364);
+            this.btnM2.Location = new System.Drawing.Point(534, 362);
             this.btnM2.Name = "btnM2";
             this.btnM2.Size = new System.Drawing.Size(60, 29);
             this.btnM2.TabIndex = 26;
@@ -683,7 +686,7 @@
             // pictureBox12
             // 
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(533, 235);
+            this.pictureBox12.Location = new System.Drawing.Point(533, 233);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(60, 60);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -692,9 +695,9 @@
             // 
             // btnScramble
             // 
-            this.btnScramble.Location = new System.Drawing.Point(145, 370);
+            this.btnScramble.Location = new System.Drawing.Point(245, 244);
             this.btnScramble.Name = "btnScramble";
-            this.btnScramble.Size = new System.Drawing.Size(75, 23);
+            this.btnScramble.Size = new System.Drawing.Size(156, 23);
             this.btnScramble.TabIndex = 57;
             this.btnScramble.Text = "Scramble";
             this.btnScramble.UseVisualStyleBackColor = true;
@@ -702,7 +705,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(226, 370);
+            this.btnReset.Location = new System.Drawing.Point(326, 273);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 58;
@@ -710,12 +713,44 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // lblScramble
+            // 
+            this.lblScramble.AutoSize = true;
+            this.lblScramble.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScramble.Location = new System.Drawing.Point(42, 371);
+            this.lblScramble.Name = "lblScramble";
+            this.lblScramble.Size = new System.Drawing.Size(246, 20);
+            this.lblScramble.TabIndex = 59;
+            this.lblScramble.Text = "Press Scramble to get a scramble";
+            // 
+            // btnSolve
+            // 
+            this.btnSolve.Location = new System.Drawing.Point(245, 273);
+            this.btnSolve.Name = "btnSolve";
+            this.btnSolve.Size = new System.Drawing.Size(75, 23);
+            this.btnSolve.TabIndex = 60;
+            this.btnSolve.Text = "Solve";
+            this.btnSolve.UseVisualStyleBackColor = true;
+            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(392, 428);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 13);
+            this.label1.TabIndex = 61;
+            this.label1.Text = "(c) CPNE-TI Perrinjaquet T. Auguanno D.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1013, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnSolve);
+            this.Controls.Add(this.lblScramble);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnScramble);
             this.Controls.Add(this.pictureBox7);
@@ -787,6 +822,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -850,6 +886,9 @@
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Button btnScramble;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label lblScramble;
+        private System.Windows.Forms.Button btnSolve;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GAN
 {
@@ -167,6 +169,47 @@ namespace GAN
                 },
             },
         };
+
+        public List<string> moves = new List<string> { };
+
+        System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        bool exitFlag = false;
+
+        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
+        {
+            myTimer.Stop();
+
+            if (moves.Count > 0)
+            {
+                this.Rotate(Invert(this.moves.Last()));
+                this.moves.RemoveAt(moves.Count - 1);
+                myTimer.Enabled = true;
+            }
+            else
+            {
+                exitFlag = true;
+            }
+        }
+
+        private string Invert(string move)
+        {
+            if (move.Length == 1) return $"{move}'";
+            if (move[1] == '\'') return $"{move[0]}";
+            else return move;
+        }
+
+        public void Solve(Action fn)
+        {
+            myTimer.Tick += new EventHandler(TimerEventProcessor);
+
+            myTimer.Interval = 100;
+            myTimer.Start();
+            while (exitFlag == false)
+            {
+                Application.DoEvents();
+                fn();
+            }
+        }
 
         private void TopClockwise(int layer)
         {
