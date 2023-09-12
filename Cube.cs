@@ -18,22 +18,54 @@ namespace GAN
         public const int BLUE = 3;
         public const int RED = 4;
         public const int YELLOW = 5;
-
-        public static char Str(int color) => new char[] { 'W', 'G', 'O', 'B', 'R', 'Y' }[color];
     }
 
-    private Dictionary<string, Dictionary<string, string>> algs = new Dictionary<string, Dictionary<string, string>>
+    #region Algorithms
+    public static class Algorithms
     {
-        { 
-            "OLL",
-            new Dictionary<string, string>{
-                {
-                    "OCLL6", ""
-                }
+        public static Dictionary<string, string> OLL = new Dictionary<string, string>
+        {
+            {
+                "OCLL6", "R U2 R' U' R U' R'"
+            },
+            {
+                "OCLL1", "R U2 R' U' R U R' U' R U' R'"
+            },
+            {
+                "OCLL4", "r U R' U' r' F R F'"
+            },
+            {
+                "OCLL3", "R2 D R' U2 R D' R' U2 R'"
+            },
+            {
+                "OCLL7", "R U R' U R U2' R'"
+            },
+            {
+                "OCLL2", "R U2' R2' U' R2 U' R2' U2' R"
+            },
+            {
+                "OCLL5", "y F' r U R' U' r' F R"
+            },
+            {
+                "T1", "R U R' U' R' F R F'"
+            },
+            {
+                "T2", "F R U R' U' F'"
+            },
+            {
+                "S1", "r' U2' R U R' U r"
+            },
+            {
+                "S2", "r U2 R' U' R U' r'"
+            },
+            {
+                "C1", "r U2 R' U' R U' r'"
             }
-        }
-    };
+        };
+    }
+    #endregion
 
+    #region MiniCube
     public class MiniCube : ICloneable {
         public int U;
         public int D;
@@ -111,10 +143,25 @@ namespace GAN
                     break;
             }
         }
+
+        public List<int> Colors()
+        {
+            List<int> ints = new List<int>();
+            if(this.U != Color.NONE) ints.Add(this.U);
+            if(this.D != Color.NONE) ints.Add(this.D);
+            if(this.F != Color.NONE) ints.Add(this.F);
+            if(this.B != Color.NONE) ints.Add(this.B);
+            if(this.R != Color.NONE) ints.Add(this.R);
+            if(this.L != Color.NONE) ints.Add(this.L);
+            return ints;
+        }
     }
+    #endregion
 
     public class Cube
     {
+        public List<string> moves = new List<string> { };
+        #region Cube_Declaration
         private MiniCube[][][] cube = new MiniCube[][][]
         {
             new MiniCube[][]
@@ -181,11 +228,77 @@ namespace GAN
                 },
             },
         };
+        #endregion
+
+        #region Solving
+
+        int[] WhiteCenterPos = new int[3] { 0, 1, 1 };
+
+        int cross_color = Color.NONE;
+        int fcolor = Color.NONE;
+
+        private bool IsCrossDone()
+        {
+            cross_color = this.cube[2][1][1].D;
+            fcolor = this.cube[1][2][1].F;
+            return (this.cube[2][0][1].D == cross_color) && (this.cube[2][0][1].B == this.cube[1][0][1].B) &&
+                (this.cube[2][1][0].D == cross_color) && (this.cube[2][1][0].L == this.cube[1][1][0].L) &&
+                (this.cube[2][2][1].D == cross_color) && (this.cube[2][2][1].F == this.cube[1][2][1].F) &&
+                (this.cube[2][1][2].D == cross_color) && (this.cube[2][1][2].R == this.cube[1][1][2].R);
+        }
+
+        int[] findEdge(int color1, int color2)
+        {
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 3; j++)
+                {
+                    for(int k = 0; k < 3; k++)
+                    {
+                        if(i == 1 || j == 1 || k == 1)
+                        {
+                            List<int> clist = this.cube[i][j][k].Colors();
+                            if (clist.Contains(color1) && clist.Contains(color2)) return new int[] { i, j, k };
+                        }
+                    }
+                }
+            }
+            return new int[] { -1, -1, -1 };
+        }
+
+        int[] findCorner(int color1, int color2, int color3)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        if (i != 1 && j != 1 && k != 1)
+                        {
+                            List<int> clist = this.cube[i][j][k].Colors();
+                            if (clist.Contains(color1) && clist.Contains(color2) && clist.Contains(color3)) return new int[] { i, j, k };
+                        }
+                    }
+                }
+            }
+            return new int[] { -1, -1, -1 };
+        }
+
+        public void MakeCross()
+        {
+            if(IsCrossDone()) { return; }
+
+        }
 
         public void Solve()
         {
-            // HERE
+            int[] pos = findEdge(Color.RED, Color.BLUE);
+            MessageBox.Show($"{pos[0]}, {pos[1]}, {pos[2]}");
         }
+        #endregion
+
+        #region U_D_Layers_Move
 
         private void TopClockwise(int layer)
         {
@@ -279,6 +392,9 @@ namespace GAN
             this.D();
             this.E();
         }
+        #endregion
+
+        #region F_B_Layers_Move
         private void F() {
             this.cube = new MiniCube[][][] {
                 new MiniCube[][]
@@ -459,6 +575,9 @@ namespace GAN
             this.B();
             this.Sprime();
         }
+        #endregion
+
+        #region R_L_Layers_Move
         private void R() {
             this.cube = new MiniCube[][][]
             {
@@ -723,49 +842,11 @@ namespace GAN
             this.L();
             this.M();
         }
-        private void x() {
-            this.R();
-            this.Mprime();
-            this.Lprime();
-        }
-        private void xprime() {
-            this.Rprime();
-            this.M();
-            this.L();
-        }
-        private void x2() {
-            this.x();
-            this.x();
-        }
-        private void y() {
-            this.U();
-            this.Eprime();
-            this.Dprime();
-        }
-        private void yprime() {
-            this.Uprime();
-            this.E();
-            this.D();
-        }
-        private void y2() {
-            this.y();
-            this.y();
-        }
-        private void z() {
-            this.F();
-            this.S();
-            this.Bprime();
-        }
-        private void zprime() {
-            this.Fprime();
-            this.Sprime();
-            this.B();
-        }
-        private void z2() {
-            this.z();
-            this.z();
-        }
-        private void M() {
+        #endregion
+
+        #region M_E_S_Layers_Move
+        private void M()
+        {
             this.cube = new MiniCube[][][]
             {
                 new MiniCube[][]
@@ -827,7 +908,8 @@ namespace GAN
                 }
             }
         }
-        private void Mprime() {
+        private void Mprime()
+        {
             this.cube = new MiniCube[][][]
             {
                 new MiniCube[][]
@@ -889,21 +971,26 @@ namespace GAN
                 }
             }
         }
-        private void M2() {
+        private void M2()
+        {
             this.M();
             this.M();
         }
-        private void E() {
+        private void E()
+        {
             TopCounterClockwise(1);
         }
-        private void Eprime() {
+        private void Eprime()
+        {
             TopClockwise(1);
         }
-        private void E2() {
+        private void E2()
+        {
             this.E();
             this.E();
         }
-        private void S() {
+        private void S()
+        {
             this.cube = new MiniCube[][][] {
                 new MiniCube[][]
                 {
@@ -944,7 +1031,8 @@ namespace GAN
                 }
             }
         }
-        private void Sprime() {
+        private void Sprime()
+        {
             this.cube = new MiniCube[][][] {
                 new MiniCube[][]
                 {
@@ -985,11 +1073,59 @@ namespace GAN
                 }
             }
         }
-        private void S2() {
+        private void S2()
+        {
             this.S();
             this.S();
         }
+        #endregion
 
+        #region x_y_z_Move
+        private void x() {
+            this.R();
+            this.Mprime();
+            this.Lprime();
+        }
+        private void xprime() {
+            this.Rprime();
+            this.M();
+            this.L();
+        }
+        private void x2() {
+            this.x();
+            this.x();
+        }
+        private void y() {
+            this.U();
+            this.Eprime();
+            this.Dprime();
+        }
+        private void yprime() {
+            this.Uprime();
+            this.E();
+            this.D();
+        }
+        private void y2() {
+            this.y();
+            this.y();
+        }
+        private void z() {
+            this.F();
+            this.S();
+            this.Bprime();
+        }
+        private void zprime() {
+            this.Fprime();
+            this.Sprime();
+            this.B();
+        }
+        private void z2() {
+            this.z();
+            this.z();
+        }
+        #endregion
+
+        #region RotateFn
         public void Rotate(string way)
         {
             switch(way)
@@ -1122,7 +1258,9 @@ namespace GAN
                     break;
             }
         }
+        #endregion
 
+        #region Face_Fn
         public int[][] Face(char face)
         {
             int[][] f = new int[3][] {
@@ -1236,5 +1374,6 @@ namespace GAN
                     return f;
             }
         }
+        #endregion
     }
 }
