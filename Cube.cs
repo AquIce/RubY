@@ -59,7 +59,336 @@ namespace GAN
                 "S2", "r U2 R' U' R U' r'"
             },
             {
-                "C1", "r U2 R' U' R U' r'"
+                "C1", "R U R2' U' R' F R U R U' F'"
+            },
+            {
+                "C1", "R' U' R' F R F' U R"
+            },
+            {
+                "W1", "R' U' R U' R' U R U l U' R' U x"
+            },
+            {
+                "W2", "R U R' U R U' R' U' R' F R F'"
+            },
+            {
+                "E1", "r U R' U' M U R U' R'"
+            },
+            {
+                "E2", "R U R' U' M' U R U' r'"
+            },
+            {
+                "P1", "R' U' F U R U' R' F' R"
+            },
+            {
+                "P2", "R U B' U' R' U R B R'"
+            },
+            {
+                "P3", "y R' U' F' U F R"
+            },
+            {
+                "P4", "f R U R' U' f'"
+            },
+            {
+                "I1", "f R U R' U' R U R' U' f'"
+            },
+            {
+                "I2", "R' U' R U' R' U y' R' U R B"
+            },
+            {
+                "I3", "y R' F R U R U' R2' F' R2 U' R' U R U R'"
+            },
+            {
+                "I4", "r' U' r U' R' U R U' R' U R r' U r"
+            },
+            {
+                "F1", "R U R' U' R' F R2 U R' U' F'"
+            },
+            {
+                "F2", "R U R' U R' F R F' R U2' R'"
+            },
+            {
+                "F3", "R U2' R2' F R F' R U2' R'"
+            },
+            {
+                "F4", "F R U' R' U' R U R' F'"
+            },
+            {
+                "K1", "r U' r' U' r U r' y' R' U R"
+            },
+            {
+                "K2", "R' F R U R' F' R F U' F'"
+            },
+            {
+                "K3", "r' U' r R' U' R U r' U r"
+            },
+            {
+                "K4", "r U r' R U R' U' r U' r'"
+            },
+            {
+                "A1", "y R U R' U' R U' R' F' U' F R U R'"
+            },
+            {
+                "A2", "y' F U R U2 R' U' R U2 R' U' F'"
+            },
+            {
+                "A3", "R U R' U R U2' R' F R U R' U' F'"
+            },
+            {
+                "A4", "R' U' R U' R' U2 R F R U R' U' F'"
+            },
+            {
+                "L1", "F' L' U' L U L' U' L U F"
+            },
+            {
+                "L2", "F R U R' U' R U R' U' F'"
+            },
+            {
+                "L3", "r U' r2' U r2 U r2' U' r"
+            },
+            {
+                "L4", "r' U r2 U' r2' U' r2 U r'"
+            },
+            {
+                "L5", "r' U' R U' R' U R U' R' U2 r"
+            },
+            {
+                "L6", "r U R' U R U' R' U R U2' r'"
+            },
+            {
+                "B1", "r U R' U R U2' r'"
+            },
+            {
+                "B2", "r' U' R U' R' U2 r"
+            },
+            {
+                "B3", "r' R2 U R' U R U2 R' U M'"
+            },
+            {
+                "B4", "M' R' U' R U' R' U2 R U' M\r\n"
+            },
+            {
+                "B5", "L F' L' U' L U F U' L'"
+            },
+            {
+                "B6", "R' F R U R' U' F' U R"
+            },
+            {
+                "O1", "R U2' R2' F R F' U2' R' F R F'"
+            },
+            {
+                "O2", "F R U R' U' F' f R U R' U' f'"
+            },
+            {
+                "O3", "f R U R' U' f' U' F R U R' U' F'"
+            },
+            {
+                "O4", "f R U R' U' f' U F R U R' U' F'"
+            },
+            {
+                "O5", "R U R' U R' F R F' U2' R' F R F'"
+            },
+            {
+                "O6", "y R U2' R2' F R F' U2' M' U R U' r'"
+            },
+            {
+                "O6", "M U R U R' U' M' R' F R F'"
+            },
+            {
+                "O7", "M U R U R' U' M2' U R U' r'"
+            }
+        };
+
+        public static Dictionary<string, string> PLL = new Dictionary<string, string>
+        {
+            {
+                "Ua", "R U' R U R U R U' R' U' R2"
+            },
+            {
+                "Ub", "R2 U R U R' U' R' U' R' U R'"
+            },
+            {
+                "Z", "M2' U M2' U M' U2 M2' U2 M' U2"
+            },
+            {
+                "H", "M2' U M2' U2 M2' U M2'"
+            },
+            {
+                "Aa", "x R' U R' D2 R U' R' D2 R2 x'"
+            },
+            {
+                "Ab", "x R2' D2 R U R' D2 R U' R x'"
+            },
+            {
+                "E", "x' R U' R' D R U R' D' R U R' D R U' R' D' x"
+            },
+            {
+                "Ra", "R U' R' U' R U R D R' U' R D' R' U2 R' U'"
+            },
+            {
+                "Rb", "R' U2 R U2' R' F R U R' U' R' F' R2 U'"
+            },
+            {
+                "Ja", "R' U L' U2 R U' R' U2 R L U'"
+            },
+            {
+                "Jb", "R U R' F' R U R' U' R' F R2 U' R' U'"
+            },
+            {
+                "T", "R U R' U' R' F R2 U' R' U' R U R' F'"
+            },
+            {
+                "F", "R' U' F'R U R' U'R' F R2 U'R' U' R UR' U R"
+            },
+            {
+                "V", "R' U R' U' y R' F' R2 U' R' U R' F R F"
+            },
+            {
+                "Y", "F R U' R' U' R U R' F' R U R' U' R' F R F'"
+            },
+            {
+                "Na", "R U R' U R U R' F' R U R'U' R' F R2 U' R' U2 R U' R'"
+            },
+            {
+                "Nb", "R' U R U' R' F' U' F R U R' F R' F' R U' R"
+            },
+            {
+                "Ga", "R2 U R' U R' U' R U' R2 D U' R' U R D' U"
+            },
+            {
+                "Gb", "F' U' F R2 u R' U R U' R u' R2'"
+            },
+            {
+                "Gc", "R2 U' R U' R U R' U R2 D' U R U' R' D U'"
+            },
+            {
+                "Gd", "D' R U R' U' D R2 U' R U' R' U R' U R2 U"
+            }
+        };
+
+        public static Dictionary<string, string> F2L = new Dictionary<string, string>
+        {
+            {
+                "BI_1", "U R U' R'"
+            },
+            {
+                "BI_2", "y' U' R' U R"
+            },
+            {
+                "BI_3", "y' (R' U' R)"
+            },
+            {
+                "BI_4", "(R U R')"
+            },
+            {
+                "Case1_1", "U' (R U' R' U) y' (R' U' R)"
+            },
+            {
+                "Case1_2", "U' (R U R' U) (R U R')"
+            },
+            {
+                "Case1_3", "U' (R U2' R' U) y' (R' U' R)"
+            },
+            {
+                "Case1_4", "R' U2' R2 U R2' U R"
+            },
+            {
+                "Case1_5", "y' U (R' U R U') (R' U' R) U"
+            },
+            {
+                "Case1_6", "U' (R U' R' U) (R U R')"
+            },
+            {
+                "Case2_1", "(U' R U R') U2 (R U' R')"
+            },
+            {
+                "Case2_2", "y' (U R' U' R) U2' (R' U R)"
+            },
+            {
+                "Case2_3", "U' (R U2' R') U2 (R U' R')"
+            },
+            {
+                "Case2_4", "y' U (R' U2 R) U2' (R' U R)"
+            },
+            {
+                "Case3_1", "U (R U2 R') U (R U' R')"
+            },
+            {
+                "Case3_2", "y' U' (R' U2 R) U' (R' U R)"
+            },
+            {
+                "Case3_3", "U2 (R U R' U) (R U' R')"
+            },
+            {
+                "Case3_4", "y' U2 (R' U' R) U' (R' U R)"
+            },
+            {
+                "ICP_1", "y' (R' U R) U2' y (R U R')"
+            },
+            {
+                "ICP_2", "(R U' R' U2) y' (R' U' R)"
+            },
+            {
+                "ICP_3", "(R U2 R') U' (R U R') "
+            },
+            {
+                "ICP_4", "y' (R' U2 R) U (R' U' R)"
+            },
+            {
+                "ICP_5", "U (R U' R' U') (R U' R' U) (R U' R')"
+            },
+            {
+                "ICP_6", "y' U' (R' U R U) (R' U R U') (R' U R)"
+            },
+            {
+                "CIP_1", "U' F' (R U R' U') R' F R"
+            },
+            {
+                "CIP_2", "U (R U' R') U' (F' U F)"
+            },
+            {
+                "CIP_3", "(R U' R' U) (R U' R')"
+            },
+            {
+                "CIP_4", "y' (R' U R U') (R' U R)"
+            },
+            {
+                "CIP_5", "y' (R' U' R U) (R' U' R)"
+            },
+            {
+                "CIP_6", "(R U R' U') (R U R')"
+            },
+            {
+                "EIP_1", "(R U' R' U) y' (R' U R)"
+            },
+            {
+                "EIP_2", "(U R U' R') (U R U' R') (U R U' R')"
+            },
+            {
+                "EIP_3", "(U' R U' R') U2 (R U' R')"
+            },
+            {
+                "EIP_4", "U (R U R') U2 (R U R')"
+            },
+            {
+                "EIP_5", "(U' R U R') U y' (R' U' R)"
+            },
+            {
+                "EIP_6", "U (F' U' F) U' (R U R')"
+            },
+            {
+                "ECP_1", "(R U' R') d (R' U2 R) U2' (R' U R)"
+            },
+            {
+                "ECP_2", "(R U' R' U') R U R' U2 (R U' R')"
+            },
+            {
+                "ECP_3", "(R U' R' U) (R U2' R') U (R U' R')"
+            },
+            {
+                "ECP_4", "(F' U F) U2 (R U R' U) (R U' R')"
+            },
+            {
+                "ECP_5", "(R U R' U') (R U' R') U2 y' (R' U' R)"
             }
         };
     }
