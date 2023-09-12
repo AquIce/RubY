@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GAN
 {
@@ -19,6 +21,18 @@ namespace GAN
 
         public static char Str(int color) => new char[] { 'W', 'G', 'O', 'B', 'R', 'Y' }[color];
     }
+
+    private Dictionary<string, Dictionary<string, string>> algs = new Dictionary<string, Dictionary<string, string>>
+    {
+        { 
+            "OLL",
+            new Dictionary<string, string>{
+                {
+                    "OCLL6", ""
+                }
+            }
+        }
+    };
 
     public class MiniCube : ICloneable {
         public int U;
@@ -167,6 +181,11 @@ namespace GAN
                 },
             },
         };
+
+        public void Solve()
+        {
+            // HERE
+        }
 
         private void TopClockwise(int layer)
         {

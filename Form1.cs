@@ -66,7 +66,7 @@ namespace RubY
             System.Drawing.Color.Yellow,
         };
 
-    public Form1()
+        public Form1()
         {
             InitializeComponent();
             Case.Controls = this.Controls;
@@ -84,7 +84,7 @@ namespace RubY
                     }
                 }
             }
-            Fill();
+            NewCube();
         }
 
         private void ActionSurLaCase(Interaction interaction, TypeCase typeCase, Case sender, string name) {}
@@ -233,7 +233,7 @@ namespace RubY
             }
         }
         
-        private void Fill()
+        private void NewCube()
         {
             this.cube = new Cube();
             Apply();
@@ -241,13 +241,15 @@ namespace RubY
 
         private void btnRotate_Click(object sender, EventArgs e)
         {
-            this.cube.Rotate(((Button)sender).Text);
+            string move = ((Button)sender).Text;
+            this.cube.Rotate(move);
+            this.cube.moves.Add(move);
             Apply();
         }
 
         private void btnScramble_Click(object sender, EventArgs e)
         {
-            Fill();
+            NewCube();
 
             string[][] moves = new string[][] {
                 new string[] {"R", "R'", "R2"},
@@ -270,14 +272,30 @@ namespace RubY
                 }
                 last = move;
                 Random rnd_ = new Random();
-                cube.Rotate(moves[move][rnd_.Next(3)]);
+                string mv = moves[move][rnd_.Next(3)];
+                this.cube.moves.Add(mv);
+                cube.Rotate(mv);
+            }
+            lblScramble.Text = "";
+            foreach(string mv in this.cube.moves)
+            {
+                lblScramble.Text += mv + " ";
             }
             Apply();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            Fill();
+            NewCube();
+            lblScramble.Text = "Press Scramble to get a scramble";
+            this.cube.moves = new List<string>();
+        }
+
+        private void btnSolve_Click(object sender, EventArgs e)
+        {
+            this.cube.Solve(Apply);
+            lblScramble.Text = "Press Scramble to get a scramble";
+            Apply();
         }
     }
 }
