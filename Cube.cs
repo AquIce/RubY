@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -561,8 +562,6 @@ namespace GAN
 
         #region Solving
 
-        int[] WhiteCenterPos = new int[3] { 0, 1, 1 };
-
         int cross_color = Color.NONE;
         int fcolor = Color.NONE;
 
@@ -584,6 +583,25 @@ namespace GAN
                 if(i != cross_color && i != 5 - cross_color) sideColors[tmp++] = i;
             }
             return sideColors;
+        }
+
+        int[] findCenter(int color)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        if ((i == 1 && (j == 1 || k == 1)) || (j == 1 && k == 1))
+                        {
+                            List<int> clist = this.cube[i][j][k].Colors();
+                            if (clist.Contains(color)) return new int[] { i, j, k };
+                        }
+                    }
+                }
+            }
+            return new int[] { -1, -1, -1 };
         }
 
         int[] findEdge(int color1, int color2)
@@ -624,14 +642,67 @@ namespace GAN
             return new int[] { -1, -1, -1 };
         }
 
+        bool IsAdjacent(int[] pos1, int[] pos2) => ((pos1[0] == pos2[0] + 1 || pos1[0] == pos2[0] - 1) && pos1[1] == pos2[1] && pos1[2] == pos2[2]) ||
+                ((pos1[1] == pos2[1] + 1 || pos1[1] == pos2[1] - 1) && pos1[0] == pos2[0] && pos1[2] == pos2[2]) ||
+                ((pos1[2] == pos2[2] + 1 || pos1[2] == pos2[2] - 1) && pos1[0] == pos2[0] && pos1[1] == pos2[1]);
+
+        bool IsCrossEdgeRightPlaced(int[] pos)
+        {
+            foreach(int color in this.cube[pos[0]][pos[1]][pos[2]].Colors())
+            {
+                if (!IsAdjacent(pos, findCenter(color))) return false;
+            }
+            return true;
+        }
+
+        bool IsCrossEdgeRightOriented(int[] pos)
+        {
+            if (!IsCrossEdgeRightPlaced(pos)) return false;
+            return this.cube[pos[0]][pos[1]][pos[2]].D == cross_color;
+        }
+
+        void FlipCrossEdge() // Must be Front Center Down
+        {
+            this.Rotate("F");
+            this.Rotate("D'");
+            this.Rotate("L");
+            this.Rotate("D");
+        }
+
         public void MakeCross()
         {
             if(IsCrossDone()) return;
 
             foreach(int color in SideColors())
             {
-                int[] cp = findEdge(cross_color, color);
-                MessageBox.Show($"{cp[0]}, {cp[1]}, {cp[2]}");
+                int[] edge_pos = findEdge(cross_color, color);
+                if(IsCrossEdgeRightOriented(edge_pos)) { MessageBox.Show("Oriented"); continue; }
+                while (edge_pos[1] != 2)
+                {
+                    Rotate("y");
+                    edge_pos = findEdge(cross_color, color);
+                }
+                if (IsCrossEdgeRightPlaced(edge_pos))
+                {
+                    FlipCrossEdge();
+                    MessageBox.Show($"Placed {edge_pos[0]}, {edge_pos[1]}, {edge_pos[2]}");
+                    continue;
+                }
+                while (edge_pos[0] != 0)
+                {
+                    if (edge_pos[1] == 0)
+                    {
+                        Rotate("F");
+                        Rotate("U");
+                        Rotate("F'");
+                    } else if (edge_pos[1] == 2)
+                    {
+                        Rotate("F'");
+                        Rotate("U'");
+                        Rotate("F");
+                    }
+                }
+                MessageBox.Show($"{edge_pos[0]}, {edge_pos[1]}, {edge_pos[2]}");
             }
         }
 
