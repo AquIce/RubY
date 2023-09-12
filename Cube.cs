@@ -247,6 +247,16 @@ namespace GAN
                 (this.cube[2][1][2].D == cross_color) && (this.cube[2][1][2].R == this.cube[1][1][2].R);
         }
 
+        private int[] SideColors()
+        {
+            int[] sideColors = new int[4] { 0, 0, 0, 0 };
+            int tmp = 0;
+            for(int i = 0; i < 6; i++) {
+                if(i != cross_color && i != 5 - cross_color) sideColors[tmp++] = i;
+            }
+            return sideColors;
+        }
+
         int[] findEdge(int color1, int color2)
         {
             for(int i = 0; i < 3; i++)
@@ -287,14 +297,18 @@ namespace GAN
 
         public void MakeCross()
         {
-            if(IsCrossDone()) { return; }
+            if(IsCrossDone()) return;
 
+            foreach(int color in SideColors())
+            {
+                int[] cp = findEdge(cross_color, color);
+                MessageBox.Show($"{cp[0]}, {cp[1]}, {cp[2]}");
+            }
         }
 
         public void Solve()
         {
-            int[] pos = findEdge(Color.RED, Color.BLUE);
-            MessageBox.Show($"{pos[0]}, {pos[1]}, {pos[2]}");
+            MakeCross();
         }
         #endregion
 
