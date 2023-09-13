@@ -268,128 +268,135 @@ namespace GAN
 
         public static Dictionary<string, string> F2L = new Dictionary<string, string>
         {
+            /*
+                000 -> Corner pos
+                u/d/f/b/l/r -> Corner orientation (white pos)
+                u/d/f/b/l/r -> Corner orientation (front color pos)
+                111 -> Edge pos
+                u/d/f/b/l/r -> Edge orientation (front color pos)
+             */
             {
-                "BI_1", "U R U' R'"
+                "022fu 012u", "U R U' R'"
             },
             {
-                "BI_2", "y' U' R' U R"
+                "022rf 021f", "y' U' R' U R"
             },
             {
-                "BI_3", "y' (R' U' R)"
+                "022fu 010l", "y' R' U' R"
             },
             {
-                "BI_4", "(R U R')"
+                "022rf 001u", "R U R'"
             },
             {
-                "Case1_1", "U' (R U' R' U) y' (R' U' R)"
+                "022fu 001b", "U' R U' R' U y' R' U' R"
             },
             {
-                "Case1_2", "U' (R U R' U) (R U R')"
+                "022rf 010u", "U' R U R' U R U R'"
             },
             {
-                "Case1_3", "U' (R U2' R' U) y' (R' U' R)"
+                "022rf 012r", "U' R U2' R' U y' R' U' R"
             },
             {
-                "Case1_4", "R' U2' R2 U R2' U R"
+                "022rf 021u", "R' U2' R2 U R2' U R"
             },
             {
-                "Case1_5", "y' U (R' U R U') (R' U' R) U"
+                "022fu 021f", "y' U R' U R U' R' U' R U"
             },
             {
-                "Case1_6", "U' (R U' R' U) (R U R')"
+                "022rf 012u", "U' R U' R' U R U R'"
             },
             {
-                "Case2_1", "(U' R U R') U2 (R U' R')"
+                "022fu 001u", "U' R U R' U2 R U' R'"
             },
             {
-                "Case2_2", "y' (U R' U' R) U2' (R' U R)"
+                "022rf 010l", "y' U R' U' R U2' R' U R"
             },
             {
-                "Case2_3", "U' (R U2' R') U2 (R U' R')"
+                "022fu 010u", "U' R U2' R' U2 R U' R'"
             },
             {
-                "Case2_4", "y' U (R' U2 R) U2' (R' U R)"
+                "022rf 001b", "y' U R' U2 R U2' R' U R"
             },
             {
-                "Case3_1", "U (R U2 R') U (R U' R')"
+                "022ur 001u", "U R U2 R' U R U' R'"
             },
             {
-                "Case3_2", "y' U' (R' U2 R) U' (R' U R)"
+                "022ur 010l", "y' U' R' U2 R U' R' U R"
             },
             {
-                "Case3_3", "U2 (R U R' U) (R U' R')"
+                "022ur 010u", "U2 R U R' U R U' R'"
             },
             {
-                "Case3_4", "y' U2 (R' U' R) U' (R' U R)"
+                "022ur 010l", "y' U2 R' U' R U' R' U R"
             },
             {
-                "ICP_1", "y' (R' U R) U2' y (R U R')"
+                "022fu 021u", "y' R' U R U2' y R U R'"
             },
             {
-                "ICP_2", "(R U' R' U2) y' (R' U' R)"
+                "022rf 012r", "R U' R' U2 y' R' U' R"
             },
             {
-                "ICP_3", "(R U2 R') U' (R U R') "
+                "022ur 012u", "R U2 R' U' R U R' "
             },
             {
-                "ICP_4", "y' (R' U2 R) U (R' U' R)"
+                "022ur 021f", "y' R' U2 R U R' U' R"
             },
             {
-                "ICP_5", "U (R U' R' U') (R U' R' U) (R U' R')"
+                "022ur 021r", "U R U' R' U' R U' R' U R U' R'"
             },
             {
-                "ICP_6", "y' U' (R' U R U) (R' U R U') (R' U R)"
+                "022ur 012r", "y' U' R' U R U R' U R U' R' U R"
             },
             {
-                "CIP_1", "U' F' (R U R' U') R' F R"
+                "CIP_1", "U' F' R U R' U' R' F R"
             },
             {
-                "CIP_2", "U (R U' R') U' (F' U F)"
+                "CIP_2", "U R U' R' U' F' U F"
             },
             {
-                "CIP_3", "(R U' R' U) (R U' R')"
+                "CIP_3", "R U' R' U R U' R'"
             },
             {
-                "CIP_4", "y' (R' U R U') (R' U R)"
+                "CIP_4", "y' R' U R U' R' U R"
             },
             {
-                "CIP_5", "y' (R' U' R U) (R' U' R)"
+                "CIP_5", "y' R' U' R U R' U' R"
             },
             {
-                "CIP_6", "(R U R' U') (R U R')"
+                "CIP_6", "R U R' U' R U R'"
             },
             {
-                "EIP_1", "(R U' R' U) y' (R' U R)"
+                "EIP_1", "R U' R' U y' R' U R"
             },
             {
-                "EIP_2", "(U R U' R') (U R U' R') (U R U' R')"
+                "EIP_2", "U R U' R' U R U' R' U R U' R'"
             },
             {
-                "EIP_3", "(U' R U' R') U2 (R U' R')"
+                "EIP_3", "U' R U' R' U2 R U' R'"
             },
             {
-                "EIP_4", "U (R U R') U2 (R U R')"
+                "EIP_4", "U R U R' U2 R U R'"
             },
             {
-                "EIP_5", "(U' R U R') U y' (R' U' R)"
+                "EIP_5", "U' R U R' U y' R' U' R"
             },
             {
-                "EIP_6", "U (F' U' F) U' (R U R')"
+                "EIP_6", "U F' U' F U' R U R'"
             },
             {
-                "ECP_1", "(R U' R') d (R' U2 R) U2' (R' U R)"
+                "ECP_1", "R U' R' d R' U2 R U2' R' U R"
             },
             {
-                "ECP_2", "(R U' R' U') R U R' U2 (R U' R')"
+                "ECP_2", "R U' R' U' R U R' U2 R U' R'"
             },
             {
-                "ECP_3", "(R U' R' U) (R U2' R') U (R U' R')"
+                "ECP_3", "R U' R' U R U2' R' U R U' R'"
             },
             {
-                "ECP_4", "(F' U F) U2 (R U R' U) (R U' R')"
+                "ECP_4", "F' U F U2 R U R' U R U' R'"
             },
             {
-                "ECP_5", "(R U R' U') (R U' R') U2 y' (R' U' R)"
+                "ECP_5", "R U R' U' R U' R' U2 y' R' U' R"
             }
         };
     }
@@ -491,6 +498,7 @@ namespace GAN
     public class Cube
     {
         public List<string> moves = new List<string> { };
+
         #region Cube_Declaration
         private MiniCube[][][] cube = new MiniCube[][][]
         {
@@ -561,6 +569,8 @@ namespace GAN
         #endregion
 
         #region Solving
+
+        #region Cross
 
         int cross_color = Color.NONE;
         int fcolor = Color.NONE;
@@ -717,6 +727,8 @@ namespace GAN
                 }
             }
         }
+
+        #endregion
 
         public void Solve()
         {
