@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace GAN
 {
+    #region Colors
     public static class Color
     {
         public const int NONE = -1;
@@ -20,10 +21,12 @@ namespace GAN
         public const int RED = 4;
         public const int YELLOW = 5;
     }
+    #endregion
 
     #region Algorithms
     public static class Algorithms
     {
+        #region OLL
         public static Dictionary<string, string> OLL = new Dictionary<string, string>
         {
             {
@@ -198,7 +201,9 @@ namespace GAN
                 "O7", "M U R U R' U' M2' U R U' r'"
             }
         };
+        #endregion
 
+        #region PLL
         public static Dictionary<string, string> PLL = new Dictionary<string, string>
         {
             {
@@ -265,7 +270,9 @@ namespace GAN
                 "Gd", "D' R U R' U' D R2 U' R U' R' U R' U R2 U"
             }
         };
+        #endregion
 
+        #region F2L
         public static Dictionary<string, string> F2L = new Dictionary<string, string>
         {
             /*
@@ -348,57 +355,61 @@ namespace GAN
                 "022ur 012r", "y' U' R' U R U R' U R U' R' U R"
             },
             {
-                "CIP_1", "U' F' R U R' U' R' F R"
+                "222df 012u", "U' F' R U R' U' R' F R"
             },
             {
-                "CIP_2", "U R U' R' U' F' U F"
+                "222df 021f", "U R U' R' U' F' U F"
             },
             {
-                "CIP_3", "R U' R' U R U' R'"
+                "222fr 012u", "R U' R' U R U' R'"
             },
             {
-                "CIP_4", "y' R' U R U' R' U R"
+                "222rd 021f", "y' R' U R U' R' U R"
             },
             {
-                "CIP_5", "y' R' U' R U R' U' R"
+                "222fr 021f", "y' R' U' R U R' U' R"
             },
             {
-                "CIP_6", "R U R' U' R U R'"
+                "222rd 012u", "R U R' U' R U R'"
             },
             {
-                "EIP_1", "R U' R' U y' R' U R"
+                "022ur 122r", "R U' R' U y' R' U R"
             },
             {
-                "EIP_2", "U R U' R' U R U' R' U R U' R'"
+                "022ur 122f", "U R U' R' U R U' R' U R U' R'"
             },
             {
-                "EIP_3", "U' R U' R' U2 R U' R'"
+                "022fu 122f", "U' R U' R' U2 R U' R'"
             },
             {
-                "EIP_4", "U R U R' U2 R U R'"
+                "022rf 122f", "U R U R' U2 R U R'"
             },
             {
-                "EIP_5", "U' R U R' U y' R' U' R"
+                "022fu 122r", "U' R U R' U y' R' U' R"
             },
             {
-                "EIP_6", "U F' U' F U' R U R'"
+                "022rf 122r", "U F' U' F U' R U R'"
             },
             {
-                "ECP_1", "R U' R' d R' U2 R U2' R' U R"
+                "222df 122f", ""
             },
             {
-                "ECP_2", "R U' R' U' R U R' U2 R U' R'"
+                "222df 122r", "R U' R' d R' U2 R U2' R' U R"
             },
             {
-                "ECP_3", "R U' R' U R U2' R' U R U' R'"
+                "222fr 122f", "R U' R' U' R U R' U2 R U' R'"
             },
             {
-                "ECP_4", "F' U F U2 R U R' U R U' R'"
+                "222rd 122f", "R U' R' U R U2' R' U R U' R'"
             },
             {
-                "ECP_5", "R U R' U' R U' R' U2 y' R' U' R"
+                "222fr 122r", "F' U F U2 R U R' U R U' R'"
+            },
+            {
+                "222rd 122r", "R U R' U' R U' R' U2 y' R' U' R"
             }
         };
+        #endregion
     }
     #endregion
 
@@ -494,6 +505,8 @@ namespace GAN
         }
     }
     #endregion
+
+    #region Cube
 
     public class Cube
     {
@@ -1814,4 +1827,5 @@ namespace GAN
         }
         #endregion
     }
+    #endregion
 }
