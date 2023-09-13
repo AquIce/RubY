@@ -24,8 +24,9 @@ namespace GAN
     #endregion
 
     #region Algorithms
-    public static class Algorithms
+    public class Algorithms
     {
+
         #region OLL
         public static Dictionary<string, string> OLL = new Dictionary<string, string>
         {
@@ -503,6 +504,17 @@ namespace GAN
             if(this.L != Color.NONE) ints.Add(this.L);
             return ints;
         }
+
+        public char GetColorOritentation(int color)
+        {
+            if (this.U == color) return 'u';
+            if (this.D == color) return 'd';
+            if (this.F == color) return 'f';
+            if (this.B == color) return 'b';
+            if (this.R == color) return 'r';
+            if (this.L == color) return 'l';
+            return ' ';
+        }
     }
     #endregion
 
@@ -582,24 +594,10 @@ namespace GAN
         #endregion
 
         #region Solving
-
-        #region Cross
-
+        
         int cross_color = Color.NONE;
-        int fcolor = Color.NONE;
 
-        private bool IsCrossDone()
-        {
-            cross_color = this.cube[2][1][1].D;
-            fcolor = this.cube[1][2][1].F;
-            return (this.cube[2][0][1].D == cross_color) && (this.cube[2][0][1].B == this.cube[1][0][1].B) &&
-                (this.cube[2][1][0].D == cross_color) && (this.cube[2][1][0].L == this.cube[1][1][0].L) &&
-                (this.cube[2][2][1].D == cross_color) && (this.cube[2][2][1].F == this.cube[1][2][1].F) &&
-                (this.cube[2][1][2].D == cross_color) && (this.cube[2][1][2].R == this.cube[1][1][2].R);
-        }
-
-        private int[] SideColors() => new int[4] { this.cube[1][0][1].B, this.cube[1][2][1].F, this.cube[1][1][0].L, this.cube[1][1][2].R };
-
+        #region Finding
         int[] findCenter(int color)
         {
             for (int i = 0; i < 3; i++)
@@ -656,6 +654,21 @@ namespace GAN
             }
             return new int[] { -1, -1, -1 };
         }
+        #endregion
+
+        #region Cross
+
+        private bool IsCrossDone()
+        {
+            cross_color = this.cube[2][1][1].D;
+            return (this.cube[2][0][1].D == cross_color) && (this.cube[2][0][1].B == this.cube[1][0][1].B) &&
+                (this.cube[2][1][0].D == cross_color) && (this.cube[2][1][0].L == this.cube[1][1][0].L) &&
+                (this.cube[2][2][1].D == cross_color) && (this.cube[2][2][1].F == this.cube[1][2][1].F) &&
+                (this.cube[2][1][2].D == cross_color) && (this.cube[2][1][2].R == this.cube[1][1][2].R);
+        }
+
+        private int[] SideColors() => new int[4] { this.cube[1][0][1].B, this.cube[1][2][1].F, this.cube[1][1][0].L, this.cube[1][1][2].R };
+
 
         bool IsAdjacent(int[] pos1, int[] pos2) => ((pos1[0] == pos2[0] + 1 || pos1[0] == pos2[0] - 1) && pos1[1] == pos2[1] && pos1[2] == pos2[2]) ||
                 ((pos1[1] == pos2[1] + 1 || pos1[1] == pos2[1] - 1) && pos1[0] == pos2[0] && pos1[2] == pos2[2]) ||
@@ -684,7 +697,7 @@ namespace GAN
             this.Rotate("D");
         }
 
-        public void MakeCross()
+        public void SolveCross()
         {
             if(IsCrossDone()) return;
 
@@ -743,9 +756,47 @@ namespace GAN
 
         #endregion
 
+        #region F2L
+
+        public void SolveF2L()
+        {
+            for(int i = 0; i < 4; i++)
+            {
+                int center_front = this.cube[1][2][1].F;
+                int[] corner_pos = findCorner(cross_color, center_front, this.cube[1][1][2].R);
+                MiniCube corner = this.cube[corner_pos[0]][corner_pos[1]][corner_pos[2]];
+                int[] edge_pos = findEdge(center_front, this.cube[1][1][2].R);
+                MiniCube edge = this.cube[edge_pos[0]][edge_pos[1]][edge_pos[2]];
+
+                string pos_str = "";
+
+                while(!Algorithms.F2L.ContainsKey(pos_str))
+                {
+                    Rotate("y");
+                    pos_str = $"{corner_pos[0]}{corner_pos[1]}{corner_pos[2]}" +
+                    $"{corner.GetColorOritentation(cross_color)}{corner.GetColorOritentation(center_front)} " +
+                    $"{edge_pos[0]}{edge_pos[1]}{edge_pos[2]}" +
+                    $"{edge.GetColorOritentation(center_front)}";
+                }
+
+                MessageBox.Show(pos_str);
+                string alg = Algorithms.F2L[pos_str];
+
+                foreach(string move in alg.Split(' '))
+                {
+                    Rotate(move);
+                }
+
+                Rotate("y");
+            }
+        }
+
+        #endregion
+
         public void Solve()
         {
-            MakeCross();
+            SolveCross();
+            SolveF2L();
         }
         #endregion
 
