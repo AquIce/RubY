@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -10,7 +12,6 @@ using System.Windows.Forms;
 
 namespace GAN
 {
-    #region Colors
     public static class Color
     {
         public const int NONE = -1;
@@ -21,14 +22,11 @@ namespace GAN
         public const int RED = 4;
         public const int YELLOW = 5;
     }
-    #endregion
 
-    #region Algorithms
     public class Algorithms
     {
 
-        #region OLL
-        public static Dictionary<string, string> OLL = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> OLL = new Dictionary<string, string>
         {
             {
                 "OCLL6", "R U2 R' U' R U' R'"
@@ -37,19 +35,19 @@ namespace GAN
                 "OCLL1", "R U2 R' U' R U R' U' R U' R'"
             },
             {
-                "OCLL4", "r U R' U' r' F R F'"
+                "OCLL4", "r U R' U' r r r  F R F'"
             },
             {
                 "OCLL3", "R2 D R' U2 R D' R' U2 R'"
             },
             {
-                "OCLL7", "R U R' U R U2' R'"
+                "OCLL7", "R U R' U R U2 R'"
             },
             {
-                "OCLL2", "R U2' R2' U' R2 U' R2' U2' R"
+                "OCLL2", "R U2 R2 U' R2 U' R2 U2 R"
             },
             {
-                "OCLL5", "y F' r U R' U' r' F R"
+                "OCLL5", "y F' r U R' U' r r r  F R"
             },
             {
                 "T1", "R U R' U' R' F R F'"
@@ -58,16 +56,16 @@ namespace GAN
                 "T2", "F R U R' U' F'"
             },
             {
-                "S1", "r' U2' R U R' U r"
+                "S1", "r r r  U2 R U R' U r"
             },
             {
-                "S2", "r U2 R' U' R U' r'"
+                "S2", "r U2 R' U' R U' r r r "
             },
             {
-                "C1", "R U R2' U' R' F R U R U' F'"
+                "C1", "R U R2 U' R' F R U R U' F'"
             },
             {
-                "C1", "R' U' R' F R F' U R"
+                "C2", "R' U' R' F R F' U R"
             },
             {
                 "W1", "R' U' R U' R' U R U l U' R' U x"
@@ -79,7 +77,7 @@ namespace GAN
                 "E1", "r U R' U' M U R U' R'"
             },
             {
-                "E2", "R U R' U' M' U R U' r'"
+                "E2", "R U R' U' M' U R U' r r r "
             },
             {
                 "P1", "R' U' F U R U' R' F' R"
@@ -100,34 +98,34 @@ namespace GAN
                 "I2", "R' U' R U' R' U y' R' U R B"
             },
             {
-                "I3", "y R' F R U R U' R2' F' R2 U' R' U R U R'"
+                "I3", "y R' F R U R U' R2 F' R2 U' R' U R U R'"
             },
             {
-                "I4", "r' U' r U' R' U R U' R' U R r' U r"
+                "I4", "r r r  U' r U' R' U R U' R' U R r r r  U r"
             },
             {
                 "F1", "R U R' U' R' F R2 U R' U' F'"
             },
             {
-                "F2", "R U R' U R' F R F' R U2' R'"
+                "F2", "R U R' U R' F R F' R U2 R'"
             },
             {
-                "F3", "R U2' R2' F R F' R U2' R'"
+                "F3", "R U2 R2 F R F' R U2 R'"
             },
             {
                 "F4", "F R U' R' U' R U R' F'"
             },
             {
-                "K1", "r U' r' U' r U r' y' R' U R"
+                "K1", "r U' r r r  U' r U r r r  y' R' U R"
             },
             {
                 "K2", "R' F R U R' F' R F U' F'"
             },
             {
-                "K3", "r' U' r R' U' R U r' U r"
+                "K3", "r r r  U' r R' U' R U r r r  U r"
             },
             {
-                "K4", "r U r' R U R' U' r U' r'"
+                "K4", "r U r r r  R U R' U' r U' r r r "
             },
             {
                 "A1", "y R U R' U' R U' R' F' U' F R U R'"
@@ -136,7 +134,7 @@ namespace GAN
                 "A2", "y' F U R U2 R' U' R U2 R' U' F'"
             },
             {
-                "A3", "R U R' U R U2' R' F R U R' U' F'"
+                "A3", "R U R' U R U2 R' F R U R' U' F'"
             },
             {
                 "A4", "R' U' R U' R' U2 R F R U R' U' F'"
@@ -148,25 +146,25 @@ namespace GAN
                 "L2", "F R U R' U' R U R' U' F'"
             },
             {
-                "L3", "r U' r2' U r2 U r2' U' r"
+                "L3", "r U' r r U r r U r r U' r"
             },
             {
-                "L4", "r' U r2 U' r2' U' r2 U r'"
+                "L4", "r r r  U r r U' r r U' r r U r r r "
             },
             {
-                "L5", "r' U' R U' R' U R U' R' U2 r"
+                "L5", "r r r  U' R U' R' U R U' R' U2 r"
             },
             {
-                "L6", "r U R' U R U' R' U R U2' r'"
+                "L6", "r U R' U R U' R' U R U2 r r r "
             },
             {
-                "B1", "r U R' U R U2' r'"
+                "B1", "r U R' U R U2 r r r "
             },
             {
-                "B2", "r' U' R U' R' U2 r"
+                "B2", "r r r  U' R U' R' U2 r"
             },
             {
-                "B3", "r' R2 U R' U R U2 R' U M'"
+                "B3", "r r r  R2 U R' U R U2 R' U M'"
             },
             {
                 "B4", "M' R' U' R U' R' U2 R U' M\r\n"
@@ -178,7 +176,7 @@ namespace GAN
                 "B6", "R' F R U R' U' F' U R"
             },
             {
-                "O1", "R U2' R2' F R F' U2' R' F R F'"
+                "O1", "R U2 R2 F R F' U2 R' F R F'"
             },
             {
                 "O2", "F R U R' U' F' f R U R' U' f'"
@@ -190,22 +188,20 @@ namespace GAN
                 "O4", "f R U R' U' f' U F R U R' U' F'"
             },
             {
-                "O5", "R U R' U R' F R F' U2' R' F R F'"
+                "O5", "R U R' U R' F R F' U2 R' F R F'"
             },
             {
-                "O6", "y R U2' R2' F R F' U2' M' U R U' r'"
+                "O6", "y R U2 R2 F R F' U2 M' U R U' r r r "
             },
             {
-                "O6", "M U R U R' U' M' R' F R F'"
+                "O7", "M U R U R' U' M' R' F R F'"
             },
             {
-                "O7", "M U R U R' U' M2' U R U' r'"
+                "O8", "M U R U R' U' M2 U R U' r r r "
             }
         };
-        #endregion
 
-        #region PLL
-        public static Dictionary<string, string> PLL = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> PLL = new Dictionary<string, string>
         {
             {
                 "Ua", "R U' R U R U R U' R' U' R2"
@@ -214,16 +210,16 @@ namespace GAN
                 "Ub", "R2 U R U R' U' R' U' R' U R'"
             },
             {
-                "Z", "M2' U M2' U M' U2 M2' U2 M' U2"
+                "Z", "M2 U M2 U M' U2 M2 U2 M' U2"
             },
             {
-                "H", "M2' U M2' U2 M2' U M2'"
+                "H", "M2 U M2 U2 M2 U M2"
             },
             {
                 "Aa", "x R' U R' D2 R U' R' D2 R2 x'"
             },
             {
-                "Ab", "x R2' D2 R U R' D2 R U' R x'"
+                "Ab", "x R2 D2 R U R' D2 R U' R x'"
             },
             {
                 "E", "x' R U' R' D R U R' D' R U R' D R U' R' D' x"
@@ -232,7 +228,7 @@ namespace GAN
                 "Ra", "R U' R' U' R U R D R' U' R D' R' U2 R' U'"
             },
             {
-                "Rb", "R' U2 R U2' R' F R U R' U' R' F' R2 U'"
+                "Rb", "R' U2 R U2 R' F R U R' U' R' F' R2 U'"
             },
             {
                 "Ja", "R' U L' U2 R U' R' U2 R L U'"
@@ -262,7 +258,7 @@ namespace GAN
                 "Ga", "R2 U R' U R' U' R U' R2 D U' R' U R D' U"
             },
             {
-                "Gb", "F' U' F R2 u R' U R U' R u' R2'"
+                "Gb", "F' U' F R2 u R' U R U' R u' R2"
             },
             {
                 "Gc", "R2 U' R U' R U R' U R2 D' U R U' R' D U'"
@@ -271,10 +267,8 @@ namespace GAN
                 "Gd", "D' R U R' U' D R2 U' R U' R' U R' U R2 U"
             }
         };
-        #endregion
 
-        #region F2L
-        public static Dictionary<string, string> F2L = new Dictionary<string, string>
+        public static readonly Dictionary<string, string> F2L = new Dictionary<string, string>
         {
             /*
                 000 -> Corner pos
@@ -282,7 +276,7 @@ namespace GAN
                 u/d/f/b/l/r -> Corner orientation (front color pos)
                 111 -> Edge pos
                 u/d/f/b/l/r -> Edge orientation (front color pos)
-             */
+            */
             {
                 "022fu 012u", "U R U' R'"
             },
@@ -302,10 +296,10 @@ namespace GAN
                 "022rf 010u", "U' R U R' U R U R'"
             },
             {
-                "022rf 012r", "U' R U2' R' U y' R' U' R"
+                "022fu 012r", "U' R U2 R' U y' R' U' R"
             },
             {
-                "022rf 021u", "R' U2' R2 U R2' U R"
+                "022rf 021u", "R' U2 R2 U R2 U R"
             },
             {
                 "022fu 021f", "y' U R' U R U' R' U' R U"
@@ -317,13 +311,13 @@ namespace GAN
                 "022fu 001u", "U' R U R' U2 R U' R'"
             },
             {
-                "022rf 010l", "y' U R' U' R U2' R' U R"
+                "022rf 010l", "y' U R' U' R U2 R' U R"
             },
             {
-                "022fu 010u", "U' R U2' R' U2 R U' R'"
+                "022fu 010u", "U' R U2 R' U2 R U' R'"
             },
             {
-                "022rf 001b", "y' U R' U2 R U2' R' U R"
+                "022rf 001b", "y' U R' U2 R U2 R' U R"
             },
             {
                 "022ur 001u", "U R U2 R' U R U' R'"
@@ -335,10 +329,10 @@ namespace GAN
                 "022ur 010u", "U2 R U R' U R U' R'"
             },
             {
-                "022ur 010l", "y' U2 R' U' R U' R' U R"
+                "022ur 001b", "F' L' U2 L F"
             },
             {
-                "022fu 021u", "y' R' U R U2' y R U R'"
+                "022fu 021u", "y' R' U R U2 y R U R'"
             },
             {
                 "022rf 012r", "R U' R' U2 y' R' U' R"
@@ -350,7 +344,7 @@ namespace GAN
                 "022ur 021f", "y' R' U2 R U R' U' R"
             },
             {
-                "022ur 021r", "U R U' R' U' R U' R' U R U' R'"
+                "022ur 021u", "U R U' R' U' R U' R' U R U' R'"
             },
             {
                 "022ur 012r", "y' U' R' U R U R' U R U' R' U R"
@@ -395,13 +389,13 @@ namespace GAN
                 "222df 122f", ""
             },
             {
-                "222df 122r", "R U' R' d R' U2 R U2' R' U R"
+                "222df 122r", "R U' R' d R' U2 R U2 R' U R"
             },
             {
                 "222fr 122f", "R U' R' U' R U R' U2 R U' R'"
             },
             {
-                "222rd 122f", "R U' R' U R U2' R' U R U' R'"
+                "222rd 122f", "R U' R' U R U2 R' U R U' R'"
             },
             {
                 "222fr 122r", "F' U F U2 R U R' U R U' R'"
@@ -410,12 +404,10 @@ namespace GAN
                 "222rd 122r", "R U R' U' R U' R' U2 y' R' U' R"
             }
         };
-        #endregion
     }
-    #endregion
 
-    #region MiniCube
-    public class MiniCube : ICloneable {
+    public class MiniCube : ICloneable
+    {
         public int U;
         public int D;
         public int F;
@@ -423,7 +415,8 @@ namespace GAN
         public int L;
         public int R;
 
-        public MiniCube(int U, int D, int F, int B, int L, int R) {
+        public MiniCube(int U, int D, int F, int B, int L, int R)
+        {
             this.U = U;
             this.D = D;
             this.F = F;
@@ -496,12 +489,12 @@ namespace GAN
         public List<int> Colors()
         {
             List<int> ints = new List<int>();
-            if(this.U != Color.NONE) ints.Add(this.U);
-            if(this.D != Color.NONE) ints.Add(this.D);
-            if(this.F != Color.NONE) ints.Add(this.F);
-            if(this.B != Color.NONE) ints.Add(this.B);
-            if(this.R != Color.NONE) ints.Add(this.R);
-            if(this.L != Color.NONE) ints.Add(this.L);
+            if (this.U != Color.NONE) ints.Add(this.U);
+            if (this.D != Color.NONE) ints.Add(this.D);
+            if (this.F != Color.NONE) ints.Add(this.F);
+            if (this.B != Color.NONE) ints.Add(this.B);
+            if (this.R != Color.NONE) ints.Add(this.R);
+            if (this.L != Color.NONE) ints.Add(this.L);
             return ints;
         }
 
@@ -516,15 +509,12 @@ namespace GAN
             return ' ';
         }
     }
-    #endregion
 
-    #region Cube
 
     public class Cube
     {
         public List<string> moves = new List<string> { };
 
-        #region Cube_Declaration
         private MiniCube[][][] cube = new MiniCube[][][]
         {
             new MiniCube[][]
@@ -591,10 +581,9 @@ namespace GAN
                 },
             },
         };
-        #endregion
 
         #region Solving
-        
+
         int cross_color = Color.NONE;
 
         #region Finding
@@ -619,13 +608,13 @@ namespace GAN
 
         int[] findEdge(int color1, int color2)
         {
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for(int j = 0; j < 3; j++)
+                for (int j = 0; j < 3; j++)
                 {
-                    for(int k = 0; k < 3; k++)
+                    for (int k = 0; k < 3; k++)
                     {
-                        if(i == 1 || j == 1 || k == 1)
+                        if (i == 1 || j == 1 || k == 1)
                         {
                             List<int> clist = this.cube[i][j][k].Colors();
                             if (clist.Contains(color1) && clist.Contains(color2)) return new int[] { i, j, k };
@@ -676,7 +665,7 @@ namespace GAN
 
         bool IsCrossEdgeRightPlaced(int[] pos)
         {
-            foreach(int color in this.cube[pos[0]][pos[1]][pos[2]].Colors())
+            foreach (int color in this.cube[pos[0]][pos[1]][pos[2]].Colors())
             {
                 if (!IsAdjacent(pos, findCenter(color))) return false;
             }
@@ -699,12 +688,12 @@ namespace GAN
 
         public void SolveCross()
         {
-            if(IsCrossDone()) return;
+            if (IsCrossDone()) return;
 
-            foreach(int color in SideColors())
+            foreach (int color in SideColors())
             {
                 int[] edge_pos = findEdge(cross_color, color);
-                if(IsCrossEdgeRightOriented(edge_pos)) continue; 
+                if (IsCrossEdgeRightOriented(edge_pos)) continue;
                 while (edge_pos[1] != 2)
                 {
                     Rotate("y");
@@ -736,12 +725,12 @@ namespace GAN
                     edge_pos = findEdge(cross_color, color);
                 }
                 int edge_color = this.cube[edge_pos[0]][edge_pos[1]][edge_pos[2]].Colors().Sum() - cross_color;
-                while(!IsAdjacent(edge_pos, findCenter(edge_color)))
+                while (!IsAdjacent(edge_pos, findCenter(edge_color)))
                 {
                     Rotate("U");
                     edge_pos = findEdge(cross_color, color);
                 }
-                while(findCenter(edge_color)[1] != 2)
+                while (findCenter(edge_color)[1] != 2)
                 {
                     Rotate("y");
                 }
@@ -758,37 +747,95 @@ namespace GAN
 
         #region F2L
 
+        public bool PrepareSlot(int[] pos)
+        {
+            if (pos[0] == 0) { return true; }
+            if (pos[1] == 0 && pos[2] == 0)
+            {
+                Rotate("L");
+                Rotate("U");
+                Rotate("L'");
+                Rotate("U'");
+                return true;
+            }
+            if (pos[1] == 0 && pos[2] == 2)
+            {
+                Rotate("R'");
+                Rotate("U'");
+                Rotate("R");
+                Rotate("U");
+                return true;
+            }
+            if (pos[1] == 2 && pos[2] == 0)
+            {
+                Rotate("L'");
+                Rotate("U'");
+                Rotate("L");
+                Rotate("U");
+                return true;
+            }
+            return false;
+        }
+
+        public void Slot()
+        {
+            int[] edge_pos = findEdge(this.cube[1][1][2].R, this.cube[1][2][1].F);
+
+            bool alignLL = PrepareSlot(edge_pos);
+
+            while (alignLL && (edge_pos[1] != 1 || edge_pos[2] != 2))
+            {
+                Rotate("U");
+                edge_pos = findEdge(this.cube[1][1][2].R, this.cube[1][2][1].F);
+            }
+
+            int[] corner_pos = findCorner(this.cube[1][1][2].R, this.cube[1][2][1].F, this.cross_color);
+            PrepareSlot(corner_pos);
+        }
+
         public void SolveF2L()
         {
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 7; i++)
             {
                 int center_front = this.cube[1][2][1].F;
-                int[] corner_pos = findCorner(cross_color, center_front, this.cube[1][1][2].R);
+                int[] corner_pos = findCorner(this.cross_color, center_front, this.cube[1][1][2].R);
                 MiniCube corner = this.cube[corner_pos[0]][corner_pos[1]][corner_pos[2]];
                 int[] edge_pos = findEdge(center_front, this.cube[1][1][2].R);
                 MiniCube edge = this.cube[edge_pos[0]][edge_pos[1]][edge_pos[2]];
 
-                string pos_str = "";
+                Slot();
 
-                while(!Algorithms.F2L.ContainsKey(pos_str))
-                {
-                    Rotate("y");
-                    pos_str = $"{corner_pos[0]}{corner_pos[1]}{corner_pos[2]}" +
-                    $"{corner.GetColorOritentation(cross_color)}{corner.GetColorOritentation(center_front)} " +
+                string pos_str = $"{corner_pos[0]}{corner_pos[1]}{corner_pos[2]}" +
+                    $"{corner.GetColorOritentation(this.cross_color)}{corner.GetColorOritentation(center_front)} " +
                     $"{edge_pos[0]}{edge_pos[1]}{edge_pos[2]}" +
                     $"{edge.GetColorOritentation(center_front)}";
+
+                while (!Algorithms.F2L.ContainsKey(pos_str))
+                {
+                    Rotate("U");
+                    corner_pos = findCorner(this.cross_color, center_front, this.cube[1][1][2].R);
+                    corner = this.cube[corner_pos[0]][corner_pos[1]][corner_pos[2]];
+                    edge_pos = findEdge(center_front, this.cube[1][1][2].R);
+                    edge = this.cube[edge_pos[0]][edge_pos[1]][edge_pos[2]];
+                    pos_str = $"{corner_pos[0]}{corner_pos[1]}{corner_pos[2]}" +
+                        $"{corner.GetColorOritentation(this.cross_color)}{corner.GetColorOritentation(center_front)} " +
+                        $"{edge_pos[0]}{edge_pos[1]}{edge_pos[2]}" +
+                        $"{edge.GetColorOritentation(center_front)}";
                 }
 
-                MessageBox.Show(pos_str);
                 string alg = Algorithms.F2L[pos_str];
 
-                foreach(string move in alg.Split(' '))
+                if (alg != "")
                 {
-                    Rotate(move);
+                    foreach (string move in alg.Split(' '))
+                    {
+                        Rotate(move);
+                    }
                 }
 
                 Rotate("y");
             }
+            Rotate("y");
         }
 
         #endregion
@@ -866,38 +913,47 @@ namespace GAN
             }
         }
 
-        private void U() {
+        private void U()
+        {
             this.TopClockwise(0);
         }
-        private void Uprime() {
+        private void Uprime()
+        {
             this.TopCounterClockwise(0);
         }
-        private void U2() {
+        private void U2()
+        {
             this.U();
             this.U();
         }
-        private void u() {
+        private void u()
+        {
             this.U();
             this.Eprime();
         }
-        private void D() {
+        private void D()
+        {
             this.TopCounterClockwise(2);
         }
-        private void Dprime() {
+        private void Dprime()
+        {
             this.TopClockwise(2);
         }
-        private void D2() {
+        private void D2()
+        {
             this.D();
             this.D();
         }
-        private void d() {
+        private void d()
+        {
             this.D();
             this.E();
         }
         #endregion
 
         #region F_B_Layers_Move
-        private void F() {
+        private void F()
+        {
             this.cube = new MiniCube[][][] {
                 new MiniCube[][]
                 {
@@ -938,7 +994,8 @@ namespace GAN
                 }
             }
         }
-        private void Fprime() {
+        private void Fprime()
+        {
             this.cube = new MiniCube[][][] {
                 new MiniCube[][]
                 {
@@ -979,15 +1036,18 @@ namespace GAN
                 }
             }
         }
-        private void F2() {
+        private void F2()
+        {
             this.F();
             this.F();
         }
-        private void f() {
+        private void f()
+        {
             this.F();
             this.S();
         }
-        private void B() {
+        private void B()
+        {
             this.cube = new MiniCube[][][] {
                 new MiniCube[][]
                 {
@@ -1028,7 +1088,8 @@ namespace GAN
                 }
             }
         }
-        private void Bprime() {
+        private void Bprime()
+        {
             this.cube = new MiniCube[][][] {
                 new MiniCube[][]
                 {
@@ -1069,18 +1130,21 @@ namespace GAN
                 }
             }
         }
-        private void B2() {
+        private void B2()
+        {
             this.B();
             this.B();
         }
-        private void b() {
+        private void b()
+        {
             this.B();
             this.Sprime();
         }
         #endregion
 
         #region R_L_Layers_Move
-        private void R() {
+        private void R()
+        {
             this.cube = new MiniCube[][][]
             {
                 new MiniCube[][]
@@ -1142,7 +1206,8 @@ namespace GAN
                 }
             }
         }
-        private void Rprime() {
+        private void Rprime()
+        {
             this.cube = new MiniCube[][][]
             {
                 new MiniCube[][]
@@ -1204,15 +1269,18 @@ namespace GAN
                 }
             }
         }
-        private void R2() {
+        private void R2()
+        {
             this.R();
             this.R();
         }
-        private void r() {
+        private void r()
+        {
             this.R();
             this.Mprime();
         }
-        private void L() {
+        private void L()
+        {
             this.cube = new MiniCube[][][]
             {
                 new MiniCube[][]
@@ -1274,7 +1342,8 @@ namespace GAN
                 }
             }
         }
-        private void Lprime() {
+        private void Lprime()
+        {
             this.cube = new MiniCube[][][]
             {
                 new MiniCube[][]
@@ -1336,11 +1405,13 @@ namespace GAN
                 }
             }
         }
-        private void L2() {
+        private void L2()
+        {
             this.L();
             this.L();
         }
-        private void l() {
+        private void l()
+        {
             this.L();
             this.M();
         }
@@ -1583,45 +1654,54 @@ namespace GAN
         #endregion
 
         #region x_y_z_Move
-        private void x() {
+        private void x()
+        {
             this.R();
             this.Mprime();
             this.Lprime();
         }
-        private void xprime() {
+        private void xprime()
+        {
             this.Rprime();
             this.M();
             this.L();
         }
-        private void x2() {
+        private void x2()
+        {
             this.x();
             this.x();
         }
-        private void y() {
+        private void y()
+        {
             this.U();
             this.Eprime();
             this.Dprime();
         }
-        private void yprime() {
+        private void yprime()
+        {
             this.Uprime();
             this.E();
             this.D();
         }
-        private void y2() {
+        private void y2()
+        {
             this.y();
             this.y();
         }
-        private void z() {
+        private void z()
+        {
             this.F();
             this.S();
             this.Bprime();
         }
-        private void zprime() {
+        private void zprime()
+        {
             this.Fprime();
             this.Sprime();
             this.B();
         }
-        private void z2() {
+        private void z2()
+        {
             this.z();
             this.z();
         }
@@ -1630,7 +1710,7 @@ namespace GAN
         #region RotateFn
         public void Rotate(string way)
         {
-            switch(way)
+            switch (way)
             {
                 case "U":
                     U();
@@ -1775,7 +1855,7 @@ namespace GAN
             switch (face)
             {
                 case 'U':
-                    for(int i = 0; i < this.cube[0].Length; i++)
+                    for (int i = 0; i < this.cube[0].Length; i++)
                     {
                         for (int j = 0; j < this.cube[0][i].Length; j++)
                         {
@@ -1800,7 +1880,7 @@ namespace GAN
                     };
                     for (int i = 0; i < mc.Length; i++)
                     {
-                        for(int j = 0; j < mc[i].Length; j++)
+                        for (int j = 0; j < mc[i].Length; j++)
                         {
                             f[i][j] = mc[i][j].F;
                         }
@@ -1878,5 +1958,4 @@ namespace GAN
         }
         #endregion
     }
-    #endregion
 }
