@@ -29,175 +29,175 @@ namespace GAN
         public static readonly Dictionary<string, string> OLL = new Dictionary<string, string>
         {
             {
-                "OCLL6", "R U2 R' U' R U' R'"
+                "luu uuu fur", "R U2 R' U' R U' R'"
             },
             {
-                "OCLL1", "R U2 R' U' R U R' U' R U' R'"
+                "bub uuu fuf", "R U2 R' U' R U R' U' R U' R'"
             },
             {
-                "OCLL4", "r U R' U' r r r  F R F'"
+                "buu uuu fuu", "r U R' U' r r r  F R F'"
             },
             {
-                "OCLL3", "R2 D R' U2 R D' R' U2 R'"
+                "uuu uuu fuf", "R2 D R' U2 R D' R' U2 R'"
             },
             {
-                "OCLL7", "R U R' U R U2 R'"
+                "bur uuu uuf", "R U R' U R U2 R'"
             },
             {
-                "OCLL2", "R U2 R2 U' R2 U' R2 U2 R"
+                "lub uuu luf", "R U2 R2 U' R2 U' R2 U2 R"
             },
             {
-                "OCLL5", "y F' r U R' U' r r r  F R"
+                "uur uuu fuu", "y F' r U R' U' r r r  F R"
             },
             {
-                "T1", "R U R' U' R' F R F'"
+                "bbu uuu ffu", "R U R' U' R' F R F'"
             },
             {
-                "T2", "F R U R' U' F'"
+                "lbu uuu lfu", "F R U R' U' F'"
             },
             {
-                "S1", "r r r  U2 R U R' U r"
+                "bbr luu luu", "r r r  U2 R U R' U r"
             },
             {
-                "S2", "r U2 R' U' R U' r r r "
+                "luu luu ffr", "r U2 R' U' R U' r r r "
             },
             {
-                "C1", "R U R2 U' R' F R U R U' F'"
+                "lbr uuu ufu", "R U R2 U' R' F R U R U' F'"
             },
             {
-                "C2", "R' U' R' F R F' U R"
+                "uur lur uur", "R' U' R' F R F' U R"
             },
             {
-                "W1", "R' U' R U' R' U R U l U' R' U x"
+                "ubr uur fuu", "R' U' R U' R' U R U l U' R' U x"
             },
             {
-                "W2", "R U R' U R U' R' U' R' F R F'"
+                "buu uur ufr", "R U R' U R U' R' U' R' F R F'"
             },
             {
-                "E1", "r U R' U' M U R U' R'"
+                "uuu uur ufu", "r U R' U' M U R U' R'"
             },
             {
-                "E2", "R U R' U' M' U R U' r r r "
+                "ubu uuu ufu", "R U R' U' M' U R U' r r r "
             },
             {
-                "P1", "R' U' F U R U' R' F' R"
+                "buu luu ffu", "R' U' F U R U' R' F' R"
             },
             {
-                "P2", "R U B' U' R' U R B R'"
+                "bbu luu fuu", "R U B' U' R' U R B R'"
             },
             {
-                "P3", "y R' U' F' U F R"
+                "ubr uur uur", "y R' U' F' U F R"
             },
             {
-                "P4", "f R U R' U' f'"
+                "lbu luu luu", "f R U R' U' f'"
             },
             {
-                "I1", "f R U R' U' R U R' U' f'"
+                "lbb uuu lff", "f R U R' U' R U R' U' f'"
             },
             {
-                "I2", "R' U' R U' R' U y' R' U R B"
+                "bur lur fur", "R' U' R U' R' U y' R' U R B"
             },
             {
-                "I3", "y R' F R U R U' R2 F' R2 U' R' U R U R'"
+                "lbr uuu lfr", "y R' F R U R U' R2 F' R2 U' R' U R U R'"
             },
             {
-                "I4", "r r r  U' r U' R' U R U' R' U R r r r  U r"
+                "lur lur lur", "r r r  U' r U' R' U R U' R' U R r r r  U r"
             },
             {
-                "F1", "R U R' U' R' F R2 U R' U' F'"
+                "lub uur ffu", "R U R' U' R' F R2 U R' U' F'"
             },
             {
-                "F2", "R U R' U R' F R F' R U2 R'"
+                "bbu uur luf", "R U R' U R' F R F' R U2 R'"
             },
             {
-                "F3", "R U2 R2 F R F' R U2 R'"
+                "ubr luu fuu", "R U2 R2 F R F' R U2 R'"
             },
             {
-                "F4", "F R U' R' U' R U R' F'"
+                "uur uur ffu", "F R U' R' U' R U R' F'"
             },
             {
-                "K1", "r U' r r r  U' r U r r r  y' R' U R"
+                "bbr uuu uff", "r U' r r r  U' r U r r r  y' R' U R"
             },
             {
-                "K2", "R' F R U R' F' R F U' F'"
+                "lbb uuu ffu", "R' F R U R' F' R F U' F'"
             },
             {
-                "K3", "r r r  U' r R' U' R U r r r  U r"
+                "bbr uuu lfu", "r r r  U' r R' U' R U r r r  U r"
             },
             {
-                "K4", "r U r r r  R U R' U' r U' r r r "
+                "lbu uuu ffr", "r U r r r  R U R' U' r U' r r r "
             },
             {
-                "A1", "y R U R' U' R U' R' F' U' F R U R'"
+                "ubu uur lur", "y R U R' U' R U' R' F' U' F R U R'"
             },
             {
-                "A2", "y' F U R U2 R' U' R U2 R' U' F'"
+                "uub luu uff", "y' F U R U2 R' U' R U2 R' U' F'"
             },
             {
-                "A3", "R U R' U R U2 R' F R U R' U' F'"
+                "bub uur ufu", "R U R' U R U2 R' F R U R' U' F'"
             },
             {
-                "A4", "R' U' R U' R' U2 R F R U R' U' F'"
+                "ubu uur fuf", "R' U' R U' R' U2 R F R U R' U' F'"
             },
             {
-                "L1", "F' L' U' L U L' U' L U F"
+                "bur luu ffr", "F' L' U' L U L' U' L U F"
             },
             {
-                "L2", "F R U R' U' R U R' U' F'"
+                "lub uur lff", "F R U R' U' R U R' U' F'"
             },
             {
-                "L3", "r U' r r U r r U r r U' r"
+                "lub luu lff", "r U' r r U r r U r r U' r"
             },
             {
-                "L4", "r r r  U r r U' r r U' r r U r r r "
+                "lbb luu luf", "r r r  U r r U' r r U' r r U r r r "
             },
             {
-                "L5", "r r r  U' R U' R' U R U' R' U2 r"
+                "lbr luu lur", "r r r  U' R U' R' U R U' R' U2 r"
             },
             {
-                "L6", "r U R' U R U' R' U R U2 r r r "
+                "lur luu lfr", "r U R' U R U' R' U R U2 r r r "
             },
             {
-                "B1", "r U R' U R U2 r r r "
+                "bur uur uff", "r U R' U R U2 r r r "
             },
             {
-                "B2", "r r r  U' R U' R' U2 r"
+                "ubb uur fur", "r r r  U' R U' R' U2 r"
             },
             {
-                "B3", "r r r  R2 U R' U R U2 R' U M'"
+                "bbr luu uuf", "r r r  R2 U R' U R U2 R' U M'"
             },
             {
-                "B4", "M' R' U' R U' R' U2 R U' M\r\n"
+                "uub luu ffr", "M' R' U' R U' R' U2 R U' M\r\n"
             },
             {
-                "B5", "L F' L' U' L U F U' L'"
+                "bbu uuu ufr", "L F' L' U' L U F U' L'"
             },
             {
-                "B6", "R' F R U R' U' F' U R"
+                "ubb uuu lfu", "R' F R U R' U' F' U R"
             },
             {
-                "O1", "R U2 R2 F R F' U2 R' F R F'"
+                "lbr lur lfr", "R U2 R2 F R F' U2 R' F R F'"
             },
             {
-                "O2", "F R U R' U' F' f R U R' U' f'"
+                "lbb lur lff", "F R U R' U' F' f R U R' U' f'"
             },
             {
-                "O3", "f R U R' U' f' U' F R U R' U' F'"
+                "bbr lur lfu", "f R U R' U' f' U' F R U R' U' F'"
             },
             {
-                "O4", "f R U R' U' f' U F R U R' U' F'"
+                "lbu lur ffr", "f R U R' U' f' U F R U R' U' F'"
             },
             {
-                "O5", "R U R' U R' F R F' U2 R' F R F'"
+                "ubb lur lfu", "R U R' U R' F R F' U2 R' F R F'"
             },
             {
-                "O6", "y R U2 R2 F R F' U2 M' U R U' r r r "
+                "ubu lur fff", "y R U2 R2 F R F' U2 M' U R U' r r r "
             },
             {
-                "O7", "M U R U R' U' M' R' F R F'"
+                "ubu lur lfr", "M U R U R' U' M' R' F R F'"
             },
             {
-                "O8", "M U R U R' U' M2 U R U' r r r "
+                "ubu lur ufu", "M U R U R' U' M2 U R U' r r r "
             }
         };
 
