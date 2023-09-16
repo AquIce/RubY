@@ -34,32 +34,33 @@ namespace GAN
                 111 -> Edge pos
                 u/d/f/b/l/r -> Edge orientation (front color pos)
             */
+            // Each F2L that needs it got a rotation cancellation (y)
             {
                 "022fu 012u", "U R U' R'"
             },
             {
-                "022rf 021f", "y' U' R' U R"
+                "022rf 021f", "y' U' R' U R y"
             },
             {
-                "022fu 010l", "y' R' U' R"
+                "022fu 010l", "y' R' U' R y"
             },
             {
                 "022rf 001u", "R U R'"
             },
             {
-                "022fu 001b", "U' R U' R' U y' R' U' R"
+                "022fu 001b", "U' R U' R' U y' R' U' R y"
             },
             {
                 "022rf 010u", "U' R U R' U R U R'"
             },
             {
-                "022fu 012r", "U' R U2 R' U y' R' U' R"
+                "022fu 012r", "U' R U2 R' U y' R' U' R y"
             },
             {
                 "022rf 021u", "R' U2 R2 U R2 U R"
             },
             {
-                "022fu 021f", "y' U R' U R U' R' U' R U"
+                "022fu 021f", "y' U R' U R U' R' U' R U y"
             },
             {
                 "022rf 012u", "U' R U' R' U R U R'"
@@ -68,19 +69,19 @@ namespace GAN
                 "022fu 001u", "U' R U R' U2 R U' R'"
             },
             {
-                "022rf 010l", "y' U R' U' R U2 R' U R"
+                "022rf 010l", "y' U R' U' R U2 R' U R y"
             },
             {
                 "022fu 010u", "U' R U2 R' U2 R U' R'"
             },
             {
-                "022rf 001b", "y' U R' U2 R U2 R' U R"
+                "022rf 001b", "y' U R' U2 R U2 R' U R y"
             },
             {
                 "022ur 001u", "U R U2 R' U R U' R'"
             },
             {
-                "022ur 010l", "y' U' R' U2 R U' R' U R"
+                "022ur 010l", "y' U' R' U2 R U' R' U R y"
             },
             {
                 "022ur 010u", "U2 R U R' U R U' R'"
@@ -92,19 +93,19 @@ namespace GAN
                 "022fu 021u", "y' R' U R U2 y R U R'"
             },
             {
-                "022rf 012r", "R U' R' U2 y' R' U' R"
+                "022rf 012r", "R U' R' U2 y' R' U' R y"
             },
             {
                 "022ur 012u", "R U2 R' U' R U R' "
             },
             {
-                "022ur 021f", "y' R' U2 R U R' U' R"
+                "022ur 021f", "y' R' U2 R U R' U' R y"
             },
             {
                 "022ur 021u", "U R U' R' U' R U' R' U R U' R'"
             },
             {
-                "022ur 012r", "y' U' R' U R U R' U R U' R' U R"
+                "022ur 012r", "y' U' R' U R U R' U R U' R' U R y"
             },
             {
                 "222df 012u", "U' F' R U R' U' R' F R"
@@ -116,16 +117,16 @@ namespace GAN
                 "222fr 012u", "R U' R' U R U' R'"
             },
             {
-                "222rd 021f", "y' R' U R U' R' U R"
+                "222rd 021f", "y' R' U R U' R' U R y"
             },
             {
-                "222fr 021f", "y' R' U' R U R' U' R"
+                "222fr 021f", "y' R' U' R U R' U' R y"
             },
             {
                 "222rd 012u", "R U R' U' R U R'"
             },
             {
-                "022ur 122r", "R U' R' U y' R' U R"
+                "022ur 122r", "R U' R' U y' R' U R y"
             },
             {
                 "022ur 122f", "U R U' R' U R U' R' U R U' R'"
@@ -137,7 +138,7 @@ namespace GAN
                 "022rf 122f", "U R U R' U2 R U R'"
             },
             {
-                "022fu 122r", "U' R U R' U y' R' U' R"
+                "022fu 122r", "U' R U R' U y' R' U' R y"
             },
             {
                 "022rf 122r", "U F' U' F U' R U R'"
@@ -158,12 +159,15 @@ namespace GAN
                 "222fr 122r", "F' U F U2 R U R' U R U' R'"
             },
             {
-                "222rd 122r", "R U R' U' R U' R' U2 y' R' U' R"
+                "222rd 122r", "R U R' U' R U' R' U2 y' R' U' R y"
             }
         };
 
         public static readonly Dictionary<string, string> OLL = new Dictionary<string, string>
         {
+            {
+                "uuu uuu uuu", "U'" // To cancel the U in recognition
+            },
             {
                 "luu uuu fur", "R U2 R' U' R U' R'"
             },
@@ -581,6 +585,8 @@ namespace GAN
             },
         };
 
+        public string solution = "";
+
         #region Solving
 
         int cross_color = Color.NONE;
@@ -746,11 +752,12 @@ namespace GAN
 
         #region F2L
 
-        public bool PrepareSlot(int[] pos)
+        private bool PrepareSlot(int[] pos)
         {
             if (pos[0] == 0) { return true; }
             if (pos[1] == 0 && pos[2] == 0)
             {
+                Rotate("U'"); // For the edge not to go in the slot
                 Rotate("L");
                 Rotate("U");
                 Rotate("L'");
@@ -759,6 +766,7 @@ namespace GAN
             }
             if (pos[1] == 0 && pos[2] == 2)
             {
+                Rotate("U"); // For the edge not to go in the slot
                 Rotate("R'");
                 Rotate("U'");
                 Rotate("R");
@@ -776,13 +784,13 @@ namespace GAN
             return false;
         }
 
-        public void Slot()
+        private void Slot()
         {
             int[] edge_pos = findEdge(this.cube[1][1][2].R, this.cube[1][2][1].F);
 
             bool alignLL = PrepareSlot(edge_pos);
 
-            while (alignLL && (edge_pos[1] != 1 || edge_pos[2] != 2))
+            while (alignLL && (edge_pos[1] != 2 || edge_pos[2] != 1))
             {
                 Rotate("U");
                 edge_pos = findEdge(this.cube[1][1][2].R, this.cube[1][2][1].F);
@@ -794,15 +802,16 @@ namespace GAN
 
         public void SolveF2L()
         {
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 4; i++)
             {
+                this.solution += $"Slot {i + 1}: ";
+                Slot();
+
                 int center_front = this.cube[1][2][1].F;
                 int[] corner_pos = findCorner(this.cross_color, center_front, this.cube[1][1][2].R);
                 MiniCube corner = this.cube[corner_pos[0]][corner_pos[1]][corner_pos[2]];
                 int[] edge_pos = findEdge(center_front, this.cube[1][1][2].R);
                 MiniCube edge = this.cube[edge_pos[0]][edge_pos[1]][edge_pos[2]];
-
-                Slot();
 
                 string pos_str = $"{corner_pos[0]}{corner_pos[1]}{corner_pos[2]}" +
                     $"{corner.GetColorOritentation(this.cross_color)}{corner.GetColorOritentation(center_front)} " +
@@ -834,7 +843,6 @@ namespace GAN
 
                 Rotate("y");
             }
-            Rotate("y");
         }
 
         #endregion
@@ -870,8 +878,11 @@ namespace GAN
 
         public void Solve()
         {
+            this.solution = "Cross: ";
             SolveCross();
+            this.solution += "\nF2L: ";
             SolveF2L();
+            this.solution += "\nOLL: ";
             SolveOLL();
         }
         #endregion
@@ -1736,9 +1747,9 @@ namespace GAN
         }
         #endregion
 
-        #region RotateFn
         public void Rotate(string way)
         {
+            this.solution += way + " ";
             switch (way)
             {
                 case "U":
@@ -1869,9 +1880,7 @@ namespace GAN
                     break;
             }
         }
-        #endregion
 
-        #region Face_Fn
         public int[][] Face(char face)
         {
             int[][] f = new int[3][] {
@@ -1985,6 +1994,5 @@ namespace GAN
                     return f;
             }
         }
-        #endregion
     }
 }
