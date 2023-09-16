@@ -25,6 +25,142 @@ namespace GAN
 
     public class Algorithms
     {
+        public static readonly Dictionary<string, string> F2L = new Dictionary<string, string>
+        {
+            /*
+                000 -> Corner pos
+                u/d/f/b/l/r -> Corner orientation (white pos)
+                u/d/f/b/l/r -> Corner orientation (front color pos)
+                111 -> Edge pos
+                u/d/f/b/l/r -> Edge orientation (front color pos)
+            */
+            {
+                "022fu 012u", "U R U' R'"
+            },
+            {
+                "022rf 021f", "y' U' R' U R"
+            },
+            {
+                "022fu 010l", "y' R' U' R"
+            },
+            {
+                "022rf 001u", "R U R'"
+            },
+            {
+                "022fu 001b", "U' R U' R' U y' R' U' R"
+            },
+            {
+                "022rf 010u", "U' R U R' U R U R'"
+            },
+            {
+                "022fu 012r", "U' R U2 R' U y' R' U' R"
+            },
+            {
+                "022rf 021u", "R' U2 R2 U R2 U R"
+            },
+            {
+                "022fu 021f", "y' U R' U R U' R' U' R U"
+            },
+            {
+                "022rf 012u", "U' R U' R' U R U R'"
+            },
+            {
+                "022fu 001u", "U' R U R' U2 R U' R'"
+            },
+            {
+                "022rf 010l", "y' U R' U' R U2 R' U R"
+            },
+            {
+                "022fu 010u", "U' R U2 R' U2 R U' R'"
+            },
+            {
+                "022rf 001b", "y' U R' U2 R U2 R' U R"
+            },
+            {
+                "022ur 001u", "U R U2 R' U R U' R'"
+            },
+            {
+                "022ur 010l", "y' U' R' U2 R U' R' U R"
+            },
+            {
+                "022ur 010u", "U2 R U R' U R U' R'"
+            },
+            {
+                "022ur 001b", "F' L' U2 L F"
+            },
+            {
+                "022fu 021u", "y' R' U R U2 y R U R'"
+            },
+            {
+                "022rf 012r", "R U' R' U2 y' R' U' R"
+            },
+            {
+                "022ur 012u", "R U2 R' U' R U R' "
+            },
+            {
+                "022ur 021f", "y' R' U2 R U R' U' R"
+            },
+            {
+                "022ur 021u", "U R U' R' U' R U' R' U R U' R'"
+            },
+            {
+                "022ur 012r", "y' U' R' U R U R' U R U' R' U R"
+            },
+            {
+                "222df 012u", "U' F' R U R' U' R' F R"
+            },
+            {
+                "222df 021f", "U R U' R' U' F' U F"
+            },
+            {
+                "222fr 012u", "R U' R' U R U' R'"
+            },
+            {
+                "222rd 021f", "y' R' U R U' R' U R"
+            },
+            {
+                "222fr 021f", "y' R' U' R U R' U' R"
+            },
+            {
+                "222rd 012u", "R U R' U' R U R'"
+            },
+            {
+                "022ur 122r", "R U' R' U y' R' U R"
+            },
+            {
+                "022ur 122f", "U R U' R' U R U' R' U R U' R'"
+            },
+            {
+                "022fu 122f", "U' R U' R' U2 R U' R'"
+            },
+            {
+                "022rf 122f", "U R U R' U2 R U R'"
+            },
+            {
+                "022fu 122r", "U' R U R' U y' R' U' R"
+            },
+            {
+                "022rf 122r", "U F' U' F U' R U R'"
+            },
+            {
+                "222df 122f", ""
+            },
+            {
+                "222df 122r", "R U' R' d R' U2 R U2 R' U R"
+            },
+            {
+                "222fr 122f", "R U' R' U' R U R' U2 R U' R'"
+            },
+            {
+                "222rd 122f", "R U' R' U R U2 R' U R U' R'"
+            },
+            {
+                "222fr 122r", "F' U F U2 R U R' U R U' R'"
+            },
+            {
+                "222rd 122r", "R U R' U' R U' R' U2 y' R' U' R"
+            }
+        };
 
         public static readonly Dictionary<string, string> OLL = new Dictionary<string, string>
         {
@@ -265,143 +401,6 @@ namespace GAN
             },
             {
                 "Gd", "D' R U R' U' D R2 U' R U' R' U R' U R2 U"
-            }
-        };
-
-        public static readonly Dictionary<string, string> F2L = new Dictionary<string, string>
-        {
-            /*
-                000 -> Corner pos
-                u/d/f/b/l/r -> Corner orientation (white pos)
-                u/d/f/b/l/r -> Corner orientation (front color pos)
-                111 -> Edge pos
-                u/d/f/b/l/r -> Edge orientation (front color pos)
-            */
-            {
-                "022fu 012u", "U R U' R'"
-            },
-            {
-                "022rf 021f", "y' U' R' U R"
-            },
-            {
-                "022fu 010l", "y' R' U' R"
-            },
-            {
-                "022rf 001u", "R U R'"
-            },
-            {
-                "022fu 001b", "U' R U' R' U y' R' U' R"
-            },
-            {
-                "022rf 010u", "U' R U R' U R U R'"
-            },
-            {
-                "022fu 012r", "U' R U2 R' U y' R' U' R"
-            },
-            {
-                "022rf 021u", "R' U2 R2 U R2 U R"
-            },
-            {
-                "022fu 021f", "y' U R' U R U' R' U' R U"
-            },
-            {
-                "022rf 012u", "U' R U' R' U R U R'"
-            },
-            {
-                "022fu 001u", "U' R U R' U2 R U' R'"
-            },
-            {
-                "022rf 010l", "y' U R' U' R U2 R' U R"
-            },
-            {
-                "022fu 010u", "U' R U2 R' U2 R U' R'"
-            },
-            {
-                "022rf 001b", "y' U R' U2 R U2 R' U R"
-            },
-            {
-                "022ur 001u", "U R U2 R' U R U' R'"
-            },
-            {
-                "022ur 010l", "y' U' R' U2 R U' R' U R"
-            },
-            {
-                "022ur 010u", "U2 R U R' U R U' R'"
-            },
-            {
-                "022ur 001b", "F' L' U2 L F"
-            },
-            {
-                "022fu 021u", "y' R' U R U2 y R U R'"
-            },
-            {
-                "022rf 012r", "R U' R' U2 y' R' U' R"
-            },
-            {
-                "022ur 012u", "R U2 R' U' R U R' "
-            },
-            {
-                "022ur 021f", "y' R' U2 R U R' U' R"
-            },
-            {
-                "022ur 021u", "U R U' R' U' R U' R' U R U' R'"
-            },
-            {
-                "022ur 012r", "y' U' R' U R U R' U R U' R' U R"
-            },
-            {
-                "222df 012u", "U' F' R U R' U' R' F R"
-            },
-            {
-                "222df 021f", "U R U' R' U' F' U F"
-            },
-            {
-                "222fr 012u", "R U' R' U R U' R'"
-            },
-            {
-                "222rd 021f", "y' R' U R U' R' U R"
-            },
-            {
-                "222fr 021f", "y' R' U' R U R' U' R"
-            },
-            {
-                "222rd 012u", "R U R' U' R U R'"
-            },
-            {
-                "022ur 122r", "R U' R' U y' R' U R"
-            },
-            {
-                "022ur 122f", "U R U' R' U R U' R' U R U' R'"
-            },
-            {
-                "022fu 122f", "U' R U' R' U2 R U' R'"
-            },
-            {
-                "022rf 122f", "U R U R' U2 R U R'"
-            },
-            {
-                "022fu 122r", "U' R U R' U y' R' U' R"
-            },
-            {
-                "022rf 122r", "U F' U' F U' R U R'"
-            },
-            {
-                "222df 122f", ""
-            },
-            {
-                "222df 122r", "R U' R' d R' U2 R U2 R' U R"
-            },
-            {
-                "222fr 122f", "R U' R' U' R U R' U2 R U' R'"
-            },
-            {
-                "222rd 122f", "R U' R' U R U2 R' U R U' R'"
-            },
-            {
-                "222fr 122r", "F' U F U2 R U R' U R U' R'"
-            },
-            {
-                "222rd 122r", "R U R' U' R U' R' U2 y' R' U' R"
             }
         };
     }
@@ -840,10 +839,40 @@ namespace GAN
 
         #endregion
 
+        #region OLL
+
+        void SolveOLL()
+        {
+            string oll_case;
+
+            do
+            {
+                Rotate("U");
+                oll_case = "";
+                foreach (MiniCube[] line in this.cube[0])
+                {
+                    foreach (MiniCube cube in line)
+                    {
+                        oll_case += cube.GetColorOritentation(this.cube[0][1][1].U);
+                    }
+                    oll_case += " ";
+                }
+                oll_case = oll_case.Trim();
+            } while (!Algorithms.OLL.ContainsKey(oll_case));
+
+            foreach (string move in Algorithms.OLL[oll_case].Split(' '))
+            {
+                Rotate(move);
+            }
+        }
+
+        #endregion
+
         public void Solve()
         {
             SolveCross();
             SolveF2L();
+            SolveOLL();
         }
         #endregion
 
