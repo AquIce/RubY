@@ -885,17 +885,19 @@ namespace GAN
                 (this.cube[0][2][0].F == this.cube[1][2][1].F && this.cube[0][2][2].F == this.cube[1][2][1].F) && // Front corners
                 (this.cube[0][2][2].R == this.cube[1][1][2].R && this.cube[0][0][2].R == this.cube[1][1][2].R) && // Right corners
                 (this.cube[0][0][2].B == this.cube[1][0][1].B && this.cube[0][0][0].B == this.cube[1][0][1].B) // Back corners
-                ) {
+            ) {
                 if (
-                (this.cube[0][2][0].F == this.cube[1][2][1].F) && (this.cube[0][2][1].F == this.cube[1][2][1].F) && (this.cube[0][2][2].F == this.cube[1][2][1].F) && // Bar in the front
-                (this.cube[0][0][2].R == this.cube[1][1][2].R) && (this.cube[0][1][2].R == this.cube[1][1][2].R) && // Two headlights on the right
-                (this.cube[0][1][2].R == this.cube[1][0][1].B) // Middle of the headlights from the back
-            ) { return "Ua"; }
+                    this.cube[0][2][1].F == this.cube[1][2][1].F && // Bar in the front
+                    this.cube[0][1][2].R == this.cube[1][0][1].B // Middle of the headlights from the back
+                ) { return "Ua"; }
                 if (
-                    (this.cube[0][2][0].F == this.cube[1][2][1].F) && (this.cube[0][2][1].F == this.cube[1][2][1].F) && (this.cube[0][2][2].F == this.cube[1][2][1].F) && // Bar in the front
-                    (this.cube[0][0][2].R == this.cube[1][1][2].R) && (this.cube[0][1][2].R == this.cube[1][1][2].R) && // Two headlights on the right
-                    (this.cube[0][1][2].R == this.cube[1][1][0].L) // Middle of the headlights from the left
+                    this.cube[0][2][1].F == this.cube[1][2][1].F && // Bar in the front
+                    this.cube[0][1][2].R == this.cube[1][1][0].L // Middle of the headlights from the left
                 ) { return "Ub"; }
+                if(
+                    this.cube[0][2][1].F == this.cube[1][0][1].B && // Front - back
+                    this.cube[0][1][2].R == this.cube[1][1][0].L // Right left
+                ) { return "H";  }
             }
         }
 
