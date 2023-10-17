@@ -1,0 +1,549 @@
+### YamlMime:ManagedReference
+items:
+- uid: GAN.Cube
+  commentId: T:GAN.Cube
+  id: Cube
+  parent: GAN
+  children:
+  - GAN.Cube.Face(System.Char)
+  - GAN.Cube.Rotate(System.String)
+  - GAN.Cube.solution
+  - GAN.Cube.Solve
+  langs:
+  - csharp
+  - vb
+  name: Cube
+  nameWithType: Cube
+  fullName: GAN.Cube
+  type: Class
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: Cube
+    path: Cube.cs
+    startLine: 604
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nClasse représentant un Rubik&apos;s Cube\n"
+  example: []
+  syntax:
+    content: public class Cube
+    content.vb: Public Class Cube
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: GAN.Cube.solution
+  commentId: F:GAN.Cube.solution
+  id: solution
+  parent: GAN.Cube
+  langs:
+  - csharp
+  - vb
+  name: solution
+  nameWithType: Cube.solution
+  fullName: GAN.Cube.solution
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: solution
+    path: Cube.cs
+    startLine: 609
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nSuite de rotations effectuées sur le Rubik&apos;s Cube pour le résoudre\n"
+  example: []
+  syntax:
+    content: public string solution
+    return:
+      type: System.String
+    content.vb: Public solution As String
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.Cube.Solve
+  commentId: M:GAN.Cube.Solve
+  id: Solve
+  parent: GAN.Cube
+  langs:
+  - csharp
+  - vb
+  name: Solve()
+  nameWithType: Cube.Solve()
+  fullName: GAN.Cube.Solve()
+  type: Method
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: Solve
+    path: Cube.cs
+    startLine: 1040
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nRésoudre le Rubik&apos;s Cube\n"
+  example: []
+  syntax:
+    content: public void Solve()
+    content.vb: Public Sub Solve
+  overload: GAN.Cube.Solve*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.Cube.Rotate(System.String)
+  commentId: M:GAN.Cube.Rotate(System.String)
+  id: Rotate(System.String)
+  parent: GAN.Cube
+  langs:
+  - csharp
+  - vb
+  name: Rotate(String)
+  nameWithType: Cube.Rotate(String)
+  fullName: GAN.Cube.Rotate(System.String)
+  type: Method
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: Rotate
+    path: Cube.cs
+    startLine: 1918
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nFait le Rubik&apos;s Cube\n"
+  example: []
+  syntax:
+    content: public void Rotate(string way)
+    parameters:
+    - id: way
+      type: System.String
+      description: Le type de rotation, en notation algorithmique
+    content.vb: Public Sub Rotate(way As String)
+  overload: GAN.Cube.Rotate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.Cube.Face(System.Char)
+  commentId: M:GAN.Cube.Face(System.Char)
+  id: Face(System.Char)
+  parent: GAN.Cube
+  langs:
+  - csharp
+  - vb
+  name: Face(Char)
+  nameWithType: Cube.Face(Char)
+  fullName: GAN.Cube.Face(System.Char)
+  type: Method
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: Face
+    path: Cube.cs
+    startLine: 2058
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nReprésentation numérique de la face demandée\n"
+  example: []
+  syntax:
+    content: public int[][] Face(char face)
+    parameters:
+    - id: face
+      type: System.Char
+      description: Face concernée
+    return:
+      type: System.Int32[][]
+      description: La représentation numérique
+    content.vb: Public Function Face(face As Char) As Integer()()
+  overload: GAN.Cube.Face*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: GAN
+  commentId: N:GAN
+  name: GAN
+  nameWithType: GAN
+  fullName: GAN
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: GAN.Cube.Solve*
+  commentId: Overload:GAN.Cube.Solve
+  name: Solve
+  nameWithType: Cube.Solve
+  fullName: GAN.Cube.Solve
+- uid: GAN.Cube.Rotate*
+  commentId: Overload:GAN.Cube.Rotate
+  name: Rotate
+  nameWithType: Cube.Rotate
+  fullName: GAN.Cube.Rotate
+- uid: GAN.Cube.Face*
+  commentId: Overload:GAN.Cube.Face
+  name: Face
+  nameWithType: Cube.Face
+  fullName: GAN.Cube.Face
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  name: Char
+  nameWithType: Char
+  fullName: System.Char
+- uid: System.Int32[][]
+  isExternal: true
+  name: Int32[][]
+  nameWithType: Int32[][]
+  fullName: System.Int32[][]
+  nameWithType.vb: Int32()()
+  fullName.vb: System.Int32()()
+  name.vb: Int32()()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ()
+    nameWithType: ()
+    fullName: ()

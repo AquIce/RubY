@@ -1,0 +1,928 @@
+### YamlMime:ManagedReference
+items:
+- uid: GAN.MiniCube
+  commentId: T:GAN.MiniCube
+  id: MiniCube
+  parent: GAN
+  children:
+  - GAN.MiniCube.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  - GAN.MiniCube.B
+  - GAN.MiniCube.Clone
+  - GAN.MiniCube.Colors
+  - GAN.MiniCube.D
+  - GAN.MiniCube.F
+  - GAN.MiniCube.GetColorOritentation(System.Int32)
+  - GAN.MiniCube.L
+  - GAN.MiniCube.R
+  - GAN.MiniCube.Turn(System.String)
+  - GAN.MiniCube.U
+  langs:
+  - csharp
+  - vb
+  name: MiniCube
+  nameWithType: MiniCube
+  fullName: GAN.MiniCube
+  type: Class
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: MiniCube
+    path: Cube.cs
+    startLine: 453
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nClasse représentant un mini cube (27 composent un Rubik&apos;s Cube)\n"
+  example: []
+  syntax:
+    content: 'public class MiniCube : ICloneable'
+    content.vb: >-
+      Public Class MiniCube
+          Implements ICloneable
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: GAN.MiniCube.U
+  commentId: F:GAN.MiniCube.U
+  id: U
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: U
+  nameWithType: MiniCube.U
+  fullName: GAN.MiniCube.U
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: U
+    path: Cube.cs
+    startLine: 458
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nLa face supérieure\n"
+  example: []
+  syntax:
+    content: public int U
+    return:
+      type: System.Int32
+    content.vb: Public U As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.D
+  commentId: F:GAN.MiniCube.D
+  id: D
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: D
+  nameWithType: MiniCube.D
+  fullName: GAN.MiniCube.D
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: D
+    path: Cube.cs
+    startLine: 462
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nLa face inférieure\n"
+  example: []
+  syntax:
+    content: public int D
+    return:
+      type: System.Int32
+    content.vb: Public D As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.F
+  commentId: F:GAN.MiniCube.F
+  id: F
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: F
+  nameWithType: MiniCube.F
+  fullName: GAN.MiniCube.F
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: F
+    path: Cube.cs
+    startLine: 466
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nLa face frontale\n"
+  example: []
+  syntax:
+    content: public int F
+    return:
+      type: System.Int32
+    content.vb: Public F As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.B
+  commentId: F:GAN.MiniCube.B
+  id: B
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: B
+  nameWithType: MiniCube.B
+  fullName: GAN.MiniCube.B
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: B
+    path: Cube.cs
+    startLine: 470
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nLa face arrière\n"
+  example: []
+  syntax:
+    content: public int B
+    return:
+      type: System.Int32
+    content.vb: Public B As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.L
+  commentId: F:GAN.MiniCube.L
+  id: L
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: L
+  nameWithType: MiniCube.L
+  fullName: GAN.MiniCube.L
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: L
+    path: Cube.cs
+    startLine: 474
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nFace gauche\n"
+  example: []
+  syntax:
+    content: public int L
+    return:
+      type: System.Int32
+    content.vb: Public L As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.R
+  commentId: F:GAN.MiniCube.R
+  id: R
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: R
+  nameWithType: MiniCube.R
+  fullName: GAN.MiniCube.R
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: R
+    path: Cube.cs
+    startLine: 478
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nFace droite\n"
+  example: []
+  syntax:
+    content: public int R
+    return:
+      type: System.Int32
+    content.vb: Public R As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:GAN.MiniCube.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)'
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: MiniCube(Int32, Int32, Int32, Int32, Int32, Int32)
+  nameWithType: MiniCube.MiniCube(Int32, Int32, Int32, Int32, Int32, Int32)
+  fullName: GAN.MiniCube.MiniCube(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: .ctor
+    path: Cube.cs
+    startLine: 489
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nCrée un minicube avec les couleurs spécifiées\n"
+  example: []
+  syntax:
+    content: public MiniCube(int U, int D, int F, int B, int L, int R)
+    parameters:
+    - id: U
+      type: System.Int32
+      description: Couleur de la face supérieure
+    - id: D
+      type: System.Int32
+      description: Couleur de la face inférieure
+    - id: F
+      type: System.Int32
+      description: Couleur de la face frontale
+    - id: B
+      type: System.Int32
+      description: Couleur de la face arrière
+    - id: L
+      type: System.Int32
+      description: Couleur de la face gauche
+    - id: R
+      type: System.Int32
+      description: Couleur de la face droite
+    content.vb: Public Sub New(U As Integer, D As Integer, F As Integer, B As Integer, L As Integer, R As Integer)
+  overload: GAN.MiniCube.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.Clone
+  commentId: M:GAN.MiniCube.Clone
+  id: Clone
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: MiniCube.Clone()
+  fullName: GAN.MiniCube.Clone()
+  type: Method
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: Clone
+    path: Cube.cs
+    startLine: 503
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nClone le mini cube\n"
+  example: []
+  syntax:
+    content: public object Clone()
+    return:
+      type: System.Object
+      description: ''
+    content.vb: Public Function Clone As Object
+  overload: GAN.MiniCube.Clone*
+  implements:
+  - System.ICloneable.Clone
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.Turn(System.String)
+  commentId: M:GAN.MiniCube.Turn(System.String)
+  id: Turn(System.String)
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: Turn(String)
+  nameWithType: MiniCube.Turn(String)
+  fullName: GAN.MiniCube.Turn(System.String)
+  type: Method
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: Turn
+    path: Cube.cs
+    startLine: 512
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nEffectue une rotation sur le mini cube\n"
+  example: []
+  syntax:
+    content: public void Turn(string way)
+    parameters:
+    - id: way
+      type: System.String
+      description: Le type de rotation, en notation algorithmique
+    content.vb: Public Sub Turn(way As String)
+  overload: GAN.MiniCube.Turn*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.Colors
+  commentId: M:GAN.MiniCube.Colors
+  id: Colors
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: Colors()
+  nameWithType: MiniCube.Colors()
+  fullName: GAN.MiniCube.Colors()
+  type: Method
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: Colors
+    path: Cube.cs
+    startLine: 572
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nRetourne la liste des couleurs du mini cube\n"
+  example: []
+  syntax:
+    content: public List<int> Colors()
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+      description: Liste des couleurs
+    content.vb: Public Function Colors As List(Of Integer)
+  overload: GAN.MiniCube.Colors*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GAN.MiniCube.GetColorOritentation(System.Int32)
+  commentId: M:GAN.MiniCube.GetColorOritentation(System.Int32)
+  id: GetColorOritentation(System.Int32)
+  parent: GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: GetColorOritentation(Int32)
+  nameWithType: MiniCube.GetColorOritentation(Int32)
+  fullName: GAN.MiniCube.GetColorOritentation(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: GetColorOritentation
+    path: Cube.cs
+    startLine: 589
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nRetourne la face du mini cube sur laquelle se trouve une certaine couleur\n"
+  example: []
+  syntax:
+    content: public char GetColorOritentation(int color)
+    parameters:
+    - id: color
+      type: System.Int32
+      description: La couleur à chercher
+    return:
+      type: System.Char
+      description: La face sur laquelle se trouve la couleur
+    content.vb: Public Function GetColorOritentation(color As Integer) As Char
+  overload: GAN.MiniCube.GetColorOritentation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: GAN
+  commentId: N:GAN
+  name: GAN
+  nameWithType: GAN
+  fullName: GAN
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.ICloneable
+  commentId: T:System.ICloneable
+  parent: System
+  isExternal: true
+  name: ICloneable
+  nameWithType: ICloneable
+  fullName: System.ICloneable
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: GAN.MiniCube.#ctor*
+  commentId: Overload:GAN.MiniCube.#ctor
+  name: MiniCube
+  nameWithType: MiniCube.MiniCube
+  fullName: GAN.MiniCube.MiniCube
+- uid: GAN.MiniCube.Clone*
+  commentId: Overload:GAN.MiniCube.Clone
+  name: Clone
+  nameWithType: MiniCube.Clone
+  fullName: GAN.MiniCube.Clone
+- uid: System.ICloneable.Clone
+  commentId: M:System.ICloneable.Clone
+  parent: System.ICloneable
+  isExternal: true
+  name: Clone()
+  nameWithType: ICloneable.Clone()
+  fullName: System.ICloneable.Clone()
+  spec.csharp:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    nameWithType: ICloneable.Clone
+    fullName: System.ICloneable.Clone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ICloneable.Clone
+    name: Clone
+    nameWithType: ICloneable.Clone
+    fullName: System.ICloneable.Clone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GAN.MiniCube.Turn*
+  commentId: Overload:GAN.MiniCube.Turn
+  name: Turn
+  nameWithType: MiniCube.Turn
+  fullName: GAN.MiniCube.Turn
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: GAN.MiniCube.Colors*
+  commentId: Overload:GAN.MiniCube.Colors
+  name: Colors
+  nameWithType: MiniCube.Colors
+  fullName: GAN.MiniCube.Colors
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: GAN.MiniCube.GetColorOritentation*
+  commentId: Overload:GAN.MiniCube.GetColorOritentation
+  name: GetColorOritentation
+  nameWithType: MiniCube.GetColorOritentation
+  fullName: GAN.MiniCube.GetColorOritentation
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  name: Char
+  nameWithType: Char
+  fullName: System.Char

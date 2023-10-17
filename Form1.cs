@@ -243,7 +243,6 @@ namespace RubY
         {
             string move = ((Button)sender).Text;
             this.cube.Rotate(move);
-            this.cube.moves.Add(move);
             Apply();
         }
 
@@ -263,6 +262,8 @@ namespace RubY
             int last = -1;
             int move = -1;
 
+            lblScramble.Text = "";
+
             for (int i = 0; i < 20; i++)
             {
                 while (move == last)
@@ -273,13 +274,8 @@ namespace RubY
                 last = move;
                 Random rnd_ = new Random();
                 string mv = moves[move][rnd_.Next(3)];
-                this.cube.moves.Add(mv);
-                cube.Rotate(mv);
-            }
-            lblScramble.Text = "";
-            foreach(string mv in this.cube.moves)
-            {
                 lblScramble.Text += mv + " ";
+                cube.Rotate(mv);
             }
             Apply();
         }
@@ -288,7 +284,6 @@ namespace RubY
         {
             NewCube();
             lblScramble.Text = "Press Scramble to get a scramble";
-            this.cube.moves = new List<string>();
         }
 
         private void btnSolve_Click(object sender, EventArgs e)
@@ -296,6 +291,7 @@ namespace RubY
             this.cube.Solve();
             //lblScramble.Text = "Press Scramble to get a scramble";
             Apply();
+            MessageBox.Show(this.cube.solution);
         }
     }
 }

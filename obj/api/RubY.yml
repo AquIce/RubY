@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: RubY
+  commentId: N:RubY
+  id: RubY
+  children:
+  - RubY.Form1
+  langs:
+  - csharp
+  - vb
+  name: RubY
+  nameWithType: RubY
+  fullName: RubY
+  type: Namespace
+  assemblies:
+  - RubY
+references:
+- uid: RubY.Form1
+  commentId: T:RubY.Form1
+  name: Form1
+  nameWithType: Form1
+  fullName: RubY.Form1

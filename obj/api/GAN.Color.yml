@@ -1,0 +1,604 @@
+### YamlMime:ManagedReference
+items:
+- uid: GAN.Color
+  commentId: T:GAN.Color
+  id: Color
+  parent: GAN
+  children:
+  - GAN.Color.BLUE
+  - GAN.Color.GREEN
+  - GAN.Color.NONE
+  - GAN.Color.ORANGE
+  - GAN.Color.RED
+  - GAN.Color.WHITE
+  - GAN.Color.YELLOW
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: Color
+  fullName: GAN.Color
+  type: Class
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: Color
+    path: Cube.cs
+    startLine: 17
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nClasse statique contenant les id des couleurs\n"
+  example: []
+  syntax:
+    content: public static class Color
+    content.vb: Public Module Color
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: GAN.Color.NONE
+  commentId: F:GAN.Color.NONE
+  id: NONE
+  parent: GAN.Color
+  langs:
+  - csharp
+  - vb
+  name: NONE
+  nameWithType: Color.NONE
+  fullName: GAN.Color.NONE
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: NONE
+    path: Cube.cs
+    startLine: 22
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nAucune couleur\n"
+  example: []
+  syntax:
+    content: public const int NONE = -1
+    return:
+      type: System.Int32
+    content.vb: Public Const NONE As Integer = -1
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: GAN.Color.WHITE
+  commentId: F:GAN.Color.WHITE
+  id: WHITE
+  parent: GAN.Color
+  langs:
+  - csharp
+  - vb
+  name: WHITE
+  nameWithType: Color.WHITE
+  fullName: GAN.Color.WHITE
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: WHITE
+    path: Cube.cs
+    startLine: 26
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nBlanc\n"
+  example: []
+  syntax:
+    content: public const int WHITE = 0
+    return:
+      type: System.Int32
+    content.vb: Public Const WHITE As Integer = 0
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: GAN.Color.GREEN
+  commentId: F:GAN.Color.GREEN
+  id: GREEN
+  parent: GAN.Color
+  langs:
+  - csharp
+  - vb
+  name: GREEN
+  nameWithType: Color.GREEN
+  fullName: GAN.Color.GREEN
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: GREEN
+    path: Cube.cs
+    startLine: 30
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nVert\n"
+  example: []
+  syntax:
+    content: public const int GREEN = 1
+    return:
+      type: System.Int32
+    content.vb: Public Const GREEN As Integer = 1
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: GAN.Color.ORANGE
+  commentId: F:GAN.Color.ORANGE
+  id: ORANGE
+  parent: GAN.Color
+  langs:
+  - csharp
+  - vb
+  name: ORANGE
+  nameWithType: Color.ORANGE
+  fullName: GAN.Color.ORANGE
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: ORANGE
+    path: Cube.cs
+    startLine: 34
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nOrange\n"
+  example: []
+  syntax:
+    content: public const int ORANGE = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const ORANGE As Integer = 2
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: GAN.Color.BLUE
+  commentId: F:GAN.Color.BLUE
+  id: BLUE
+  parent: GAN.Color
+  langs:
+  - csharp
+  - vb
+  name: BLUE
+  nameWithType: Color.BLUE
+  fullName: GAN.Color.BLUE
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: BLUE
+    path: Cube.cs
+    startLine: 38
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nBleu\n"
+  example: []
+  syntax:
+    content: public const int BLUE = 3
+    return:
+      type: System.Int32
+    content.vb: Public Const BLUE As Integer = 3
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: GAN.Color.RED
+  commentId: F:GAN.Color.RED
+  id: RED
+  parent: GAN.Color
+  langs:
+  - csharp
+  - vb
+  name: RED
+  nameWithType: Color.RED
+  fullName: GAN.Color.RED
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: RED
+    path: Cube.cs
+    startLine: 42
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nRouge\n"
+  example: []
+  syntax:
+    content: public const int RED = 4
+    return:
+      type: System.Int32
+    content.vb: Public Const RED As Integer = 4
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: GAN.Color.YELLOW
+  commentId: F:GAN.Color.YELLOW
+  id: YELLOW
+  parent: GAN.Color
+  langs:
+  - csharp
+  - vb
+  name: YELLOW
+  nameWithType: Color.YELLOW
+  fullName: GAN.Color.YELLOW
+  type: Field
+  source:
+    remote:
+      path: file:///M:/CPNE/3INF-3TPKa/PRA-C#/RubY/Cube.cs
+      branch: main
+      repo: https://github.com/AquIce/RubY
+    id: YELLOW
+    path: Cube.cs
+    startLine: 46
+  assemblies:
+  - RubY
+  namespace: GAN
+  summary: "\nJaune\n"
+  example: []
+  syntax:
+    content: public const int YELLOW = 5
+    return:
+      type: System.Int32
+    content.vb: Public Const YELLOW As Integer = 5
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: GAN
+  commentId: N:GAN
+  name: GAN
+  nameWithType: GAN
+  fullName: GAN
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

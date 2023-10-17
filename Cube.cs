@@ -12,19 +12,49 @@ using System.Windows.Forms;
 
 namespace GAN
 {
+    /// <summary>
+    /// Classe statique contenant les id des couleurs
+    /// </summary>
     public static class Color
     {
+        /// <summary>
+        /// Aucune couleur
+        /// </summary>
         public const int NONE = -1;
+        /// <summary>
+        /// Blanc
+        /// </summary>
         public const int WHITE = 0;
+        /// <summary>
+        /// Vert
+        /// </summary>
         public const int GREEN = 1;
+        /// <summary>
+        /// Orange
+        /// </summary>
         public const int ORANGE = 2;
+        /// <summary>
+        /// Bleu
+        /// </summary>
         public const int BLUE = 3;
+        /// <summary>
+        /// Rouge
+        /// </summary>
         public const int RED = 4;
+        /// <summary>
+        /// Jaune
+        /// </summary>
         public const int YELLOW = 5;
     }
 
+    /// <summary>
+    /// Classe statique contenant les algorithmes nécessaires à la résolution du Rubik's Cube
+    /// </summary>
     public class Algorithms
     {
+        /// <summary>
+        /// Algorithmes pour les cas F2L
+        /// </summary>
         public static readonly Dictionary<string, string> F2L = new Dictionary<string, string>
         {
             /*
@@ -163,6 +193,9 @@ namespace GAN
             }
         };
 
+        /// <summary>
+        /// Algorithmes pour les cas OLL
+        /// </summary>
         public static readonly Dictionary<string, string> OLL = new Dictionary<string, string>
         {
             {
@@ -175,7 +208,7 @@ namespace GAN
                 "bub uuu fuf", "R U2 R' U' R U R' U' R U' R'"
             },
             {
-                "buu uuu fuu", "r U R' U' r r r  F R F'"
+                "buu uuu fuu", "r U R' U' r r r F R F'"
             },
             {
                 "uuu uuu fuf", "R2 D R' U2 R D' R' U2 R'"
@@ -187,7 +220,7 @@ namespace GAN
                 "lub uuu luf", "R U2 R2 U' R2 U' R2 U2 R"
             },
             {
-                "uur uuu fuu", "y F' r U R' U' r r r  F R"
+                "uur uuu fuu", "y F' r U R' U' r r r F R"
             },
             {
                 "bbu uuu ffu", "R U R' U' R' F R F'"
@@ -196,10 +229,10 @@ namespace GAN
                 "lbu uuu lfu", "F R U R' U' F'"
             },
             {
-                "bbr luu luu", "r r r  U2 R U R' U r"
+                "bbr luu luu", "r r r U2 R U R' U r"
             },
             {
-                "luu luu ffr", "r U2 R' U' R U' r r r "
+                "luu luu ffr", "r U2 R' U' R U' r r r"
             },
             {
                 "lbr uuu ufu", "R U R2 U' R' F R U R U' F'"
@@ -217,7 +250,7 @@ namespace GAN
                 "uuu uur ufu", "r U R' U' M U R U' R'"
             },
             {
-                "ubu uuu ufu", "R U R' U' M' U R U' r r r "
+                "ubu uuu ufu", "R U R' U' M' U R U' r r r"
             },
             {
                 "buu luu ffu", "R' U' F U R U' R' F' R"
@@ -241,7 +274,7 @@ namespace GAN
                 "lbr uuu lfr", "y R' F R U R U' R2 F' R2 U' R' U R U R'"
             },
             {
-                "lur lur lur", "r r r  U' r U' R' U R U' R' U R r r r  U r"
+                "lur lur lur", "r r r U' r U' R' U R U' R' U R r r r U r"
             },
             {
                 "lub uur ffu", "R U R' U' R' F R2 U R' U' F'"
@@ -256,16 +289,16 @@ namespace GAN
                 "uur uur ffu", "F R U' R' U' R U R' F'"
             },
             {
-                "bbr uuu uff", "r U' r r r  U' r U r r r  y' R' U R"
+                "bbr uuu uff", "r U' r r r U' r U r r r y' R' U R"
             },
             {
                 "lbb uuu ffu", "R' F R U R' F' R F U' F'"
             },
             {
-                "bbr uuu lfu", "r r r  U' r R' U' R U r r r  U r"
+                "bbr uuu lfu", "r r r U' r R' U' R U r r r U r"
             },
             {
-                "lbu uuu ffr", "r U r r r  R U R' U' r U' r r r "
+                "lbu uuu ffr", "r U r r r R U R' U' r U' r r r"
             },
             {
                 "ubu uur lur", "y R U R' U' R U' R' F' U' F R U R'"
@@ -289,22 +322,22 @@ namespace GAN
                 "lub luu lff", "r U' r r U r r U r r U' r"
             },
             {
-                "lbb luu luf", "r r r  U r r U' r r U' r r U r r r "
+                "lbb luu luf", "r r r U r r U' r r U' r r U r r r"
             },
             {
-                "lbr luu lur", "r r r  U' R U' R' U R U' R' U2 r"
+                "lbr luu lur", "r r r U' R U' R' U R U' R' U2 r"
             },
             {
-                "lur luu lfr", "r U R' U R U' R' U R U2 r r r "
+                "lur luu lfr", "r U R' U R U' R' U R U2 r r r"
             },
             {
-                "bur uur uff", "r U R' U R U2 r r r "
+                "bur uur uff", "r U R' U R U2 r r r"
             },
             {
-                "ubb uur fur", "r r r  U' R U' R' U2 r"
+                "ubb uur fur", "r r r U' R U' R' U2 r"
             },
             {
-                "bbr luu uuf", "r r r  R2 U R' U R U2 R' U M'"
+                "bbr luu uuf", "r r r R2 U R' U R U2 R' U M'"
             },
             {
                 "uub luu ffr", "M' R' U' R U' R' U2 R U' M\r\n"
@@ -331,18 +364,24 @@ namespace GAN
                 "ubb lur lfu", "R U R' U R' F R F' U2 R' F R F'"
             },
             {
-                "ubu lur fff", "y R U2 R2 F R F' U2 M' U R U' r r r "
+                "ubu lur fff", "y R U2 R2 F R F' U2 M' U R U' r r r"
             },
             {
                 "ubu lur lfr", "M U R U R' U' M' R' F R F'"
             },
             {
-                "ubu lur ufu", "M U R U R' U' M2 U R U' r r r "
+                "ubu lur ufu", "M U R U R' U' M2 U R U' r r r"
             }
         };
 
+        /// <summary>
+        /// Algorithmes pour les cas PLL
+        /// </summary>
         public static readonly Dictionary<string, string> PLL = new Dictionary<string, string>
         {
+            {
+                "-", "U'" // To cancel recognition U
+            },
             {
                 "Ua", "R U' R U R U R U' R' U' R2"
             },
@@ -409,15 +448,45 @@ namespace GAN
         };
     }
 
+    /// <summary>
+    /// Classe représentant un mini cube (27 composent un Rubik's Cube)
+    /// </summary>
     public class MiniCube : ICloneable
     {
+        /// <summary>
+        /// La face supérieure
+        /// </summary>
         public int U;
+        /// <summary>
+        /// La face inférieure
+        /// </summary>
         public int D;
+        /// <summary>
+        /// La face frontale
+        /// </summary>
         public int F;
+        /// <summary>
+        /// La face arrière
+        /// </summary>
         public int B;
+        /// <summary>
+        /// Face gauche
+        /// </summary>
         public int L;
+        /// <summary>
+        /// Face droite
+        /// </summary>
         public int R;
 
+        /// <summary>
+        /// Crée un minicube avec les couleurs spécifiées
+        /// </summary>
+        /// <param name="U">Couleur de la face supérieure</param>
+        /// <param name="D">Couleur de la face inférieure</param>
+        /// <param name="F">Couleur de la face frontale</param>
+        /// <param name="B">Couleur de la face arrière</param>
+        /// <param name="L">Couleur de la face gauche</param>
+        /// <param name="R">Couleur de la face droite</param>
         public MiniCube(int U, int D, int F, int B, int L, int R)
         {
             this.U = U;
@@ -428,11 +497,19 @@ namespace GAN
             this.R = R;
         }
 
+        /// <summary>
+        /// Clone le mini cube
+        /// </summary>
+        /// <returns></returns>
         public object Clone()
         {
             return MemberwiseClone();
         }
 
+        /// <summary>
+        /// Effectue une rotation sur le mini cube
+        /// </summary>
+        /// <param name="way">Le type de rotation, en notation algorithmique</param>
         public void Turn(string way)
         {
             int tmp;
@@ -489,6 +566,10 @@ namespace GAN
             }
         }
 
+        /// <summary>
+        /// Retourne la liste des couleurs du mini cube
+        /// </summary>
+        /// <returns>Liste des couleurs</returns>
         public List<int> Colors()
         {
             List<int> ints = new List<int>();
@@ -501,6 +582,11 @@ namespace GAN
             return ints;
         }
 
+        /// <summary>
+        /// Retourne la face du mini cube sur laquelle se trouve une certaine couleur
+        /// </summary>
+        /// <param name="color">La couleur à chercher</param>
+        /// <returns>La face sur laquelle se trouve la couleur</returns>
         public char GetColorOritentation(int color)
         {
             if (this.U == color) return 'u';
@@ -513,10 +599,15 @@ namespace GAN
         }
     }
 
-
+    /// <summary>
+    /// Classe représentant un Rubik's Cube
+    /// </summary>
     public class Cube
     {
-        public List<string> moves = new List<string> { };
+        /// <summary>
+        /// Suite de rotations effectuées sur le Rubik's Cube pour le résoudre
+        /// </summary>
+        public string solution = "";
 
         private MiniCube[][][] cube = new MiniCube[][][]
         {
@@ -585,14 +676,14 @@ namespace GAN
             },
         };
 
-        public string solution = "";
-
         #region Solving
 
-        int cross_color = Color.NONE;
+        private int cross_color = Color.NONE;
 
-        #region Finding
-        int[] findCenter(int color)
+        private List<string> moves = new List<string>();
+
+        #region Find Pieces
+        private int[] findCenter(int color)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -611,7 +702,7 @@ namespace GAN
             return new int[] { -1, -1, -1 };
         }
 
-        int[] findEdge(int color1, int color2)
+        private int[] findEdge(int color1, int color2)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -630,7 +721,7 @@ namespace GAN
             return new int[] { -1, -1, -1 };
         }
 
-        int[] findCorner(int color1, int color2, int color3)
+        private int[] findCorner(int color1, int color2, int color3)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -664,11 +755,11 @@ namespace GAN
         private int[] SideColors() => new int[4] { this.cube[1][0][1].B, this.cube[1][2][1].F, this.cube[1][1][0].L, this.cube[1][1][2].R };
 
 
-        bool IsAdjacent(int[] pos1, int[] pos2) => ((pos1[0] == pos2[0] + 1 || pos1[0] == pos2[0] - 1) && pos1[1] == pos2[1] && pos1[2] == pos2[2]) ||
+        private bool IsAdjacent(int[] pos1, int[] pos2) => ((pos1[0] == pos2[0] + 1 || pos1[0] == pos2[0] - 1) && pos1[1] == pos2[1] && pos1[2] == pos2[2]) ||
                 ((pos1[1] == pos2[1] + 1 || pos1[1] == pos2[1] - 1) && pos1[0] == pos2[0] && pos1[2] == pos2[2]) ||
                 ((pos1[2] == pos2[2] + 1 || pos1[2] == pos2[2] - 1) && pos1[0] == pos2[0] && pos1[1] == pos2[1]);
 
-        bool IsCrossEdgeRightPlaced(int[] pos)
+        private bool IsCrossEdgeRightPlaced(int[] pos)
         {
             foreach (int color in this.cube[pos[0]][pos[1]][pos[2]].Colors())
             {
@@ -677,13 +768,13 @@ namespace GAN
             return true;
         }
 
-        bool IsCrossEdgeRightOriented(int[] pos)
+        private bool IsCrossEdgeRightOriented(int[] pos)
         {
             if (!IsCrossEdgeRightPlaced(pos)) return false;
             return this.cube[pos[0]][pos[1]][pos[2]].D == cross_color;
         }
 
-        void FlipCrossEdge() // Must be Front Center Down
+        private void FlipCrossEdge() // Must be Front Center Down
         {
             this.Rotate("F");
             this.Rotate("D'");
@@ -691,7 +782,7 @@ namespace GAN
             this.Rotate("D");
         }
 
-        public void SolveCross()
+        private void SolveCross()
         {
             if (IsCrossDone()) return;
 
@@ -800,7 +891,7 @@ namespace GAN
             PrepareSlot(corner_pos);
         }
 
-        public void SolveF2L()
+        private void SolveF2L()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -878,38 +969,78 @@ namespace GAN
 
         #region PLL
 
-        string RecognitionKey()
+        private string PLLRecognitionKey()
         {
+            // Solved
+            if(
+                (this.cube[0][0][0].B == this.cube[0][0][1].B && this.cube[0][0][1].B == this.cube[0][0][2].B) && // Back bar
+                (this.cube[0][2][0].F == this.cube[0][2][1].F && this.cube[0][2][1].F == this.cube[0][2][2].F) // Front bar
+            ) { return "-"; }
             // EPLL
-            if (
-                (this.cube[0][2][0].F == this.cube[1][2][1].F && this.cube[0][2][2].F == this.cube[1][2][1].F) && // Front corners
-                (this.cube[0][2][2].R == this.cube[1][1][2].R && this.cube[0][0][2].R == this.cube[1][1][2].R) && // Right corners
-                (this.cube[0][0][2].B == this.cube[1][0][1].B && this.cube[0][0][0].B == this.cube[1][0][1].B) // Back corners
+            if(
+                this.cube[0][0][0].B == this.cube[0][0][2].B &&// Back corners
+                this.cube[0][2][0].F == this.cube[0][2][2].F // Front corners
             ) {
                 if (
                     this.cube[0][2][1].F == this.cube[1][2][1].F && // Bar in the front
-                    this.cube[0][1][2].R == this.cube[1][0][1].B // Middle of the headlights from the back
+                    this.cube[0][1][2].R == this.cube[1][0][1].B // Middle of the right headlights from the back
                 ) { return "Ua"; }
                 if (
                     this.cube[0][2][1].F == this.cube[1][2][1].F && // Bar in the front
-                    this.cube[0][1][2].R == this.cube[1][1][0].L // Middle of the headlights from the left
+                    this.cube[0][1][2].R == this.cube[1][1][0].L // Middle of the right headlights from the left
                 ) { return "Ub"; }
-                if(
+                if (
                     this.cube[0][2][1].F == this.cube[1][0][1].B && // Front - back
                     this.cube[0][1][2].R == this.cube[1][1][0].L // Right left
-                ) { return "H";  }
+                ) { return "H"; }
+                if (
+                    this.cube[0][2][1].F == this.cube[1][1][2].R && // Front - right
+                    this.cube[0][0][1].B == this.cube[1][1][0].L // Back - left
+                ) { return "H"; }
             }
+            // CPLL
+            if(
+                (this.cube[0][2][1].F == this.cube[1][2][1].F) && // Front center
+                (this.cube[0][0][1].B == this.cube[1][0][1].B) // Back center
+            ) {
+                if (
+                    this.cube[0][2][0].F == this.cube[1][2][1].F && // Front left corner
+                    this.cube[0][2][0].F == this.cube[1][2][1].F // Front right corner = back left center
+                    ) { }
+            }
+            return "NO_MATCH";
         }
 
-        void SolvePLL()
+        private void AUF()
         {
+            while (this.cube[0][2][1].F != this.cube[1][2][1].F) { Rotate("U"); }
+        }
 
+        private void SolvePLL()
+        {
+            string pll_case;
+
+            do
+            {
+                Rotate("U");
+                pll_case = PLLRecognitionKey();
+            } while (!Algorithms.PLL.ContainsKey(pll_case));
+
+            foreach (string move in Algorithms.OLL[pll_case].Split(' '))
+            {
+                Rotate(move);
+            }
+            AUF();
         }
 
         #endregion
 
+        /// <summary>
+        /// Résoudre le Rubik's Cube
+        /// </summary>
         public void Solve()
         {
+            this.moves = new List<string>();
             this.solution = "Cross: ";
             SolveCross();
             this.solution += "\nF2L: ";
@@ -917,8 +1048,7 @@ namespace GAN
             this.solution += "\nOLL: ";
             SolveOLL();
             this.solution += "\nPLL: ";
-            SolvePLL();
-            MessageBox.Show(this.solution);
+            //SolvePLL();
         }
         #endregion
 
@@ -1782,9 +1912,14 @@ namespace GAN
         }
         #endregion
 
+        /// <summary>
+        /// Fait le Rubik's Cube
+        /// </summary>
+        /// <param name="way">Le type de rotation, en notation algorithmique</param>
         public void Rotate(string way)
         {
             this.solution += way + " ";
+            this.moves.Add(way);
             switch (way)
             {
                 case "U":
@@ -1916,6 +2051,11 @@ namespace GAN
             }
         }
 
+        /// <summary>
+        /// Représentation numérique de la face demandée
+        /// </summary>
+        /// <param name="face">Face concernée</param>
+        /// <returns>La représentation numérique</returns>
         public int[][] Face(char face)
         {
             int[][] f = new int[3][] {

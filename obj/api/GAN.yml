@@ -1,0 +1,40 @@
+### YamlMime:ManagedReference
+items:
+- uid: GAN
+  commentId: N:GAN
+  id: GAN
+  children:
+  - GAN.Algorithms
+  - GAN.Color
+  - GAN.Cube
+  - GAN.MiniCube
+  langs:
+  - csharp
+  - vb
+  name: GAN
+  nameWithType: GAN
+  fullName: GAN
+  type: Namespace
+  assemblies:
+  - RubY
+references:
+- uid: GAN.Color
+  commentId: T:GAN.Color
+  name: Color
+  nameWithType: Color
+  fullName: GAN.Color
+- uid: GAN.Algorithms
+  commentId: T:GAN.Algorithms
+  name: Algorithms
+  nameWithType: Algorithms
+  fullName: GAN.Algorithms
+- uid: GAN.MiniCube
+  commentId: T:GAN.MiniCube
+  name: MiniCube
+  nameWithType: MiniCube
+  fullName: GAN.MiniCube
+- uid: GAN.Cube
+  commentId: T:GAN.Cube
+  name: Cube
+  nameWithType: Cube
+  fullName: GAN.Cube

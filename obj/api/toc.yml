@@ -1,0 +1,17 @@
+### YamlMime:TableOfContent
+- uid: GAN
+  name: GAN
+  items:
+  - uid: GAN.Algorithms
+    name: Algorithms
+  - uid: GAN.Color
+    name: Color
+  - uid: GAN.Cube
+    name: Cube
+  - uid: GAN.MiniCube
+    name: MiniCube
+- uid: RubY
+  name: RubY
+  items:
+  - uid: RubY.Form1
+    name: Form1
