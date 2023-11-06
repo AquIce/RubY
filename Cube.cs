@@ -1024,10 +1024,13 @@ namespace GAN
             }
             // CPLL
             if(IsTopCrossDone()) {
-                if (
-                    this.cube[0][2][0].F == this.cube[0][2][1].F && // Front left block
-                    this.cube[0][0][0].B == this.cube[0][0][2].B // Headlights on the back
-                    ) { return "Aa"; }
+                if (this.cube[0][2][0].F == this.cube[0][2][1].F) { // Front left block
+                    if (this.cube[0][0][0].B == this.cube[0][0][2].B) // Headlights on the back
+                    { return "Aa"; }
+                    else if (this.cube[0][0][2].R == this.cube[0][2][2].R) // Headlights on the right
+                    { return "Ab";  }
+                }
+                    
             }
             return "NO_MATCH";
         }
