@@ -1060,6 +1060,10 @@ namespace GAN
                 }
                 if (this.cube[0][1][2].R == this.cube[0][2][2].L) { return "Gd"; }
             }
+            if (
+                this.cube[0][2][0].F == this.cube[0][2][1].F &&
+                this.cube[0][0][2].R == this.cube[0][1][2].R
+            ) { return "Y"; }
             return "NO_MATCH";
         }
 
