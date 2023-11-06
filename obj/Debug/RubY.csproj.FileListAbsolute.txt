@@ -71,3 +71,16 @@ C:\Desktop\Code\RubY\obj\Debug\RubY.csproj.CoreCompileInputs.cache
 C:\Desktop\Code\RubY\obj\Debug\RubY.csproj.CopyComplete
 C:\Desktop\Code\RubY\obj\Debug\RubY.exe
 C:\Desktop\Code\RubY\obj\Debug\RubY.pdb
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\bin\Debug\RubY.exe.config
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\bin\Debug\RubY.exe
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\bin\Debug\RubY.pdb
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\bin\Debug\LibGrilleDeJeu.dll
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.csproj.AssemblyReference.cache
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.csproj.SuggestedBindingRedirects.cache
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.Form1.resources
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.Properties.Resources.resources
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.csproj.GenerateResource.cache
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.csproj.CoreCompileInputs.cache
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.csproj.CopyComplete
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.exe
+M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.pdb

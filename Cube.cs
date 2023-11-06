@@ -1042,10 +1042,14 @@ namespace GAN
                 this.cube[0][0][0].L == this.cube[0][2][0].L
             ) // Left bar
             {
-                if (this.cube[0][2][0].F == this.cube[0][2][1].F) { return "Ja"; }
+                if (this.cube[0][2][0].F == this.cube[0][2][1].F) {
+                    Rotate("U"); // To setup for alg execution
+                    return "Ja";
+                }
                 if (this.cube[0][0][0].B == this.cube[0][0][1].B) { return "Jb"; }
                 else { return "F";  }
             }
+
             return "NO_MATCH";
         }
 
