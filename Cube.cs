@@ -1049,7 +1049,10 @@ namespace GAN
                 if (this.cube[0][0][0].B == this.cube[0][0][1].B) { return "Jb"; }
                 else { return "F";  }
             }
-
+            if(this.cube[0][0][0].L == this.cube[0][2][0].L) { // Headlights on the left
+                if(this.cube[0][2][0].F == this.cube[0][2][1].F) { return "Ra"; }
+                if(this.cube[0][0][0].B == this.cube[0][0][1].B) { return "Rb"; }
+            }
             return "NO_MATCH";
         }
 
