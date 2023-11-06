@@ -609,6 +609,9 @@ namespace GAN
         /// </summary>
         public string solution = "";
 
+        /// <summary>
+        /// Représentation interne du cube
+        /// </summary>
         private MiniCube[][][] cube = new MiniCube[][][]
         {
             new MiniCube[][]
@@ -969,6 +972,10 @@ namespace GAN
 
         #region PLL
 
+        /// <summary>
+        /// Recognizes the PLL case
+        /// </summary>
+        /// <returns>The name of the PLL case</returns>
         private string PLLRecognitionKey()
         {
             // Solved
@@ -981,22 +988,21 @@ namespace GAN
                 this.cube[0][0][0].B == this.cube[0][0][2].B &&// Back corners
                 this.cube[0][2][0].F == this.cube[0][2][2].F // Front corners
             ) {
+                if (this.cube[0][2][1].F == this.cube[0][2][2].F)
+                { // Bar in the front
+                    if (this.cube[0][1][2].R == this.cube[0][0][2].B) // Middle of the right headlights from the back
+                    { return "Ua"; }
+                    else if (this.cube[0][1][2].R == this.cube[0][0][0].L) // Middle of the right headlights from the left
+                    { return "Ub"; }
+                }
                 if (
-                    this.cube[0][2][1].F == this.cube[1][2][1].F && // Bar in the front
-                    this.cube[0][1][2].R == this.cube[1][0][1].B // Middle of the right headlights from the back
-                ) { return "Ua"; }
-                if (
-                    this.cube[0][2][1].F == this.cube[1][2][1].F && // Bar in the front
-                    this.cube[0][1][2].R == this.cube[1][1][0].L // Middle of the right headlights from the left
-                ) { return "Ub"; }
-                if (
-                    this.cube[0][2][1].F == this.cube[1][0][1].B && // Front - back
-                    this.cube[0][1][2].R == this.cube[1][1][0].L // Right left
+                    this.cube[0][2][1].F == this.cube[0][0][0].B && // Front - back
+                    this.cube[0][1][2].R == this.cube[0][0][0].L // Right left
                 ) { return "H"; }
                 if (
-                    this.cube[0][2][1].F == this.cube[1][1][2].R && // Front - right
+                    this.cube[0][2][1].F == this.cube[0][2][2].R && // Front - right
                     this.cube[0][0][1].B == this.cube[1][1][0].L // Back - left
-                ) { return "H"; }
+                ) { return "Z"; }
             }
             // CPLL
             if(
@@ -1913,7 +1919,7 @@ namespace GAN
         #endregion
 
         /// <summary>
-        /// Fait le Rubik's Cube
+        /// Fait tourner un layer du cube
         /// </summary>
         /// <param name="way">Le type de rotation, en notation algorithmique</param>
         public void Rotate(string way)
