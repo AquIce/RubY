@@ -972,6 +972,24 @@ namespace GAN
 
         #region PLL
 
+        private bool IsTopCrossDone()
+        {
+            bool done = false;
+            for(int i = 0; i < 4; i++)
+            {
+                if (
+                    this.cube[0][2][1].F == this.cube[1][2][1].F &&
+                    this.cube[0][1][2].R == this.cube[1][1][2].R &&
+                    this.cube[0][0][1].B == this.cube[1][0][1].B &&
+                    this.cube[0][1][0].L == this.cube[1][1][0].L
+                ) {
+                    done = true;
+                    Rotate("U");
+                }
+            }
+            return done;
+        }
+
         /// <summary>
         /// Recognizes the PLL case
         /// </summary>
@@ -1005,14 +1023,11 @@ namespace GAN
                 ) { return "Z"; }
             }
             // CPLL
-            if(
-                (this.cube[0][2][1].F == this.cube[1][2][1].F) && // Front center
-                (this.cube[0][0][1].B == this.cube[1][0][1].B) // Back center
-            ) {
+            if(IsTopCrossDone()) {
                 if (
-                    this.cube[0][2][0].F == this.cube[1][2][1].F && // Front left corner
-                    this.cube[0][2][0].F == this.cube[1][2][1].F // Front right corner = back left center
-                    ) { }
+                    this.cube[0][2][0].F == this.cube[0][2][1].F && // Front left block
+                    this.cube[0][0][0].B == this.cube[0][0][2].B // Headlights on the back
+                    ) { return "Aa"; }
             }
             return "NO_MATCH";
         }
