@@ -407,7 +407,7 @@ namespace GAN
                 "Ra", "R U' R' U' R U R D R' U' R D' R' U2 R' U'"
             },
             {
-                "Rb", "R' U2 R U2 R' F R U R' U' R' F' R2 U'"
+                "Rb", "R2 F R U R U' R' F' R U2 R' U2 R"
             },
             {
                 "Ja", "R' U L' U2 R U' R' U2 R L U'"
