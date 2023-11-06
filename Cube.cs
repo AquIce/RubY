@@ -1064,6 +1064,10 @@ namespace GAN
                 this.cube[0][2][0].F == this.cube[0][2][1].F &&
                 this.cube[0][0][2].R == this.cube[0][1][2].R
             ) { return "Y"; }
+            if (
+                this.cube[0][2][0].F == this.cube[0][2][1].F &&
+                this.cube[0][2][0].L == this.cube[0][1][0].L
+            ) { return "V"; }
             return "NO_MATCH";
         }
 
