@@ -1013,11 +1013,11 @@ namespace GAN
                     else if (this.cube[0][1][2].R == this.cube[0][0][0].L) // Middle of the right headlights from the left
                     { return "Ub"; }
                 }
-                if (
+                else if (
                     this.cube[0][2][1].F == this.cube[0][0][0].B && // Front - back
                     this.cube[0][1][2].R == this.cube[0][0][0].L // Right left
                 ) { return "H"; }
-                if (
+                else if (
                     this.cube[0][2][1].F == this.cube[0][2][2].R && // Front - right
                     this.cube[0][0][1].B == this.cube[0][0][0].L // Back - left
                 ) { return "Z"; }
@@ -1030,6 +1030,7 @@ namespace GAN
                     else if (this.cube[0][0][2].R == this.cube[0][2][2].R) // Headlights on the right
                     { return "Ab";  }
                 }
+                else if (this.cube[0][2][2].F == this.cube[0][1][2].R) { return "E"; }
                     
             }
             return "NO_MATCH";
