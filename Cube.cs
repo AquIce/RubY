@@ -1001,7 +1001,7 @@ namespace GAN
                 ) { return "H"; }
                 if (
                     this.cube[0][2][1].F == this.cube[0][2][2].R && // Front - right
-                    this.cube[0][0][1].B == this.cube[1][1][0].L // Back - left
+                    this.cube[0][0][1].B == this.cube[0][0][0].L // Back - left
                 ) { return "Z"; }
             }
             // CPLL
