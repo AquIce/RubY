@@ -383,10 +383,10 @@ namespace GAN
                 "-", "U'" // To cancel recognition U
             },
             {
-                "Ua", "R U' R U R U R U' R' U' R2"
+                "Ua", "R U R' U R' U' R2 U' R' U R' U R"
             },
             {
-                "Ub", "R2 U R U R' U' R' U' R' U R'"
+                "Ub", "R' U R' U' R' U' R' U R U R2"
             },
             {
                 "Z", "M2 U M2 U M' U2 M2 U2 M' U2"
@@ -419,10 +419,10 @@ namespace GAN
                 "T", "R U R' U' R' F R2 U' R' U' R U R' F'"
             },
             {
-                "F", "R' U' F'R U R' U'R' F R2 U'R' U' R UR' U R"
+                "F", "R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R"
             },
             {
-                "V", "R' U R' U' y R' F' R2 U' R' U R' F R F"
+                "V", "R' U R' U' R D' R' D R' D' U R2 U' R2 D R2"
             },
             {
                 "Y", "F R U' R' U' R U R' F' R U R' U' R' F R F'"
@@ -434,16 +434,16 @@ namespace GAN
                 "Nb", "R' U R U' R' F' U' F R U R' F R' F' R U' R"
             },
             {
-                "Ga", "R2 U R' U R' U' R U' R2 D U' R' U R D' U"
+                "Ga", "R2 U R' U R' U' R U' R2 D U' R' U R D'"
             },
             {
-                "Gb", "F' U' F R2 u R' U R U' R u' R2"
+                "Gb", "D R' U' R U D' R2 U R' U R U' R U' R2"
             },
             {
-                "Gc", "R2 U' R U' R U R' U R2 D' U R U' R' D U'"
+                "Gc", "R2 F2 R U2 R U2 R' F R U R' U' R' F R2"
             },
             {
-                "Gd", "D' R U R' U' D R2 U' R U' R' U R' U R2 U"
+                "Gd", "R U R' U' D R2 U' R U' R' U R' U R2 D'"
             }
         };
     }
@@ -1021,60 +1021,71 @@ namespace GAN
                     this.cube[0][2][1].F == this.cube[0][2][2].R && // Front - right
                     this.cube[0][0][1].B == this.cube[0][0][0].L // Back - left
                 ) { return "Z"; }
+                return "NO_MATCH_EPLL";
             }
             // CPLL
-            if(IsTopCrossDone()) {
+            if (IsTopCrossDone()) {
                 if (this.cube[0][2][0].F == this.cube[0][2][1].F) { // Front left block
                     if (this.cube[0][0][0].B == this.cube[0][0][2].B) // Headlights on the back
                     { return "Aa"; }
                     else if (this.cube[0][0][2].R == this.cube[0][2][2].R) // Headlights on the right
-                    { return "Ab";  }
+                    { return "Ab"; }
                 }
-                else if (this.cube[0][2][2].F == this.cube[0][1][2].R) { return "E"; }   
+                else if (
+                    this.cube[0][2][2].F == this.cube[0][1][2].R &&
+                    this.cube[0][2][0].F == this.cube[0][1][0].L // To prevent it from matching rotated Aa/Ab perm
+                ) { return "E"; }
+                return "NO_MATCH_CPLL";
             }
             // Adjacent swap
-            if(
+            if (
                 this.cube[0][0][0].B == this.cube[0][0][1].B &&
-                this.cube[0][2][0].B == this.cube[0][2][1].B
+                this.cube[0][2][0].F == this.cube[0][2][1].F &&
+                this.cube[0][0][0].L == this.cube[0][2][0].L
             ) { return "T"; }
-            if(
+            else if (
                 this.cube[0][0][0].L == this.cube[0][1][0].L &&
                 this.cube[0][0][0].L == this.cube[0][2][0].L
-            ) // Left bar
-            {
+            ) { // Left bar
                 if (this.cube[0][2][0].F == this.cube[0][2][1].F) {
-                    Rotate("U"); // To setup for alg execution
+                    Rotate("U'"); // To setup for alg execution
                     return "Ja";
                 }
                 if (this.cube[0][0][0].B == this.cube[0][0][1].B) { return "Jb"; }
-                else { return "F";  }
+                else { return "F"; }
             }
-            if(this.cube[0][0][0].L == this.cube[0][2][0].L) { // Headlights on the left
-                if(this.cube[0][2][0].F == this.cube[0][2][1].F) { return "Ra"; }
-                if(this.cube[0][0][0].B == this.cube[0][0][1].B) { return "Rb"; }
-                if (this.cube[0][2][1].F == this.cube[0][2][2].F) { return "Ga"; }
-                if (this.cube[0][0][2].L == this.cube[0][1][2].L) { return "Gb"; }
+            else if (this.cube[0][0][0].L == this.cube[0][2][0].L) { // Headlights on the left
+                if (this.cube[0][2][0].F == this.cube[0][2][1].F) { return "Ra"; }
+                if (this.cube[0][0][0].B == this.cube[0][0][1].B) { return "Rb"; }
+                if (this.cube[0][2][1].F == this.cube[0][2][2].F) { MessageBox.Show($"{this.cube[0][2][1].F} {this.cube[0][2][2].F}"); return "Ga"; }
+                if (this.cube[0][0][2].R == this.cube[0][1][2].R) { MessageBox.Show($"{this.cube[0][0][2].R} {this.cube[0][1][2].R}"); return "Gb"; }
                 if (this.cube[0][0][1].B == this.cube[0][0][2].B) {
                     Rotate("R2"); // To setup for alg execution
-                    return "Gc";
+                    MessageBox.Show($"{this.cube[0][0][1].B} {this.cube[0][0][2].B}"); return "Gc";
                 }
-                if (this.cube[0][1][2].R == this.cube[0][2][2].L) { return "Gd"; }
+                if (this.cube[0][1][2].R == this.cube[0][2][2].R) { MessageBox.Show($"{this.cube[0][1][2].R} {this.cube[0][2][2].L}"); return "Gd"; }
             }
-            if (
+            else if (
                 this.cube[0][2][0].F == this.cube[0][2][1].F &&
-                this.cube[0][0][2].R == this.cube[0][1][2].R
+                this.cube[0][0][2].R == this.cube[0][1][2].R &&
+                this.cube[0][2][2].F != this.cube[0][2][1].F // To prevent it from matching rotated Ja perm
             ) { return "Y"; }
-            if (
+            else if (
                 this.cube[0][2][0].F == this.cube[0][2][1].F &&
-                this.cube[0][2][0].L == this.cube[0][1][0].L
+                this.cube[0][2][0].L == this.cube[0][1][0].L &&
+                this.cube[0][2][2].F != this.cube[0][2][1].F // To prevent it from matching rotated Ja perm
             ) { return "V"; }
-            if (
+            else if (
                 this.cube[0][2][1].F == this.cube[0][2][2].F &&
-                this.cube[0][0][0].B == this.cube[0][0][1].B
+                this.cube[0][0][0].B == this.cube[0][0][1].B &&
+                this.cube[0][2][1].F == this.cube[0][0][2].B &&
+                this.cube[0][0][1].B == this.cube[0][2][0].F
             ) { return "Na"; }
-            if (
+            else if (
                 this.cube[0][0][1].B == this.cube[0][0][2].B &&
-                this.cube[0][2][0].F == this.cube[0][2][1].F
+                this.cube[0][2][0].F == this.cube[0][2][1].F &&
+                this.cube[0][0][1].B == this.cube[0][2][2].F &&
+                this.cube[0][2][1].F == this.cube[0][0][0].B
             ) { return "Nb"; }
             return "NO_MATCH";
         }
@@ -1088,15 +1099,22 @@ namespace GAN
         {
             string pll_case;
 
+            int count = 0;
+
             do
             {
                 Rotate("U");
                 pll_case = PLLRecognitionKey();
-            } while (!Algorithms.PLL.ContainsKey(pll_case));
+                MessageBox.Show(pll_case);
+                count++;
+            } while (!Algorithms.PLL.ContainsKey(pll_case) && count < 10);
 
-            foreach (string move in Algorithms.OLL[pll_case].Split(' '))
+            if (count < 5)
             {
-                Rotate(move);
+                foreach (string move in Algorithms.PLL[pll_case].Split(' '))
+                {
+                    Rotate(move);
+                }
             }
             AUF();
         }
@@ -1116,7 +1134,7 @@ namespace GAN
             this.solution += "\nOLL: ";
             SolveOLL();
             this.solution += "\nPLL: ";
-            //SolvePLL();
+            SolvePLL();
         }
         #endregion
 
