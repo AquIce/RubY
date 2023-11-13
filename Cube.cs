@@ -1,14 +1,17 @@
-﻿using System;
+﻿using LibGrilleDeJeu;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TinyJson;
 
 namespace GAN
 {
@@ -756,7 +759,6 @@ namespace GAN
         }
 
         private int[] SideColors() => new int[4] { this.cube[1][0][1].B, this.cube[1][2][1].F, this.cube[1][1][0].L, this.cube[1][1][2].R };
-
 
         private bool IsAdjacent(int[] pos1, int[] pos2) => ((pos1[0] == pos2[0] + 1 || pos1[0] == pos2[0] - 1) && pos1[1] == pos2[1] && pos1[2] == pos2[2]) ||
                 ((pos1[1] == pos2[1] + 1 || pos1[1] == pos2[1] - 1) && pos1[0] == pos2[0] && pos1[2] == pos2[2]) ||
@@ -2253,5 +2255,158 @@ namespace GAN
                     return f;
             }
         }
+
+        /// <summary>
+        /// Définit une face à une certaine valeur
+        /// </summary>
+        /// <param name="face">Face en question</param>
+        /// <param name="val">Disposition de la face</param>
+        public void Face(char face, int[][] val)
+        {
+            switch(face)
+            {
+                case 'U':
+                    for(int i = 0; i < this.cube[0].Length; i++)
+                    {
+                        for(int j = 0; j < this.cube[0][i].Length; j++)
+                        {
+                            this.cube[0][i][j].U = val[i][j];
+                        }
+                    }
+                    break;
+                case 'D':
+                    for (int i = 0; i < this.cube[2].Length; i++)
+                    {
+                        for (int j = 0; j < this.cube[2][i].Length; j++)
+                        {
+                            this.cube[2][i][j].D = val[i][j];
+                        }
+                    }
+                    break;
+                case 'F':
+                    MiniCube[][] mc = new MiniCube[][]
+                    {
+                        this.cube[0][2],
+                        this.cube[1][2],
+                        this.cube[2][2],
+                    };
+                    for (int i = 0; i < mc.Length; i++)
+                    {
+                        for (int j = 0; j < mc[i].Length; j++)
+                        {
+                            mc[i][j].F = val[i][j];
+                        }
+                    }
+                    break;
+                case 'B':
+                    mc = new MiniCube[][]
+                    {
+                        this.cube[0][0],
+                        this.cube[1][0],
+                        this.cube[2][0],
+                    };
+                    for (int i = 0; i < mc.Length; i++)
+                    {
+                        for (int j = 0; j < mc[i].Length; j++)
+                        {
+                            mc[i][j].B = val[i][j];
+                        }
+                    }
+                    break;
+                case 'L':
+                    mc = new MiniCube[][]
+                    {
+                        new MiniCube[]
+                        {
+                            this.cube[0][0][0],
+                            this.cube[0][1][0],
+                            this.cube[0][2][0],
+                        },
+                        new MiniCube[]
+                        {
+                            this.cube[1][0][0],
+                            this.cube[1][1][0],
+                            this.cube[1][2][0],
+                        },
+                        new MiniCube[]
+                        {
+                            this.cube[2][0][0],
+                            this.cube[2][1][0],
+                            this.cube[2][2][0],
+                        },
+                    };
+                    for (int i = 0; i < mc.Length; i++)
+                    {
+                        for (int j = 0; j < mc[i].Length; j++)
+                        {
+                            mc[i][j].L = val[i][j];
+                        }
+                    }
+                    break;
+                case 'R':
+                    mc = new MiniCube[][]
+                    {
+                        new MiniCube[]
+                        {
+                            this.cube[0][0][2],
+                            this.cube[0][1][2],
+                            this.cube[0][2][2],
+                        },
+                        new MiniCube[]
+                        {
+                            this.cube[1][0][2],
+                            this.cube[1][1][2],
+                            this.cube[1][2][2],
+                        },
+                        new MiniCube[]
+                        {
+                            this.cube[2][0][2],
+                            this.cube[2][1][2],
+                            this.cube[2][2][2],
+                        },
+                    };
+                    for (int i = 0; i < mc.Length; i++)
+                    {
+                        for (int j = 0; j < mc[i].Length; j++)
+                        {
+                            mc[i][j].R = val[i][j];
+                        }
+                    }
+                    break;
+            } 
+        }
+
+        #region Import/Export
+
+        /// <summary>
+        /// Exporte le cube dans un fichier
+        /// </summary>
+        /// <param name="filename">Fichier dans lequel exporter</param>
+        public void Export(string filename)
+        {
+            using (StreamWriter sw = new StreamWriter(filename))
+            {
+                sw.Write(TinyJson.JSONWriter.ToJson(new int[][][] { Face('U'), Face('D'), Face('F'), Face('B'), Face('R'), Face('L') }));
+            }
+        }
+
+        /// <summary>
+        /// Importe le cube d'un fichier
+        /// </summary>
+        /// <param name="filename">Le fichier duquel importer le cube</param>
+        public void Import(string filename)
+        {
+            using(StreamReader sr = new StreamReader(filename))
+            {
+                string chars = "UDFBLR";
+                int[][][] json = TinyJson.JSONParser.FromJson<int[][][]>(sr.ReadToEnd());
+                for(int i = 0; i < chars.Length; i++)
+                {
+                    Face(chars[i], json[i]);
+                }
+            }
+        }
+
+        #endregion
     }
 }

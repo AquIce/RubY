@@ -293,5 +293,27 @@ namespace RubY
             Apply();
             MessageBox.Show(this.cube.solution);
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            sfdExport.Filter = "JSON File|*.json";
+            sfdExport.ShowDialog();
+        }
+
+        private void ofdImport_FileOk(object sender, CancelEventArgs e)
+        {
+            this.cube.Import(ofdImport.FileName);
+            Apply();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            ofdImport.ShowDialog();
+        }
+
+        private void sfdExport_FileOk(object sender, CancelEventArgs e)
+        {
+            this.cube.Export(sfdExport.FileName);
+        }
     }
 }

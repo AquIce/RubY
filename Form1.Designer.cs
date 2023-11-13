@@ -91,6 +91,10 @@
             this.lblScramble = new System.Windows.Forms.Label();
             this.btnSolve = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.ofdImport = new System.Windows.Forms.OpenFileDialog();
+            this.sfdExport = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -742,12 +746,43 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "(c) CPNE-TI Perrinjaquet T. Auguanno D.";
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(245, 302);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 57;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(326, 303);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 58;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // ofdImport
+            // 
+            this.ofdImport.FileName = "ofdImport";
+            this.ofdImport.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdImport_FileOk);
+            // 
+            // sfdExport
+            // 
+            this.sfdExport.FileOk += new System.ComponentModel.CancelEventHandler(this.sfdExport_FileOk);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1013, 450);
+            this.Controls.Add(this.btnImport);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSolve);
             this.Controls.Add(this.lblScramble);
@@ -889,6 +924,10 @@
         private System.Windows.Forms.Label lblScramble;
         private System.Windows.Forms.Button btnSolve;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.OpenFileDialog ofdImport;
+        private System.Windows.Forms.SaveFileDialog sfdExport;
     }
 }
 
