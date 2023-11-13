@@ -180,7 +180,7 @@ namespace GAN
                 "222df 122f", ""
             },
             {
-                "222df 122r", "R U' R' d R' U2 R U2 R' U R"
+                "222df 122r", "R U' R' d R' U2 R U2 R' U R y"
             },
             {
                 "222fr 122f", "R U' R' U' R U R' U2 R U' R'"
@@ -1051,6 +1051,7 @@ namespace GAN
                 this.cube[0][0][0].L == this.cube[0][1][0].L &&
                 this.cube[0][0][0].L == this.cube[0][2][0].L
             ) { // Left bar
+                MessageBox.Show($"{this.cube[0][2][0].F} == {this.cube[0][2][1].F}");
                 if (this.cube[0][2][0].F == this.cube[0][2][1].F) {
                     Rotate("U'"); // To setup for alg execution
                     return "Ja";
@@ -2374,6 +2375,84 @@ namespace GAN
                     }
                     break;
             } 
+        }
+
+        private string scramble = "";
+        public void Bench()
+        {
+            string test = "";
+
+            for (int i = 0; i < 1000; i++)
+            {
+                scramble = "";
+                string[][] moves = new string[][] {
+                    new string[] {"R", "R'", "R2"},
+                    new string[] {"L", "L'", "L2"},
+                    new string[] {"U", "U'", "U2"},
+                    new string[] {"D", "D'", "D2"},
+                    new string[] {"F", "F'", "F2"},
+                    new string[] {"B", "B'", "B2"},
+                };
+
+                int last = -1;
+                int move = -1;
+
+                for (int j = 0; j < 10; j++)
+                {
+                    while (move == last)
+                    {
+                        Random rnd = new Random();
+                        move = rnd.Next(6);
+                    }
+                    last = move;
+                    Random rnd_ = new Random();
+                    string mv = moves[move][rnd_.Next(3)];
+                    scramble += mv + " ";
+                    this.Rotate(mv);
+                }
+                this.Solve();
+                test += this.solution + "\n\n";
+                this.Export("C:\\Users\\timeo\\Desktop\\Export\\" + DateTime.Now.ToString("hh-mm-ss-fff") + ".json");
+            }
+            MessageBox.Show(test);
+        }
+
+        public void Debug()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                scramble = "";
+                string[][] moves = new string[][] {
+                    new string[] {"R", "R'", "R2"},
+                    new string[] {"L", "L'", "L2"},
+                    new string[] {"U", "U'", "U2"},
+                    new string[] {"D", "D'", "D2"},
+                    new string[] {"F", "F'", "F2"},
+                    new string[] {"B", "B'", "B2"},
+                };
+
+                int last = -1;
+                int move = -1;
+
+                for (int j = 0; j < 10; j++)
+                {
+                    while (move == last)
+                    {
+                        Random rnd = new Random();
+                        move = rnd.Next(6);
+                    }
+                    last = move;
+                    Random rnd_ = new Random();
+                    string mv = moves[move][rnd_.Next(3)];
+                    scramble += mv + " ";
+                    this.Rotate(mv);
+                }
+                this.Solve();
+                if(!IsTopCrossDone())
+                {
+                    MessageBox.Show(this.solution, scramble);
+                }
+            }
         }
 
         #region Import/Export

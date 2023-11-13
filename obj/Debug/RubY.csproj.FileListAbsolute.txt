@@ -84,3 +84,14 @@ M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.csproj.CoreCompileInputs.cache
 M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.csproj.CopyComplete
 M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.exe
 M:\CPNE\3INF-3TPKa\PRA-C#\Rx\obj\Debug\RubY.pdb
+C:\Users\timeo\Desktop\Desk\Code\ruby\bin\Debug\RubY.exe.config
+C:\Users\timeo\Desktop\Desk\Code\ruby\bin\Debug\RubY.exe
+C:\Users\timeo\Desktop\Desk\Code\ruby\bin\Debug\RubY.pdb
+C:\Users\timeo\Desktop\Desk\Code\ruby\obj\Debug\RubY.csproj.AssemblyReference.cache
+C:\Users\timeo\Desktop\Desk\Code\ruby\obj\Debug\RubY.Form1.resources
+C:\Users\timeo\Desktop\Desk\Code\ruby\obj\Debug\RubY.Properties.Resources.resources
+C:\Users\timeo\Desktop\Desk\Code\ruby\obj\Debug\RubY.csproj.GenerateResource.cache
+C:\Users\timeo\Desktop\Desk\Code\ruby\obj\Debug\RubY.csproj.CoreCompileInputs.cache
+C:\Users\timeo\Desktop\Desk\Code\ruby\obj\Debug\RubY.csproj.CopyComplete
+C:\Users\timeo\Desktop\Desk\Code\ruby\obj\Debug\RubY.exe
+C:\Users\timeo\Desktop\Desk\Code\ruby\obj\Debug\RubY.pdb
