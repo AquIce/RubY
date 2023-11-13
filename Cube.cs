@@ -262,10 +262,10 @@ namespace GAN
                 "ubr uur uur", "y R' U' F' U F R"
             },
             {
-                "lbu luu luu", "f R U R' U' f'"
+                "lbu luu luu", "f R U R' U' f f f"
             },
             {
-                "lbb uuu lff", "f R U R' U' R U R' U' f'"
+                "lbb uuu lff", "f R U R' U' R U R' U' f f f"
             },
             {
                 "bur lur fur", "R' U' R U' R' U y' R' U R B"
@@ -352,13 +352,13 @@ namespace GAN
                 "lbr lur lfr", "R U2 R2 F R F' U2 R' F R F'"
             },
             {
-                "lbb lur lff", "F R U R' U' F' f R U R' U' f'"
+                "lbb lur lff", "F R U R' U' F' f R U R' U' f f f"
             },
             {
-                "bbr lur lfu", "f R U R' U' f' U' F R U R' U' F'"
+                "bbr lur lfu", "f R U R' U' f f f U' F R U R' U' F'"
             },
             {
-                "lbu lur ffr", "f R U R' U' f' U F R U R' U' F'"
+                "lbu lur ffr", "f R U R' U' f f f U F R U R' U' F'"
             },
             {
                 "ubb lur lfu", "R U R' U R' F R F' U2 R' F R F'"
@@ -1133,8 +1133,8 @@ namespace GAN
             SolveF2L();
             this.solution += "\nOLL: ";
             SolveOLL();
-            this.solution += "\nPLL: ";
-            SolvePLL();
+            /*this.solution += "\nPLL: ";
+            SolvePLL();*/
         }
         #endregion
 
