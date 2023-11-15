@@ -6,6 +6,7 @@ using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GAN;
@@ -286,11 +287,36 @@ namespace RubY
             lblScramble.Text = "Press Scramble to get a scramble";
         }
 
+        private int t = 0;
+        private List<string> moves = new List<string>();
+        private System.Windows.Forms.Timer timer;
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if(t >= this.moves.Count - 1) timer.Stop();
+            this.cube.Rotate(moves[t]);
+            Apply();
+            t++;
+        }
+
         private void btnSolve_Click(object sender, EventArgs e)
         {
             this.cube.Solve();
+            this.moves = new List<string>(this.cube.moves);
+
+            timer = new System.Windows.Forms.Timer
+            {
+                Interval = 500
+            };
+
+            // Attach an event handler for the Tick event
+            timer.Tick += Timer_Tick;
+
+            // Start the timer
+            timer.Start();
+
             lblScramble.Text = "Press Scramble to get a scramble";
-            Apply();
+
             MessageBox.Show(this.cube.solution);
         }
 

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using TinyJson;
 
 namespace GAN
@@ -686,7 +687,7 @@ namespace GAN
 
         private int cross_color = Color.NONE;
 
-        private List<string> moves = new List<string>();
+        public List<string> moves = new List<string>();
 
         #region Find Pieces
         private int[] findCenter(int color)
@@ -1128,6 +1129,10 @@ namespace GAN
         public void Solve()
         {
             this.moves = new List<string>();
+            string filename = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Saves\\save.json";
+            if(!File.Exists(filename)) File.Create(filename);
+            Thread.Sleep(100);
+            this.Export(filename);
             this.solution = "Cross: ";
             SolveCross();
             this.solution += "\nF2L: ";
@@ -1136,6 +1141,7 @@ namespace GAN
             SolveOLL();
             this.solution += "\nPLL: ";
             SolvePLL();
+            this.Import(filename);
         }
         #endregion
 
@@ -2447,7 +2453,7 @@ namespace GAN
         {
             using(StreamReader sr = new StreamReader(filename))
             {
-                string chars = "UDFBLR";
+                string chars = "UDFBRL";
                 int[][][] json = TinyJson.JSONParser.FromJson<int[][][]>(sr.ReadToEnd());
                 for(int i = 0; i < chars.Length; i++)
                 {
