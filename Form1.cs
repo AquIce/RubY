@@ -286,9 +286,49 @@ namespace RubY
             lblScramble.Text = "Press Scramble to get a scramble";
         }
 
+        private void Debug()
+        {
+            string scramble = "";
+            for (int i = 0; i < 1000; i++)
+            {
+                scramble = "";
+                string[][] moves = new string[][] {
+                    new string[] {"R", "R'", "R2"},
+                    new string[] {"L", "L'", "L2"},
+                    new string[] {"U", "U'", "U2"},
+                    new string[] {"D", "D'", "D2"},
+                    new string[] {"F", "F'", "F2"},
+                    new string[] {"B", "B'", "B2"},
+                };
+
+                int last = -1;
+                int move = -1;
+
+                for (int j = 0; j < 10; j++)
+                {
+                    while (move == last)
+                    {
+                        Random rnd = new Random();
+                        move = rnd.Next(6);
+                    }
+                    last = move;
+                    Random rnd_ = new Random();
+                    string mv = moves[move][rnd_.Next(3)];
+                    scramble += mv + " ";
+                    this.cube.Rotate(mv);
+                }
+                this.cube.scramble = scramble;
+                this.cube.Solve();
+                if (!this.cube.IsTopCrossDone())
+                {
+                    MessageBox.Show(this.cube.solution, scramble);
+                }
+            }
+        }
+
         private void btnSolve_Click(object sender, EventArgs e)
         {
-            cube.Debug();
+            Debug();
             this.cube.Solve();
             lblScramble.Text = "Press Scramble to get a scramble";
             Apply();

@@ -974,7 +974,7 @@ namespace GAN
 
         #region PLL
 
-        private bool IsTopCrossDone()
+        public bool IsTopCrossDone() // TODO: private
         {
             bool done = false;
             for(int i = 0; i < 4; i++)
@@ -1053,6 +1053,7 @@ namespace GAN
             ) { // Left bar
                 MessageBox.Show($"{this.cube[0][2][0].F} == {this.cube[0][2][1].F}");
                 if (this.cube[0][2][0].F == this.cube[0][2][1].F) {
+                    MessageBox.Show("Ja");
                     Rotate("U'"); // To setup for alg execution
                     return "Ja";
                 }
@@ -1074,7 +1075,8 @@ namespace GAN
             else if (
                 this.cube[0][2][0].F == this.cube[0][2][1].F &&
                 this.cube[0][0][2].R == this.cube[0][1][2].R &&
-                this.cube[0][2][2].F != this.cube[0][2][1].F // To prevent it from matching rotated Ja perm
+                this.cube[0][2][2].F != this.cube[0][2][1].F && // To prevent it from matching rotated Jb perm
+                this.cube[0][2][2].R != this.cube[0][2][2].R // To prevent it from matching rotated Ja perm
             ) { return "Y"; }
             else if (
                 this.cube[0][2][0].F == this.cube[0][2][1].F &&
@@ -2377,7 +2379,7 @@ namespace GAN
             } 
         }
 
-        private string scramble = "";
+        public string scramble = "";
         public void Bench()
         {
             string test = "";
