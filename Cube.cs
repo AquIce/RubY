@@ -974,7 +974,7 @@ namespace GAN
 
         #region PLL
 
-        public bool IsTopCrossDone() // TODO: private
+        private bool IsTopCrossDone() // TODO: private
         {
             bool done = false;
             for(int i = 0; i < 4; i++)
@@ -2377,12 +2377,20 @@ namespace GAN
             } 
         }
 
-        public string scramble = "";
-        public void Bench()
+        /// <summary>
+        /// The current scramble (used in Bench())
+        /// </summary>
+        private string scramble = "";
+
+        /// <summary>
+        /// Tries to find bugs in the code by running Solve() a given amount of times
+        /// </summary>
+        /// <param name="iterations">The number of iterations wanted (defaults to 1000)</param>
+        public void Bench(int iterations=1000)
         {
             string test = "";
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < iterations; i++)
             {
                 scramble = "";
                 string[][] moves = new string[][] {
@@ -2415,44 +2423,6 @@ namespace GAN
                 this.Export("C:\\Users\\timeo\\Desktop\\Export\\" + DateTime.Now.ToString("hh-mm-ss-fff") + ".json");
             }
             MessageBox.Show(test);
-        }
-
-        public void Debug()
-        {
-            for (int i = 0; i < 1000; i++)
-            {
-                scramble = "";
-                string[][] moves = new string[][] {
-                    new string[] {"R", "R'", "R2"},
-                    new string[] {"L", "L'", "L2"},
-                    new string[] {"U", "U'", "U2"},
-                    new string[] {"D", "D'", "D2"},
-                    new string[] {"F", "F'", "F2"},
-                    new string[] {"B", "B'", "B2"},
-                };
-
-                int last = -1;
-                int move = -1;
-
-                for (int j = 0; j < 10; j++)
-                {
-                    while (move == last)
-                    {
-                        Random rnd = new Random();
-                        move = rnd.Next(6);
-                    }
-                    last = move;
-                    Random rnd_ = new Random();
-                    string mv = moves[move][rnd_.Next(3)];
-                    scramble += mv + " ";
-                    this.Rotate(mv);
-                }
-                this.Solve();
-                if(!IsTopCrossDone())
-                {
-                    MessageBox.Show(this.solution, scramble);
-                }
-            }
         }
 
         #region Import/Export
