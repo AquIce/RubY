@@ -328,7 +328,7 @@ namespace RubY
 
         private void btnSolve_Click(object sender, EventArgs e)
         {
-            Debug();
+            this.cube.Bench();
             this.cube.Solve();
             lblScramble.Text = "Press Scramble to get a scramble";
             Apply();
