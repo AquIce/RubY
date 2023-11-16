@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using System.Text.RegularExpressions;
 using TinyJson;
 
 namespace GAN
@@ -2463,5 +2464,28 @@ namespace GAN
         }
 
         #endregion
+
+        public string RemoveCancellingMoves(string notation)
+        {
+            string pattern = @"(\w)(w?) (\w)' (\w)(w?)'";
+            while (Regex.IsMatch(notation, pattern))
+            {
+                notation = Regex.Replace(notation, pattern, "");
+            }
+
+            return notation;
+        }
+        public string Simplify(string mvs)
+        {
+            mvs = Regex.Replace(mvs, @"(\w)(w?) \1'", "");
+
+            mvs = Regex.Replace(mvs, @"(\w)(w?) \1", "$1$2$2");
+
+            mvs = Regex.Replace(mvs, @"\s+", " ");
+
+            mvs = RemoveCancellingMoves(mvs);
+
+            return mvs;
+        }
     }
 }

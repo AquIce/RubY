@@ -703,7 +703,7 @@
             this.btnScramble.Name = "btnScramble";
             this.btnScramble.Size = new System.Drawing.Size(156, 23);
             this.btnScramble.TabIndex = 43;
-            this.btnScramble.Text = "Scramble";
+            this.btnScramble.Text = "Mélanger";
             this.btnScramble.UseVisualStyleBackColor = true;
             this.btnScramble.Click += new System.EventHandler(this.btnScramble_Click);
             // 
@@ -713,7 +713,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 45;
-            this.btnReset.Text = "Reset";
+            this.btnReset.Text = "Réinitialiser";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -725,7 +725,7 @@
             this.lblScramble.Name = "lblScramble";
             this.lblScramble.Size = new System.Drawing.Size(246, 20);
             this.lblScramble.TabIndex = 46;
-            this.lblScramble.Text = "Press Scramble to get a scramble";
+            this.lblScramble.Text = "Pressez Mélanger pour afficher un mélange.";
             // 
             // btnSolve
             // 
@@ -733,7 +733,7 @@
             this.btnSolve.Name = "btnSolve";
             this.btnSolve.Size = new System.Drawing.Size(75, 23);
             this.btnSolve.TabIndex = 44;
-            this.btnSolve.Text = "Solve";
+            this.btnSolve.Text = "Résoudre";
             this.btnSolve.UseVisualStyleBackColor = true;
             this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
             // 
@@ -752,7 +752,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 57;
-            this.btnExport.Text = "Export";
+            this.btnExport.Text = "Exporter";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
@@ -762,7 +762,7 @@
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 23);
             this.btnImport.TabIndex = 58;
-            this.btnImport.Text = "Import";
+            this.btnImport.Text = "Importer";
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 

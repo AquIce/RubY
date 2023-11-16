@@ -284,7 +284,7 @@ namespace RubY
         private void btnReset_Click(object sender, EventArgs e)
         {
             NewCube();
-            lblScramble.Text = "Press Scramble to get a scramble";
+            lblScramble.Text = "Pressez Mélanger pour afficher un mélange.";
         }
 
         private int t = 0;
@@ -309,15 +309,10 @@ namespace RubY
                 Interval = 500
             };
 
-            // Attach an event handler for the Tick event
             timer.Tick += Timer_Tick;
-
-            // Start the timer
             timer.Start();
 
-            lblScramble.Text = "Press Scramble to get a scramble";
-
-            MessageBox.Show(this.cube.solution);
+            lblScramble.Text = "Pressez Mélanger pour afficher un mélange.";
         }
 
         private void btnExport_Click(object sender, EventArgs e)
