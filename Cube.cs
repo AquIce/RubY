@@ -1132,7 +1132,7 @@ namespace GAN
             this.moves = new List<string>();
             string filename = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Saves\\save.json";
             if(!File.Exists(filename)) File.Create(filename);
-            Thread.Sleep(100);
+            //Thread.Sleep(500);
             this.Export(filename);
             this.solution = "Cross: ";
             SolveCross();
@@ -2427,7 +2427,7 @@ namespace GAN
                 }
                 this.Solve();
                 test += this.solution + "\n\n";
-                this.Export("C:\\Users\\timeo\\Desktop\\Export\\" + DateTime.Now.ToString("hh-mm-ss-fff") + ".json");
+                this.Export(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Export\\" + DateTime.Now.ToString("hh-mm-ss-fff") + ".json");
             }
             MessageBox.Show(test);
         }

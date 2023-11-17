@@ -302,6 +302,7 @@ namespace RubY
         private void btnSolve_Click(object sender, EventArgs e)
         {
             this.cube.Solve();
+            MessageBox.Show(this.cube.solution);
             this.moves = new List<string>(this.cube.moves);
 
             timer = new System.Windows.Forms.Timer
@@ -329,6 +330,8 @@ namespace RubY
 
         private void btnImport_Click(object sender, EventArgs e)
         {
+            ofdImport.Filter = "JSON File|*.json";
+            ofdImport.FileName = "";
             ofdImport.ShowDialog();
         }
 
