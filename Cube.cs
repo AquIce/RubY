@@ -2465,27 +2465,11 @@ namespace GAN
 
         #endregion
 
-        public string RemoveCancellingMoves(string notation)
+        public List<string> Simplify(List<string>  mvs)
         {
-            string pattern = @"(\w)(w?) (\w)' (\w)(w?)'";
-            while (Regex.IsMatch(notation, pattern))
-            {
-                notation = Regex.Replace(notation, pattern, "");
-            }
+            string mvs_string = string.Join(" ", mvs.ToArray());
 
-            return notation;
-        }
-        public string Simplify(string mvs)
-        {
-            mvs = Regex.Replace(mvs, @"(\w)(w?) \1'", "");
-
-            mvs = Regex.Replace(mvs, @"(\w)(w?) \1", "$1$2$2");
-
-            mvs = Regex.Replace(mvs, @"\s+", " ");
-
-            mvs = RemoveCancellingMoves(mvs);
-
-            return mvs;
+            return new List<string>(mvs_string.Split(' '));
         }
     }
 }
