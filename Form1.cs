@@ -293,7 +293,7 @@ namespace RubY
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if(t >= this.moves.Count - 1) timer.Stop();
+            if (t >= this.moves.Count) { timer.Stop(); return; }
             this.cube.Rotate(moves[t]);
             Apply();
             t++;
@@ -301,13 +301,14 @@ namespace RubY
 
         private void btnSolve_Click(object sender, EventArgs e)
         {
+            t = 0;
             this.cube.Solve();
             MessageBox.Show(this.cube.solution);
             this.moves = new List<string>(this.cube.moves);
 
             timer = new System.Windows.Forms.Timer
             {
-                Interval = 500
+                Interval = 50
             };
 
             timer.Tick += Timer_Tick;
