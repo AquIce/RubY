@@ -309,7 +309,7 @@ namespace RubY
 
             timer = new System.Windows.Forms.Timer
             {
-                Interval = 50
+                Interval = 50// 200
             };
 
             timer.Tick += Timer_Tick;
