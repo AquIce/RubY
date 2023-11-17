@@ -2469,6 +2469,19 @@ namespace GAN
         {
             string mvs_string = string.Join(" ", mvs.ToArray());
 
+            string[] allmoves = { "U", "D", "F", "B", "R", "L", "x", "y", "z" };
+            foreach (string move in allmoves)
+            {
+                mvs_string = mvs_string
+                    .Replace($"{move}2 ", $"{move} {move} ")
+                    .Replace($"{move} {move} {move} {move} ", "")
+                    .Replace($"{move} {move} {move} ", $"{move}' ")
+                    .Replace($"{move} {move}' ", "")
+                    .Replace($"{move}' {move} ", "")
+                    .Replace($"{move} {move} ", $"{move}2 ")
+                    .Replace($"{move}' {move}' ", $"{move}2 ");
+            }
+
             return new List<string>(mvs_string.Split(' '));
         }
     }

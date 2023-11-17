@@ -303,8 +303,9 @@ namespace RubY
         {
             t = 0;
             this.cube.Solve();
+            this.moves = new List<string>(this.cube.Simplify(this.cube.moves));
             MessageBox.Show(this.cube.solution);
-            this.moves = new List<string>(this.cube.moves);
+            MessageBox.Show(string.Join(" ", this.moves));
 
             timer = new System.Windows.Forms.Timer
             {
