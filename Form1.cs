@@ -304,12 +304,12 @@ namespace RubY
             t = 0;
             this.cube.Solve();
             this.moves = new List<string>(this.cube.Simplify(this.cube.moves));
-            MessageBox.Show(this.cube.solution);
+            // MessageBox.Show(this.cube.solution);
             MessageBox.Show(string.Join(" ", this.moves));
 
             timer = new System.Windows.Forms.Timer
             {
-                Interval = 50// 200
+                Interval = 100
             };
 
             timer.Tick += Timer_Tick;
